@@ -100,15 +100,15 @@
 	.ukhexmap li.EA { background-color: #f9a04a; cursor: pointer; }
 	.ukhexmap li.EA:before, .ukhexmap li.EA:after { border-color: #f9a04a; }
 
-	.ukhexmap li.Con { background-color: #00a2d3; cursor: pointer; }
+	.ukhexmap li.Con { background-color: #00a2d3; cursor: pointer; color: white; }
 	.ukhexmap li.Con:before, .ukhexmap li.Con:after { border-color: #00a2d3; }
-	.ukhexmap li.Lab { background-color: #f04031; cursor: pointer; }
+	.ukhexmap li.Lab { background-color: #f04031; cursor: pointer; color: white; }
 	.ukhexmap li.Lab:before, .ukhexmap li.Lab:after { border-color: #f04031; }
 	.ukhexmap li.LD { background-color: #f6881f; cursor: pointer; }
 	.ukhexmap li.LD:before, .ukhexmap li.LD:after { border-color: #f6881f; }
 	.ukhexmap li.SNP { background-color: #ffcb06; cursor: pointer; }
 	.ukhexmap li.SNP:before, .ukhexmap li.SNP:after { border-color: #ffcb06; }
-	.ukhexmap li.PC { background-color: #02a24b; cursor: pointer; }
+	.ukhexmap li.PC { background-color: #02a24b; cursor: pointer; color: white; }
 	.ukhexmap li.PC:before, .ukhexmap li.PC:after { border-color: #02a24b; }
 	.ukhexmap li.UKIP { background-color: #7c52a1; cursor: pointer; color: white; }
 	.ukhexmap li.UKIP:before, .ukhexmap li.UKIP:after { border-color: #7c52a1; }
@@ -122,18 +122,20 @@
 	.ukhexmap li.SF:before, .ukhexmap li.SF:after { border-color: #b6c727; }
 	.ukhexmap li.UUP { background-color: #b72268; cursor: pointer; }
 	.ukhexmap li.UUP:before, .ukhexmap li.UUP:after { border-color: #b72268; }
+	.ukhexmap li.Spk { background-color: #909090; cursor: pointer; }
+	.ukhexmap li.Spk:before, .ukhexmap li.Spk:after { border-color: #909090; }
 	.ukhexmap li.Ind { background-color: #dfdfdf; cursor: pointer; }
 	.ukhexmap li.Ind:before, .ukhexmap li.Ind:after { border-color: #dfdfdf; }
 
-	li.Con { background-color: #00a2d3; }
+	li.Con { background-color: #00a2d3; color: white; }
 	li.Con:before, li.Con:after { border-color: #00a2d3; }
-	li.Lab { background-color: #f04031; }
+	li.Lab { background-color: #f04031; color: white; }
 	li.Lab:before, li.Lab:after { border-color: #f04031; }
 	li.LD { background-color: #f6881f; }
 	li.LD:before, li.LD:after { border-color: #f6881f; }
 	li.SNP { background-color: #ffcb06; }
 	li.SNP:before, li.SNP:after { border-color: #ffcb06; }
-	li.PC { background-color: #02a24b; }
+	li.PC { background-color: #02a24b; color: white; }
 	li.PC:before, li.PC:after { border-color: #02a24b; }
 	li.UKIP { background-color: #7c52a1; color: white; }
 	li.UKIP:before, li.UKIP:after { border-color: #7c52a1; }
@@ -149,6 +151,8 @@
 	li.UUP:before, li.UUP:after { border-color: #b72268; }
 	li.Ind { background-color: #dfdfdf; }
 	li.Ind:before, li.Ind:after { border-color: #dfdfdf; }
+	li.Spk { background-color: #909090; color: white; }
+	li.Spk:before, li.Spk:after { border-color: #909090; }
 
 	ul.key {
 		list-style: none;
@@ -324,7 +328,7 @@
 					d[i] = d[i].split(/,/);
 					S('.'+d[i][0]).addClass(d[i][1]);
 				}
-				S('.mapholder').html('<ul class="key"><li class="Con">Con</li><li class="Lab">Lab</li><li class="LD">LD</li><li class="SNP">SNP</li><li class="PC">PC</li><li class="UKIP">UKIP</li><li class="Green">Green</li><li class="DUP">DUP</li><li class="SDLP">SDLP</li><li class="SF">SF</li><li class="UUP">UUP</li><li class="Ind">Ind</li></ul>'+S('.mapholder').html());
+				S('.mapholder').html('<ul class="key"><li class="Con">Conservative</li><li class="Lab">Labour</li><li class="LD">Lib Dem</li><li class="SNP">SNP</li><li class="PC">Plaid Cymru</li><li class="UKIP">UKIP</li><li class="Green">Green</li><li class="DUP">DUP</li><li class="SDLP">SDLP</li><li class="SF">SF</li><li class="UUP">UUP</li><li class="Ind">Independent</li><li class="Spk">Speaker</li></ul>'+S('.mapholder').html());
 			},
 			'error':function(){},
 			'dataType':'csv'
