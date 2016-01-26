@@ -53,7 +53,7 @@
 		border-top: 1.2em solid transparent!important;
 		border-bottom: 1.2em solid transparent!important;
 		top:0em;
-		z-index: 0;
+		z-index: 1;
 	}
 	.ukhexmap li > .hex {
 		overflow: hidden;
@@ -63,6 +63,19 @@
 		height: 2em;
 		text-align: center;
 	}
+	.ukhexmap li:hover > .hex {
+		position: relative;
+		overflow: visible;
+		display: inline-block;
+		white-space: nowrap;
+		background: black;
+		width: auto;
+		margin: 0px;
+		padding: 0.2em 0.1em;
+		padding-right: 0.5em;
+		z-index: 100;
+	}
+	.ukhexmap .hex .n { display: none; }
 
 	.ukhexmap li.EN { background-color: #f04031; cursor: pointer; }
 	.ukhexmap li.EN:before, .ukhexmap li.EN:after { border-color: #f04031; }
