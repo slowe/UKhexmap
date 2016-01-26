@@ -228,13 +228,20 @@
 	.col-37 { left: 81em; }
 	.col-38 { left: 83.25em; margin-bottom: 1.25em!important; }
 
-/*function css(){ var str = ""; for(var r = 1; r <= 86;r++){ str += '.row-'+r+' { bottom: '+(2.5*(r-1))+"em; }\n" } for(var c = 1; c <= 38;c++){ str += '.col-'+c+' { left: '+(2.25*(c-1))+"em;"+(c%2==0 ? " margin-bottom: 1.25em!important;":"")+" }\n"; } return str; }*/
-
+	p {
+		max-width: 800px;
+		text-align: left;
+		margin: 1em auto;
+	}
+	code {
+		color: #02a24b;
+	}
 	</style>
 </head>
 <body>
 
 	<h1>UK Constituency Map</h1>
+	<p>An experiment using HMTL/CSS to display a hexagon-based map of the UK without any Javascript. Hexagons don't exist in HTML/CSS so these are faked using the <code>:before</code> and <code>:after</code> CSS pseudo-selectors to place faked triangles made using thick borders.</p>
 	<div class="mapholder">
 		<ol class="ukhexmap">
 			<li id="E14000530" class="EN SE row-5 col-20"><div class="hex"><span class="name" title="Aldershot">Aldershot</span><span class="n">72430</span></div></li>
