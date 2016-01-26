@@ -1,7 +1,5 @@
 <html>
 <head>
-	<script>
-	</script>
 	<style>
 	html { height: 100%; }
 	body { font-family: sans-serif; margin: 0px; padding: 0px; background-color: white; text-align: center; height: 100%; width: 100%; justify-content: center; }
@@ -77,9 +75,14 @@
 	}
 	.ukhexmap .hex .n { display: none; }
 
-	.ukhexmap li.EN { background-color: #f04031; cursor: pointer; }
-	.ukhexmap li.EN:before, .ukhexmap li.EN:after { border-color: #f04031; }
-	
+	.ukhexmap li.SC { background-color: #fac900; cursor: pointer; }
+	.ukhexmap li.SC:before, .ukhexmap li.SC:after { border-color: #fac900; }
+	.ukhexmap li.WA { background-color: #02a24b; cursor: pointer; }
+	.ukhexmap li.WA:before, .ukhexmap li.WA:after { border-color: #02a24b; }
+	.ukhexmap li.NI { background-color: #00a2d3; cursor: pointer; }
+	.ukhexmap li.NI:before, .ukhexmap li.NI:after { border-color: #00a2d3; }
+	.ukhexmap li.SE { background-color: #f68d69; }
+	.ukhexmap li.SE:before,.ukhexmap li.SE:after { border-color: #f68d69; }
 	.ukhexmap li.NW { background-color: #af99c8; cursor: pointer; }
 	.ukhexmap li.NW:before, .ukhexmap li.NW:after { border-color: #af99c8; }
 	.ukhexmap li.NE { background-color: #dba4b3; cursor: pointer; }
@@ -92,19 +95,71 @@
 	.ukhexmap li.EM:before, .ukhexmap li.EM:after { border-color: #fbb675; }
 	.ukhexmap li.LO { background-color: #f04031; cursor: pointer; }
 	.ukhexmap li.LO:before, .ukhexmap li.LO:after { border-color: #f04031; }
-	.ukhexmap li.SE { background-color: #f68d69; cursor: pointer; }
-	.ukhexmap li.SE:before, .ukhexmap li.SE:after { border-color: #f68d69; }
+	.ukhexmap li.SW { background-color: #f04031; cursor: pointer; }
+	.ukhexmap li.SW:before, .ukhexmap li.SW:after { border-color: #f04031; }
 	.ukhexmap li.EA { background-color: #f9a04a; cursor: pointer; }
 	.ukhexmap li.EA:before, .ukhexmap li.EA:after { border-color: #f9a04a; }
 
-	.ukhexmap li.SC { background-color: #fac900; cursor: pointer; }
-	.ukhexmap li.SC:before, .ukhexmap li.SC:after { border-color: #fac900; }
+	.ukhexmap li.Con { background-color: #00a2d3; cursor: pointer; }
+	.ukhexmap li.Con:before, .ukhexmap li.Con:after { border-color: #00a2d3; }
+	.ukhexmap li.Lab { background-color: #f04031; cursor: pointer; }
+	.ukhexmap li.Lab:before, .ukhexmap li.Lab:after { border-color: #f04031; }
+	.ukhexmap li.LD { background-color: #f6881f; cursor: pointer; }
+	.ukhexmap li.LD:before, .ukhexmap li.LD:after { border-color: #f6881f; }
+	.ukhexmap li.SNP { background-color: #ffcb06; cursor: pointer; }
+	.ukhexmap li.SNP:before, .ukhexmap li.SNP:after { border-color: #ffcb06; }
+	.ukhexmap li.PC { background-color: #02a24b; cursor: pointer; }
+	.ukhexmap li.PC:before, .ukhexmap li.PC:after { border-color: #02a24b; }
+	.ukhexmap li.UKIP { background-color: #7c52a1; cursor: pointer; color: white; }
+	.ukhexmap li.UKIP:before, .ukhexmap li.UKIP:after { border-color: #7c52a1; }
+	.ukhexmap li.Green { background-color: #67c18d; cursor: pointer; }
+	.ukhexmap li.Green:before, .ukhexmap li.Green:after { border-color: #67c18d; }
+	.ukhexmap li.DUP { background-color: #4f4c9a; cursor: pointer; color: white; }
+	.ukhexmap li.DUP:before, .ukhexmap li.DUP:after { border-color: #4f4c9a; }
+	.ukhexmap li.SDLP { background-color: #fbb675; cursor: pointer; }
+	.ukhexmap li.SDLP:before, .ukhexmap li.SDLP:after { border-color: #fbb675; }
+	.ukhexmap li.SF { background-color: #b6c727; cursor: pointer; }
+	.ukhexmap li.SF:before, .ukhexmap li.SF:after { border-color: #b6c727; }
+	.ukhexmap li.UUP { background-color: #b72268; cursor: pointer; }
+	.ukhexmap li.UUP:before, .ukhexmap li.UUP:after { border-color: #b72268; }
+	.ukhexmap li.Ind { background-color: #dfdfdf; cursor: pointer; }
+	.ukhexmap li.Ind:before, .ukhexmap li.Ind:after { border-color: #dfdfdf; }
 
-	.ukhexmap li.WA { background-color: #02a24b; cursor: pointer; }
-	.ukhexmap li.WA:before, .ukhexmap li.WA:after { border-color: #02a24b; }
+	li.Con { background-color: #00a2d3; }
+	li.Con:before, li.Con:after { border-color: #00a2d3; }
+	li.Lab { background-color: #f04031; }
+	li.Lab:before, li.Lab:after { border-color: #f04031; }
+	li.LD { background-color: #f6881f; }
+	li.LD:before, li.LD:after { border-color: #f6881f; }
+	li.SNP { background-color: #ffcb06; }
+	li.SNP:before, li.SNP:after { border-color: #ffcb06; }
+	li.PC { background-color: #02a24b; }
+	li.PC:before, li.PC:after { border-color: #02a24b; }
+	li.UKIP { background-color: #7c52a1; color: white; }
+	li.UKIP:before, li.UKIP:after { border-color: #7c52a1; }
+	li.Green { background-color: #67c18d; }
+	li.Green:before, li.Green:after { border-color: #67c18d; }
+	li.DUP { background-color: #4f4c9a; color: white; }
+	li.DUP:before, li.DUP:after { border-color: #4f4c9a; }
+	li.SDLP { background-color: #fbb675; }
+	li.SDLP:before, li.SDLP:after { border-color: #fbb675; }
+	li.SF { background-color: #b6c727; }
+	li.SF:before, li.SF:after { border-color: #b6c727; }
+	li.UUP { background-color: #b72268; }
+	li.UUP:before, li.UUP:after { border-color: #b72268; }
+	li.Ind { background-color: #dfdfdf; }
+	li.Ind:before, li.Ind:after { border-color: #dfdfdf; }
 
-	.ukhexmap li.NI { background-color: #00a2d3; cursor: pointer; }
-	.ukhexmap li.NI:before, .ukhexmap li.NI:after { border-color: #00a2d3; }
+	ul.key {
+		list-style: none;
+	}
+	ul.key li {
+		display: inline-block;
+		width: auto;
+		position: relative;
+		padding: 0.2em;
+		margin-right: 0.2em;
+	}
 
 	.ukhexmap li:hover { background-color: black; color: white; cursor: pointer; }
 	.ukhexmap li:hover:before, .ukhexmap li:hover:after { border-color: black; }
@@ -250,546 +305,573 @@
 		color: #02a24b;
 	}
 	</style>
+	<script>
+	// StuQuery
+	var eventcache={};function S(g){function a(n,m){var j=false;if(m[0]=="."){m=m.substr(1);for(var l=0;l<n.classList.length;l++){if(n.classList[l]==m){return true}}}else{if(m[0]=="#"){if(n.id==m.substr(1)){return true}}else{if(n.tagName==m.toUpperCase()){return true}}}return false}function c(p,o){var n=-1;var l=new Array();if(o.indexOf(":eq")>0){var j=o.replace(/(.*)\:eq\(([0-9]+)\)/,"$1 $2").split(" ");o=j[0];n=parseInt(j[1])}if(o[0]=="."){els=p.getElementsByClassName(o.substr(1))}else{if(o[0]=="#"){els=p.getElementById(o.substr(1))}else{els=p.getElementsByTagName(o)}}if(!els){els=[]}if(els.nodeName&&els.nodeName=="SELECT"){l.push(els)}else{if(typeof els.length!=="number"){els=[els]}for(k=0;k<els.length;k++){l.push(els[k])}if(n>=0&&l.length>0){if(n<l.length){l=[l[n]]}else{l=[]}}}return l}function d(p){if(typeof p==="string"){var e,p,q,o,m,l,n;e=p.split(" ");for(o=0;o<e.length;o++){if(o==0){p=c(document,e[o])}else{q=new Array();for(m=0;m<p.length;m++){q=q.concat(c(p[m],e[o]))}p=q.splice(0)}}}this.e=[];if(!p){return this}if(typeof p.length!=="number"){p=[p]}this.e=p;return this}d.prototype.ready=function(e){/in/.test(document.readyState)?setTimeout("S(document).ready("+e+")",9):e()};d.prototype.html=function(j){if(typeof j==="number"){j=""+j}if(typeof j!=="string"&&this.e.length==1){return this.e[0].innerHTML}if(typeof j==="string"){for(var e=0;e<this.e.length;e++){this.e[e].innerHTML=j}}return this};d.prototype.append=function(j){if(!j&&this.e.length==1){return this.e[0].innerHTML}if(j){for(var e=0;e<this.e.length;e++){this.e[e].innerHTML+=j}}return this};function h(e,l){if(e&&e.length>0){for(var j=0;j<e.length;j++){if(e[j].node==l){return{success:true,match:j}}}}return{success:false}}function f(n,l,j,i,m){if(!eventcache[l]){eventcache[l]=new Array()}eventcache[l].push({node:n,fn:j,fn2:i,data:m})}function b(j){if(eventcache[j.type]){var i=h(eventcache[j.type],j.currentTarget);if(i.success){if(i.match.data){j.data=eventcache[j.type][i.match].data}return{fn:eventcache[j.type][i.match].fn,data:j}}}return function(){return{fn:""}}}d.prototype.off=function(l){if(typeof Element.prototype.removeEventListener!=="function"){Element.prototype.removeEventListener=function(r,o){if(!oListeners.hasOwnProperty(r)){return}var n=oListeners[r];for(var i=-1,m=0;m<n.aEls.length;m++){if(n.aEls[m]===this){i=m;break}}if(i===-1){return}for(var q=0,p=n.aEvts[i];q<p.length;q++){if(p[q]===o){p.splice(q,1)}}}}for(var j=0;j<this.e.length;j++){var e=h(eventcache[l],this.e[j]);if(e.success){this.e[j].removeEventListener(l,eventcache[l][e.match].fn2,false);eventcache[l].splice(e.match,1)}}return this};d.prototype.on=function(m,n,l){m=m||window.event;this.cache=[4,5,6];if(typeof n==="function"&&!l){l=n;n=""}if(typeof l!=="function"){return this}if(this.e.length>0){var o=this;var e=function(i){var p=b({currentTarget:this,type:m,data:n,originalEvent:i});if(typeof p.fn==="function"){return p.fn.call(o,p.data)}};for(var j=0;j<this.e.length;j++){f(this.e[j],m,l,e,n);if(this.e[j].addEventListener){this.e[j].addEventListener(m,e,false)}else{if(this.e[j].attachEvent){this.e[j].attachEvent(m,e)}}}}return this};d.prototype.trigger=function(m){var l;if(document.createEvent){l=document.createEvent("HTMLEvents");l.initEvent(m,true,true)}else{l=document.createEventObject();l.eventType=m}l.eventName=m;for(var j=0;j<this.e.length;j++){if(document.createEvent){this.e[j].dispatchEvent(l)}else{this.e[j].fireEvent("on"+l.eventType,l)}}return this};d.prototype.focus=function(){if(this.e.length==1){this.e[0].focus()}return this};d.prototype.blur=function(){if(this.e.length==1){this.e[0].blur()}return this};d.prototype.remove=function(){if(!this.e){return this}for(var e=this.e.length-1;e>=0;e--){if(!this.e[e]){return}if(typeof this.e[e].remove==="function"){this.e[e].remove()}else{if(typeof this.e[e].parentElement.removeChild==="function"){this.e[e].parentElement.removeChild(this.e[e])}}}return S(this.e)};d.prototype.hasClass=function(j){var e=true;for(var l=0;l<this.e.length;l++){if(!this.e[l].className.match(new RegExp("(\\s|^)"+j+"(\\s|$)"))){e=false}}return e};d.prototype.toggleClass=function(e){for(var j=0;j<this.e.length;j++){if(this.e[j].className.match(new RegExp("(\\s|^)"+e+"(\\s|$)"))){this.e[j].className=this.e[j].className.replace(new RegExp("(\\s|^)"+e+"(\\s|$)","g")," ").replace(/ $/,"")}else{this.e[j].className=(this.e[j].className+" "+e).replace(/^ /,"")}}return S(this.e)};d.prototype.addClass=function(e){for(var j=0;j<this.e.length;j++){if(!this.e[j].className.match(new RegExp("(\\s|^)"+e+"(\\s|$)"))){this.e[j].className=(this.e[j].className+" "+e).replace(/^ /,"")}}return S(this.e)};d.prototype.removeClass=function(e){for(var j=0;j<this.e.length;j++){while(this.e[j].className.match(new RegExp("(\\s|^)"+e+"(\\s|$)"))){this.e[j].className=this.e[j].className.replace(new RegExp("(\\s|^)"+e+"(\\s|$)","g")," ").replace(/ $/,"").replace(/^ /,"")}}return S(this.e)};d.prototype.css=function(m){var o;for(var l=0;l<this.e.length;l++){o={};var n=this.e[l].getAttribute("style");if(n){var q=this.e[l].getAttribute("style").split(";");for(var j=0;j<q.length;j++){var p=q[j].split(":");if(p.length==2){o[p[0]]=p[1]}}}if(typeof m==="object"){for(key in m){o[key]=m[key]}var e="";for(key in o){if(e){e+=";"}if(o[key]){e+=key+":"+o[key]}}this.e[l].setAttribute("style",e)}}if(this.e.length==1&&typeof m==="string"){return o[m]}return S(this.e)};d.prototype.parent=function(){var j=[];for(var e=0;e<this.e.length;e++){j.push(this.e[e].parentElement)}return S(j)};d.prototype.children=function(m){if(typeof m==="string"){var e=[];for(var j=0;j<this.e.length;j++){for(var l=0;l<this.e[j].children.length;l++){if(a(this.e[j].children[l],m)){e.push(this.e[j].children[l])}}}return S(e)}else{for(var j=0;j<this.e.length;j++){this.e[j]=(this.e[j].children.length>m?this.e[j].children[m]:this.e[j])}return S(this.e)}};d.prototype.find=function(j){var m=[];var e=[];for(var l=0;l<this.e.length;l++){m=c(this.e[l],j);for(k=0;k<m.length;k++){e.push(m[k])}}return S(e)};d.prototype.attr=function(e,m){var l=[];for(var j=0;j<this.e.length;j++){l.push(this.e[j].getAttribute(e));if(typeof m==="string"||typeof m==="number"){this.e[j].setAttribute(e,m)}}if(l.length==1){l=l[0]}if(typeof m==="undefined"){return l}else{return S(this.e)}};d.prototype.prop=function(e,m){var l=[];for(var j=0;j<this.e.length;j++){l.push(this.e[j].getAttribute(e));if(typeof m==="boolean"){if(m){this.e[j].setAttribute(e,e)}else{this.e[j].removeAttribute(e)}}}if(l.length==1){l=l[0]}return l};d.prototype.clone=function(){var e=document.createElement("div");e.appendChild(this.e[0].cloneNode(true));return e.innerHTML};d.prototype.replaceWith=function(j){var l=document.createElement("span");l.innerHTML=j;var m=S(this.e);for(var e=0;e<this.e.length;e++){m.e[0].parentNode.replaceChild(l,m.e[0])}return m};d.prototype.ajax=function(l,j){if(typeof l!=="string"){return false}if(!j){j={}}j.url=l;var n=(window.XMLHttpRequest)?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");n.addEventListener("load",e);n.addEventListener("error",i);function e(o){if(n.status===200){if(typeof j.complete==="function"){j.complete.call((j["this"]?j["this"]:this),(j.dataType=="json")?JSON.parse(n.responseText):n.responseText,j)}}else{i(o)}}function i(o){if(typeof j.error==="function"){j.error.call((j["this"]?j["this"]:this),o,j)}}try{n.open("GET",l)}catch(m){i(m)}try{n.send()}catch(m){i(m)}return this};d.prototype.loadJSON=function(i,j,e){if(!e){e={}}e.dataType="json";e.complete=j;this.ajax(i,e);return this};return new d(g)};
+	
+	
+	
+	S(document).ready(function(){
+		console.log('Test')
+		S().ajax('results_basic.csv',{
+			'complete':function(d){
+				if(typeof d==="string"){
+					d = d.replace(/\r/,'');
+					d = d.split(/[\n]/);
+				}
+
+				for(var i = 0; i < d.length; i++){
+					d[i] = d[i].split(/,/);
+					S('.'+d[i][0]).addClass(d[i][1]);
+				}
+				S('.mapholder').html('<ul class="key"><li class="Con">Con</li><li class="Lab">Lab</li><li class="LD">LD</li><li class="SNP">SNP</li><li class="PC">PC</li><li class="UKIP">UKIP</li><li class="Green">Green</li><li class="DUP">DUP</li><li class="SDLP">SDLP</li><li class="SF">SF</li><li class="UUP">UUP</li><li class="Ind">Ind</li></ul>'+S('.mapholder').html());
+			},
+			'error':function(){},
+			'dataType':'csv'
+		})
+	})
+	</script>
 </head>
 <body>
 
 	<h1>UK Constituency Map</h1>
 	<p>An experiment using HMTL/CSS to display a hexagon-based map of the UK without any Javascript. Hexagons don't exist in HTML/CSS so these are faked using the <code>:before</code> and <code>:after</code> CSS pseudo-selectors to place faked triangles made using thick borders.</p>
 	<div class="mapholder">
+		
 		<ol class="ukhexmap">
-			<li class="E14000530 EN SE r-5 c-20"><div class="hex"><span class="name" title="Aldershot">Aldershot</span><span class="n">72430</span></div></li>
-			<li class="E14000531 EN WM r-20 c-21"><div class="hex"><span class="name" title="Aldridge-Brownhills">Aldridge-Brownhills</span><span class="n">60215</span></div></li>
-			<li class="E14000532 EN NW r-24 c-19"><div class="hex"><span class="name" title="Altrincham and Sale West">Altrincham and Sale West</span><span class="n">71511</span></div></li>
-			<li class="E14000533 EN EM r-20 c-25"><div class="hex"><span class="name" title="Amber Valley">Amber Valley</span><span class="n">69510</span></div></li>
-			<li class="E14000534 EN SE r-5 c-28"><div class="hex"><span class="name" title="Arundel and South Downs">Arundel and South Downs</span><span class="n">77242</span></div></li>
-			<li class="E14000535 EN EM r-20 c-26"><div class="hex"><span class="name" title="Ashfield">Ashfield</span><span class="n">77091</span></div></li>
-			<li class="E14000536 EN SE r-6 c-34"><div class="hex"><span class="name" title="Ashford">Ashford</span><span class="n">85177</span></div></li>
-			<li class="E14000537 EN NW r-26 c-21"><div class="hex"><span class="name" title="Ashton-under-Lyne">Ashton-under-Lyne</span><span class="n">68343</span></div></li>
-			<li class="E14000538 EN SE r-10 c-19"><div class="hex"><span class="name" title="Aylesbury">Aylesbury</span><span class="n">80315</span></div></li>
-			<li class="E14000539 EN SE r-12 c-19"><div class="hex"><span class="name" title="Banbury">Banbury</span><span class="n">86420</span></div></li>
-			<li class="E14000540 EN LO r-10 c-33"><div class="hex"><span class="name" title="Barking">Barking</span><span class="n">73977</span></div></li>
-			<li class="E14000541 EN YH r-23 c-24"><div class="hex"><span class="name" title="Barnsley Central">Barnsley Central</span><span class="n">64534</span></div></li>
-			<li class="E14000542 EN YH r-24 c-25"><div class="hex"><span class="name" title="Barnsley East">Barnsley East</span><span class="n">69135</span></div></li>
-			<li class="E14000543 EN NW r-29 c-18"><div class="hex"><span class="name" title="Barrow and Furness">Barrow and Furness</span><span class="n">68338</span></div></li>
-			<li class="E14000544 EN EA r-11 c-34"><div class="hex"><span class="name" title="Basildon and Billericay">Basildon and Billericay</span><span class="n">66347</span></div></li>
-			<li class="E14000545 EN SE r-5 c-19"><div class="hex"><span class="name" title="Basingstoke">Basingstoke</span><span class="n">79665</span></div></li>
-			<li class="E14000546 EN EM r-21 c-28"><div class="hex"><span class="name" title="Bassetlaw">Bassetlaw</span><span class="n">76796</span></div></li>
-			<li class="E14000547 EN SW r-7 c-16"><div class="hex"><span class="name" title="Bath">Bath</span><span class="n">63084</span></div></li>
-			<li class="E14000548 EN YH r-25 c-24"><div class="hex"><span class="name" title="Batley and Spen">Batley and Spen</span><span class="n">78373</span></div></li>
-			<li class="E14000549 EN LO r-8 c-26"><div class="hex"><span class="name" title="Battersea">Battersea</span><span class="n">76111</span></div></li>
-			<li class="E14000550 EN SE r-11 c-21"><div class="hex"><span class="name" title="Beaconsfield">Beaconsfield</span><span class="n">74726</span></div></li>
-			<li class="E14000551 EN LO r-7 c-29"><div class="hex"><span class="name" title="Beckenham">Beckenham</span><span class="n">67439</span></div></li>
-			<li class="E14000552 EN EA r-15 c-24"><div class="hex"><span class="name" title="Bedford">Bedford</span><span class="n">69311</span></div></li>
-			<li class="E14000553 EN LO r-9 c-28"><div class="hex"><span class="name" title="Bermondsey and Old Southwark">Bermondsey and Old Southwark</span><span class="n">83298</span></div></li>
-			<li class="E14000554 EN NE r-33 c-20"><div class="hex"><span class="name" title="Berwick-upon-Tweed">Berwick-upon-Tweed</span><span class="n">56969</span></div></li>
-			<li class="E14000555 EN LO r-10 c-30"><div class="hex"><span class="name" title="Bethnal Green and Bow">Bethnal Green and Bow</span><span class="n">82727</span></div></li>
-			<li class="E14000556 EN YH r-25 c-30"><div class="hex"><span class="name" title="Beverley and Holderness">Beverley and Holderness</span><span class="n">80805</span></div></li>
-			<li class="E14000557 EN SE r-6 c-33"><div class="hex"><span class="name" title="Bexhill and Battle">Bexhill and Battle</span><span class="n">78796</span></div></li>
-			<li class="E14000558 EN LO r-8 c-31"><div class="hex"><span class="name" title="Bexleyheath and Crayford">Bexleyheath and Crayford</span><span class="n">64828</span></div></li>
-			<li class="E14000559 EN NW r-23 c-14"><div class="hex"><span class="name" title="Birkenhead">Birkenhead</span><span class="n">62410</span></div></li>
-			<li class="E14000560 EN WM r-14 c-17"><div class="hex"><span class="name" title="Birmingham, Edgbaston">Birmingham, Edgbaston</span><span class="n">65591</span></div></li>
-			<li class="E14000561 EN WM r-18 c-20"><div class="hex"><span class="name" title="Birmingham, Erdington">Birmingham, Erdington</span><span class="n">65128</span></div></li>
-			<li class="E14000562 EN WM r-15 c-19"><div class="hex"><span class="name" title="Birmingham, Hall Green">Birmingham, Hall Green</span><span class="n">76330</span></div></li>
-			<li class="E14000563 EN WM r-17 c-20"><div class="hex"><span class="name" title="Birmingham, Hodge Hill">Birmingham, Hodge Hill</span><span class="n">75302</span></div></li>
-			<li class="E14000564 EN WM r-16 c-19"><div class="hex"><span class="name" title="Birmingham, Ladywood">Birmingham, Ladywood</span><span class="n">68128</span></div></li>
-			<li class="E14000565 EN WM r-14 c-18"><div class="hex"><span class="name" title="Birmingham, Northfield">Birmingham, Northfield</span><span class="n">71428</span></div></li>
-			<li class="E14000566 EN WM r-17 c-19"><div class="hex"><span class="name" title="Birmingham, Perry Barr">Birmingham, Perry Barr</span><span class="n">69943</span></div></li>
-			<li class="E14000567 EN WM r-16 c-18"><div class="hex"><span class="name" title="Birmingham, Selly Oak">Birmingham, Selly Oak</span><span class="n">75092</span></div></li>
-			<li class="E14000568 EN WM r-16 c-20"><div class="hex"><span class="name" title="Birmingham, Yardley">Birmingham, Yardley</span><span class="n">72146</span></div></li>
-			<li class="E14000569 EN NE r-30 c-23"><div class="hex"><span class="name" title="Bishop Auckland">Bishop Auckland</span><span class="n">66070</span></div></li>
-			<li class="E14000570 EN NW r-29 c-19"><div class="hex"><span class="name" title="Blackburn">Blackburn</span><span class="n">73260</span></div></li>
-			<li class="E14000571 EN NW r-26 c-20"><div class="hex"><span class="name" title="Blackley and Broughton">Blackley and Broughton</span><span class="n">71913</span></div></li>
-			<li class="E14000572 EN NW r-29 c-17"><div class="hex"><span class="name" title="Blackpool North and Cleveleys">Blackpool North and Cleveleys</span><span class="n">62468</span></div></li>
-			<li class="E14000573 EN NW r-28 c-16"><div class="hex"><span class="name" title="Blackpool South">Blackpool South</span><span class="n">57411</span></div></li>
-			<li class="E14000574 EN NE r-31 c-20"><div class="hex"><span class="name" title="Blaydon">Blaydon</span><span class="n">67901</span></div></li>
-			<li class="E14000575 EN NE r-33 c-22"><div class="hex"><span class="name" title="Blyth Valley">Blyth Valley</span><span class="n">61247</span></div></li>
-			<li class="E14000576 EN SE r-5 c-27"><div class="hex"><span class="name" title="Bognor Regis and Littlehampton">Bognor Regis and Littlehampton</span><span class="n">72995</span></div></li>
-			<li class="E14000577 EN EM r-21 c-26"><div class="hex"><span class="name" title="Bolsover">Bolsover</span><span class="n">71979</span></div></li>
-			<li class="E14000578 EN NW r-28 c-19"><div class="hex"><span class="name" title="Bolton North East">Bolton North East</span><span class="n">67895</span></div></li>
-			<li class="E14000579 EN NW r-27 c-19"><div class="hex"><span class="name" title="Bolton South East">Bolton South East</span><span class="n">69687</span></div></li>
-			<li class="E14000580 EN NW r-27 c-18"><div class="hex"><span class="name" title="Bolton West">Bolton West</span><span class="n">72719</span></div></li>
-			<li class="E14000581 EN NW r-23 c-13"><div class="hex"><span class="name" title="Bootle">Bootle</span><span class="n">70145</span></div></li>
-			<li class="E14000582 EN EM r-18 c-30"><div class="hex"><span class="name" title="Boston and Skegness">Boston and Skegness</span><span class="n">67064</span></div></li>
-			<li class="E14000583 EN EM r-18 c-23"><div class="hex"><span class="name" title="Bosworth">Bosworth</span><span class="n">79738</span></div></li>
-			<li class="E14000584 EN SW r-4 c-16"><div class="hex"><span class="name" title="Bournemouth East">Bournemouth East</span><span class="n">72275</span></div></li>
-			<li class="E14000585 EN SW r-5 c-16"><div class="hex"><span class="name" title="Bournemouth West">Bournemouth West</span><span class="n">72082</span></div></li>
-			<li class="E14000586 EN SE r-7 c-20"><div class="hex"><span class="name" title="Bracknell">Bracknell</span><span class="n">81271</span></div></li>
-			<li class="E14000587 EN YH r-27 c-24"><div class="hex"><span class="name" title="Bradford East">Bradford East</span><span class="n">66121</span></div></li>
-			<li class="E14000588 EN YH r-26 c-23"><div class="hex"><span class="name" title="Bradford South">Bradford South</span><span class="n">63674</span></div></li>
-			<li class="E14000589 EN YH r-27 c-23"><div class="hex"><span class="name" title="Bradford West">Bradford West</span><span class="n">63372</span></div></li>
-			<li class="E14000590 EN EA r-13 c-32"><div class="hex"><span class="name" title="Braintree">Braintree</span><span class="n">73557</span></div></li>
-			<li class="E14000591 EN LO r-12 c-26"><div class="hex"><span class="name" title="Brent Central">Brent Central</span><span class="n">77038</span></div></li>
-			<li class="E14000592 EN LO r-12 c-25"><div class="hex"><span class="name" title="Brent North">Brent North</span><span class="n">82196</span></div></li>
-			<li class="E14000593 EN LO r-10 c-24"><div class="hex"><span class="name" title="Brentford and Isleworth">Brentford and Isleworth</span><span class="n">84602</span></div></li>
-			<li class="E14000594 EN EA r-13 c-31"><div class="hex"><span class="name" title="Brentwood and Ongar">Brentwood and Ongar</span><span class="n">71918</span></div></li>
-			<li class="E14000595 EN SW r-5 c-11"><div class="hex"><span class="name" title="Bridgwater and West Somerset">Bridgwater and West Somerset</span><span class="n">80491</span></div></li>
-			<li class="E14000596 EN YH r-23 c-28"><div class="hex"><span class="name" title="Brigg and Goole">Brigg and Goole</span><span class="n">68488</span></div></li>
-			<li class="E14000597 EN SE r-5 c-31"><div class="hex"><span class="name" title="Brighton, Kemptown">Brighton, Kemptown</span><span class="n">67858</span></div></li>
-			<li class="E14000598 EN SE r-5 c-30"><div class="hex"><span class="name" title="Brighton, Pavilion">Brighton, Pavilion</span><span class="n">76557</span></div></li>
-			<li class="E14000599 EN SW r-8 c-15"><div class="hex"><span class="name" title="Bristol East">Bristol East</span><span class="n">71193</span></div></li>
-			<li class="E14000600 EN SW r-7 c-14"><div class="hex"><span class="name" title="Bristol North West">Bristol North West</span><span class="n">74743</span></div></li>
-			<li class="E14000601 EN SW r-6 c-14"><div class="hex"><span class="name" title="Bristol South">Bristol South</span><span class="n">81496</span></div></li>
-			<li class="E14000602 EN SW r-7 c-15"><div class="hex"><span class="name" title="Bristol West">Bristol West</span><span class="n">91236</span></div></li>
-			<li class="E14000603 EN EA r-16 c-32"><div class="hex"><span class="name" title="Broadland">Broadland</span><span class="n">73552</span></div></li>
-			<li class="E14000604 EN LO r-8 c-30"><div class="hex"><span class="name" title="Bromley and Chislehurst">Bromley and Chislehurst</span><span class="n">65477</span></div></li>
-			<li class="E14000605 EN WM r-14 c-19"><div class="hex"><span class="name" title="Bromsgrove">Bromsgrove</span><span class="n">73337</span></div></li>
-			<li class="E14000606 EN EA r-14 c-28"><div class="hex"><span class="name" title="Broxbourne">Broxbourne</span><span class="n">72944</span></div></li>
-			<li class="E14000607 EN EM r-20 c-27"><div class="hex"><span class="name" title="Broxtowe">Broxtowe</span><span class="n">71764</span></div></li>
-			<li class="E14000608 EN SE r-11 c-22"><div class="hex"><span class="name" title="Buckingham">Buckingham</span><span class="n">77425</span></div></li>
-			<li class="E14000609 EN NW r-27 c-22"><div class="hex"><span class="name" title="Burnley">Burnley</span><span class="n">64477</span></div></li>
-			<li class="E14000610 EN WM r-22 c-21"><div class="hex"><span class="name" title="Burton">Burton</span><span class="n">75248</span></div></li>
-			<li class="E14000611 EN NW r-28 c-20"><div class="hex"><span class="name" title="Bury North">Bury North</span><span class="n">67580</span></div></li>
-			<li class="E14000612 EN NW r-27 c-20"><div class="hex"><span class="name" title="Bury South">Bury South</span><span class="n">73883</span></div></li>
-			<li class="E14000613 EN EA r-14 c-32"><div class="hex"><span class="name" title="Bury St Edmunds">Bury St Edmunds</span><span class="n">85982</span></div></li>
-			<li class="E14000614 EN YH r-24 c-23"><div class="hex"><span class="name" title="Calder Valley">Calder Valley</span><span class="n">77754</span></div></li>
-			<li class="E14000615 EN LO r-9 c-29"><div class="hex"><span class="name" title="Camberwell and Peckham">Camberwell and Peckham</span><span class="n">82746</span></div></li>
-			<li class="E14000616 EN SW r-1 c-6"><div class="hex"><span class="name" title="Camborne and Redruth">Camborne and Redruth</span><span class="n">66944</span></div></li>
-			<li class="E14000617 EN EA r-14 c-30"><div class="hex"><span class="name" title="Cambridge">Cambridge</span><span class="n">83384</span></div></li>
-			<li class="E14000618 EN WM r-19 c-20"><div class="hex"><span class="name" title="Cannock Chase">Cannock Chase</span><span class="n">74532</span></div></li>
-			<li class="E14000619 EN SE r-8 c-37"><div class="hex"><span class="name" title="Canterbury">Canterbury</span><span class="n">81341</span></div></li>
-			<li class="E14000620 EN NW r-31 c-19"><div class="hex"><span class="name" title="Carlisle">Carlisle</span><span class="n">65827</span></div></li>
-			<li class="E14000621 EN LO r-6 c-26"><div class="hex"><span class="name" title="Carshalton and Wallington">Carshalton and Wallington</span><span class="n">69981</span></div></li>
-			<li class="E14000622 EN EA r-10 c-36"><div class="hex"><span class="name" title="Castle Point">Castle Point</span><span class="n">68170</span></div></li>
-			<li class="E14000623 EN SW r-3 c-10"><div class="hex"><span class="name" title="Central Devon">Central Devon</span><span class="n">72737</span></div></li>
-			<li class="E14000624 EN EA r-14 c-35"><div class="hex"><span class="name" title="Central Suffolk and North Ipswich">Central Suffolk and North Ipswich</span><span class="n">76666</span></div></li>
-			<li class="E14000625 EN EM r-18 c-26"><div class="hex"><span class="name" title="Charnwood">Charnwood</span><span class="n">77269</span></div></li>
-			<li class="E14000626 EN SE r-8 c-35"><div class="hex"><span class="name" title="Chatham and Aylesford">Chatham and Aylesford</span><span class="n">66355</span></div></li>
-			<li class="E14000627 EN NW r-23 c-20"><div class="hex"><span class="name" title="Cheadle">Cheadle</span><span class="n">73239</span></div></li>
-			<li class="E14000628 EN EA r-12 c-33"><div class="hex"><span class="name" title="Chelmsford">Chelmsford</span><span class="n">78580</span></div></li>
-			<li class="E14000629 EN LO r-9 c-26"><div class="hex"><span class="name" title="Chelsea and Fulham">Chelsea and Fulham</span><span class="n">63478</span></div></li>
-			<li class="E14000630 EN SW r-11 c-18"><div class="hex"><span class="name" title="Cheltenham">Cheltenham</span><span class="n">77287</span></div></li>
-			<li class="E14000631 EN SE r-11 c-20"><div class="hex"><span class="name" title="Chesham and Amersham">Chesham and Amersham</span><span class="n">72547</span></div></li>
-			<li class="E14000632 EN EM r-21 c-25"><div class="hex"><span class="name" title="Chesterfield">Chesterfield</span><span class="n">71625</span></div></li>
-			<li class="E14000633 EN SE r-4 c-26"><div class="hex"><span class="name" title="Chichester">Chichester</span><span class="n">83396</span></div></li>
-			<li class="E14000634 EN LO r-12 c-31"><div class="hex"><span class="name" title="Chingford and Woodford Green">Chingford and Woodford Green</span><span class="n">66680</span></div></li>
-			<li class="E14000635 EN SW r-6 c-16"><div class="hex"><span class="name" title="Chippenham">Chippenham</span><span class="n">74218</span></div></li>
-			<li class="E14000636 EN LO r-14 c-27"><div class="hex"><span class="name" title="Chipping Barnet">Chipping Barnet</span><span class="n">77807</span></div></li>
-			<li class="E14000637 EN NW r-28 c-17"><div class="hex"><span class="name" title="Chorley">Chorley</span><span class="n">74679</span></div></li>
-			<li class="E14000638 EN SW r-4 c-17"><div class="hex"><span class="name" title="Christchurch">Christchurch</span><span class="n">69303</span></div></li>
-			<li class="E14000639 EN LO r-10 c-27"><div class="hex"><span class="name" title="Cities of London and Westminster">Cities of London and Westminster</span><span class="n">60992</span></div></li>
-			<li class="E14000640 EN NW r-21 c-15"><div class="hex"><span class="name" title="City of Chester">City of Chester</span><span class="n">74485</span></div></li>
-			<li class="E14000641 EN NE r-31 c-23"><div class="hex"><span class="name" title="City of Durham">City of Durham</span><span class="n">68725</span></div></li>
-			<li class="E14000642 EN EA r-13 c-36"><div class="hex"><span class="name" title="Clacton">Clacton</span><span class="n">68936</span></div></li>
-			<li class="E14000643 EN YH r-21 c-30"><div class="hex"><span class="name" title="Cleethorpes">Cleethorpes</span><span class="n">71008</span></div></li>
-			<li class="E14000644 EN EA r-13 c-33"><div class="hex"><span class="name" title="Colchester">Colchester</span><span class="n">74204</span></div></li>
-			<li class="E14000645 EN YH r-23 c-23"><div class="hex"><span class="name" title="Colne Valley">Colne Valley</span><span class="n">82516</span></div></li>
-			<li class="E14000646 EN NW r-22 c-20"><div class="hex"><span class="name" title="Congleton">Congleton</span><span class="n">72503</span></div></li>
-			<li class="E14000647 EN NW r-30 c-18"><div class="hex"><span class="name" title="Copeland">Copeland</span><span class="n">62087</span></div></li>
-			<li class="E14000648 EN EM r-18 c-27"><div class="hex"><span class="name" title="Corby">Corby</span><span class="n">79775</span></div></li>
-			<li class="E14000649 EN WM r-18 c-22"><div class="hex"><span class="name" title="Coventry North East">Coventry North East</span><span class="n">75462</span></div></li>
-			<li class="E14000650 EN WM r-17 c-22"><div class="hex"><span class="name" title="Coventry North West">Coventry North West</span><span class="n">73626</span></div></li>
-			<li class="E14000651 EN WM r-17 c-21"><div class="hex"><span class="name" title="Coventry South">Coventry South</span><span class="n">70397</span></div></li>
-			<li class="E14000652 EN SE r-5 c-26"><div class="hex"><span class="name" title="Crawley">Crawley</span><span class="n">73936</span></div></li>
-			<li class="E14000653 EN NW r-22 c-18"><div class="hex"><span class="name" title="Crewe and Nantwich">Crewe and Nantwich</span><span class="n">74169</span></div></li>
-			<li class="E14000654 EN LO r-6 c-28"><div class="hex"><span class="name" title="Croydon Central">Croydon Central</span><span class="n">78171</span></div></li>
-			<li class="E14000655 EN LO r-7 c-27"><div class="hex"><span class="name" title="Croydon North">Croydon North</span><span class="n">85941</span></div></li>
-			<li class="E14000656 EN LO r-6 c-27"><div class="hex"><span class="name" title="Croydon South">Croydon South</span><span class="n">82010</span></div></li>
-			<li class="E14000657 EN LO r-9 c-33"><div class="hex"><span class="name" title="Dagenham and Rainham">Dagenham and Rainham</span><span class="n">69128</span></div></li>
-			<li class="E14000658 EN NE r-30 c-25"><div class="hex"><span class="name" title="Darlington">Darlington</span><span class="n">65851</span></div></li>
-			<li class="E14000659 EN SE r-8 c-33"><div class="hex"><span class="name" title="Dartford">Dartford</span><span class="n">75209</span></div></li>
-			<li class="E14000660 EN EM r-16 c-22"><div class="hex"><span class="name" title="Daventry">Daventry</span><span class="n">72873</span></div></li>
-			<li class="E14000661 EN NW r-25 c-21"><div class="hex"><span class="name" title="Denton and Reddish">Denton and Reddish</span><span class="n">66141</span></div></li>
-			<li class="E14000662 EN EM r-20 c-23"><div class="hex"><span class="name" title="Derby North">Derby North</span><span class="n">69794</span></div></li>
-			<li class="E14000663 EN EM r-19 c-24"><div class="hex"><span class="name" title="Derby South">Derby South</span><span class="n">70240</span></div></li>
-			<li class="E14000664 EN EM r-21 c-23"><div class="hex"><span class="name" title="Derbyshire Dales">Derbyshire Dales</span><span class="n">63476</span></div></li>
-			<li class="E14000665 EN SW r-6 c-17"><div class="hex"><span class="name" title="Devizes">Devizes</span><span class="n">69205</span></div></li>
-			<li class="E14000666 EN YH r-25 c-25"><div class="hex"><span class="name" title="Dewsbury">Dewsbury</span><span class="n">79770</span></div></li>
-			<li class="E14000667 EN YH r-24 c-27"><div class="hex"><span class="name" title="Don Valley">Don Valley</span><span class="n">71299</span></div></li>
-			<li class="E14000668 EN YH r-24 c-28"><div class="hex"><span class="name" title="Doncaster Central">Doncaster Central</span><span class="n">71136</span></div></li>
-			<li class="E14000669 EN YH r-25 c-28"><div class="hex"><span class="name" title="Doncaster North">Doncaster North</span><span class="n">70989</span></div></li>
-			<li class="E14000670 EN SE r-6 c-36"><div class="hex"><span class="name" title="Dover">Dover</span><span class="n">72930</span></div></li>
-			<li class="E14000671 EN WM r-18 c-17"><div class="hex"><span class="name" title="Dudley North">Dudley North</span><span class="n">60717</span></div></li>
-			<li class="E14000672 EN WM r-17 c-17"><div class="hex"><span class="name" title="Dudley South">Dudley South</span><span class="n">60363</span></div></li>
-			<li class="E14000673 EN LO r-8 c-28"><div class="hex"><span class="name" title="Dulwich and West Norwood">Dulwich and West Norwood</span><span class="n">76575</span></div></li>
-			<li class="E14000674 EN LO r-11 c-24"><div class="hex"><span class="name" title="Ealing Central and Acton">Ealing Central and Acton</span><span class="n">71422</span></div></li>
-			<li class="E14000675 EN LO r-11 c-23"><div class="hex"><span class="name" title="Ealing North">Ealing North</span><span class="n">73881</span></div></li>
-			<li class="E14000676 EN LO r-10 c-23"><div class="hex"><span class="name" title="Ealing, Southall">Ealing, Southall</span><span class="n">65606</span></div></li>
-			<li class="E14000677 EN NE r-32 c-25"><div class="hex"><span class="name" title="Easington">Easington</span><span class="n">61659</span></div></li>
-			<li class="E14000678 EN SW r-3 c-12"><div class="hex"><span class="name" title="East Devon">East Devon</span><span class="n">76519</span></div></li>
-			<li class="E14000679 EN LO r-10 c-32"><div class="hex"><span class="name" title="East Ham">East Ham</span><span class="n">87382</span></div></li>
-			<li class="E14000680 EN SE r-5 c-24"><div class="hex"><span class="name" title="East Hampshire">East Hampshire</span><span class="n">71074</span></div></li>
-			<li class="E14000681 EN SE r-6 c-30"><div class="hex"><span class="name" title="East Surrey">East Surrey</span><span class="n">79654</span></div></li>
-			<li class="E14000682 EN SE r-5 c-29"><div class="hex"><span class="name" title="East Worthing and Shoreham">East Worthing and Shoreham</span><span class="n">74775</span></div></li>
-			<li class="E14000683 EN YH r-26 c-30"><div class="hex"><span class="name" title="East Yorkshire">East Yorkshire</span><span class="n">81023</span></div></li>
-			<li class="E14000684 EN SE r-5 c-33"><div class="hex"><span class="name" title="Eastbourne">Eastbourne</span><span class="n">78262</span></div></li>
-			<li class="E14000685 EN SE r-4 c-21"><div class="hex"><span class="name" title="Eastleigh">Eastleigh</span><span class="n">79609</span></div></li>
-			<li class="E14000686 EN NW r-21 c-16"><div class="hex"><span class="name" title="Eddisbury">Eddisbury</span><span class="n">68569</span></div></li>
-			<li class="E14000687 EN LO r-12 c-30"><div class="hex"><span class="name" title="Edmonton">Edmonton</span><span class="n">66016</span></div></li>
-			<li class="E14000688 EN NW r-22 c-14"><div class="hex"><span class="name" title="Ellesmere Port and Neston">Ellesmere Port and Neston</span><span class="n">69223</span></div></li>
-			<li class="E14000689 EN YH r-28 c-26"><div class="hex"><span class="name" title="Elmet and Rothwell">Elmet and Rothwell</span><span class="n">79143</span></div></li>
-			<li class="E14000690 EN LO r-9 c-31"><div class="hex"><span class="name" title="Eltham">Eltham</span><span class="n">63998</span></div></li>
-			<li class="E14000691 EN LO r-13 c-29"><div class="hex"><span class="name" title="Enfield North">Enfield North</span><span class="n">68118</span></div></li>
-			<li class="E14000692 EN LO r-13 c-28"><div class="hex"><span class="name" title="Enfield, Southgate">Enfield, Southgate</span><span class="n">64937</span></div></li>
-			<li class="E14000693 EN EA r-13 c-30"><div class="hex"><span class="name" title="Epping Forest">Epping Forest</span><span class="n">73447</span></div></li>
-			<li class="E14000694 EN SE r-6 c-24"><div class="hex"><span class="name" title="Epsom and Ewell">Epsom and Ewell</span><span class="n">78633</span></div></li>
-			<li class="E14000695 EN EM r-19 c-26"><div class="hex"><span class="name" title="Erewash">Erewash</span><span class="n">71943</span></div></li>
-			<li class="E14000696 EN LO r-8 c-32"><div class="hex"><span class="name" title="Erith and Thamesmead">Erith and Thamesmead</span><span class="n">70397</span></div></li>
-			<li class="E14000697 EN SE r-7 c-22"><div class="hex"><span class="name" title="Esher and Walton">Esher and Walton</span><span class="n">79894</span></div></li>
-			<li class="E14000698 EN SW r-3 c-11"><div class="hex"><span class="name" title="Exeter">Exeter</span><span class="n">76968</span></div></li>
-			<li class="E14000699 EN SE r-3 c-22"><div class="hex"><span class="name" title="Fareham">Fareham</span><span class="n">77114</span></div></li>
-			<li class="E14000700 EN SE r-7 c-35"><div class="hex"><span class="name" title="Faversham and Mid Kent">Faversham and Mid Kent</span><span class="n">69523</span></div></li>
-			<li class="E14000701 EN LO r-9 c-23"><div class="hex"><span class="name" title="Feltham and Heston">Feltham and Heston</span><span class="n">82340</span></div></li>
-			<li class="E14000702 EN SW r-9 c-15"><div class="hex"><span class="name" title="Filton and Bradley Stoke">Filton and Bradley Stoke</span><span class="n">71310</span></div></li>
-			<li class="E14000703 EN LO r-13 c-27"><div class="hex"><span class="name" title="Finchley and Golders Green">Finchley and Golders Green</span><span class="n">72530</span></div></li>
-			<li class="E14000704 EN SE r-6 c-35"><div class="hex"><span class="name" title="Folkestone and Hythe">Folkestone and Hythe</span><span class="n">83651</span></div></li>
-			<li class="E14000705 EN SW r-10 c-16"><div class="hex"><span class="name" title="Forest of Dean">Forest of Dean</span><span class="n">69865</span></div></li>
-			<li class="E14000706 EN NW r-27 c-16"><div class="hex"><span class="name" title="Fylde">Fylde</span><span class="n">65679</span></div></li>
-			<li class="E14000707 EN EM r-20 c-30"><div class="hex"><span class="name" title="Gainsborough">Gainsborough</span><span class="n">74686</span></div></li>
-			<li class="E14000708 EN NW r-22 c-16"><div class="hex"><span class="name" title="Garston and Halewood">Garston and Halewood</span><span class="n">73719</span></div></li>
-			<li class="E14000709 EN NE r-32 c-23"><div class="hex"><span class="name" title="Gateshead">Gateshead</span><span class="n">64524</span></div></li>
-			<li class="E14000710 EN EM r-20 c-29"><div class="hex"><span class="name" title="Gedling">Gedling</span><span class="n">70000</span></div></li>
-			<li class="E14000711 EN SE r-7 c-36"><div class="hex"><span class="name" title="Gillingham and Rainham">Gillingham and Rainham</span><span class="n">70984</span></div></li>
-			<li class="E14000712 EN SW r-10 c-17"><div class="hex"><span class="name" title="Gloucester">Gloucester</span><span class="n">82968</span></div></li>
-			<li class="E14000713 EN SE r-4 c-23"><div class="hex"><span class="name" title="Gosport">Gosport</span><span class="n">73268</span></div></li>
-			<li class="E14000714 EN EM r-17 c-29"><div class="hex"><span class="name" title="Grantham and Stamford">Grantham and Stamford</span><span class="n">81150</span></div></li>
-			<li class="E14000715 EN SE r-8 c-34"><div class="hex"><span class="name" title="Gravesham">Gravesham</span><span class="n">72043</span></div></li>
-			<li class="E14000716 EN YH r-22 c-30"><div class="hex"><span class="name" title="Great Grimsby">Great Grimsby</span><span class="n">59200</span></div></li>
-			<li class="E14000717 EN EA r-15 c-34"><div class="hex"><span class="name" title="Great Yarmouth">Great Yarmouth</span><span class="n">69793</span></div></li>
-			<li class="E14000718 EN LO r-10 c-31"><div class="hex"><span class="name" title="Greenwich and Woolwich">Greenwich and Woolwich</span><span class="n">73315</span></div></li>
-			<li class="E14000719 EN SE r-6 c-23"><div class="hex"><span class="name" title="Guildford">Guildford</span><span class="n">75733</span></div></li>
-			<li class="E14000720 EN LO r-11 c-28"><div class="hex"><span class="name" title="Hackney North and Stoke Newington">Hackney North and Stoke Newington</span><span class="n">88153</span></div></li>
-			<li class="E14000721 EN LO r-11 c-29"><div class="hex"><span class="name" title="Hackney South and Shoreditch">Hackney South and Shoreditch</span><span class="n">84971</span></div></li>
-			<li class="E14000722 EN WM r-15 c-18"><div class="hex"><span class="name" title="Halesowen and Rowley Regis">Halesowen and Rowley Regis</span><span class="n">66048</span></div></li>
-			<li class="E14000723 EN YH r-25 c-23"><div class="hex"><span class="name" title="Halifax">Halifax</span><span class="n">70462</span></div></li>
-			<li class="E14000724 EN YH r-26 c-29"><div class="hex"><span class="name" title="Haltemprice and Howden">Haltemprice and Howden</span><span class="n">71195</span></div></li>
-			<li class="E14000725 EN NW r-23 c-17"><div class="hex"><span class="name" title="Halton">Halton</span><span class="n">72818</span></div></li>
-			<li class="E14000726 EN LO r-9 c-25"><div class="hex"><span class="name" title="Hammersmith">Hammersmith</span><span class="n">72254</span></div></li>
-			<li class="E14000727 EN LO r-11 c-25"><div class="hex"><span class="name" title="Hampstead and Kilburn">Hampstead and Kilburn</span><span class="n">80195</span></div></li>
-			<li class="E14000728 EN EM r-17 c-25"><div class="hex"><span class="name" title="Harborough">Harborough</span><span class="n">77760</span></div></li>
-			<li class="E14000729 EN EA r-14 c-29"><div class="hex"><span class="name" title="Harlow">Harlow</span><span class="n">67994</span></div></li>
-			<li class="E14000730 EN YH r-29 c-27"><div class="hex"><span class="name" title="Harrogate and Knaresborough">Harrogate and Knaresborough</span><span class="n">76408</span></div></li>
-			<li class="E14000731 EN LO r-13 c-25"><div class="hex"><span class="name" title="Harrow East">Harrow East</span><span class="n">70981</span></div></li>
-			<li class="E14000732 EN LO r-12 c-24"><div class="hex"><span class="name" title="Harrow West">Harrow West</span><span class="n">69644</span></div></li>
-			<li class="E14000733 EN NE r-31 c-26"><div class="hex"><span class="name" title="Hartlepool">Hartlepool</span><span class="n">69947</span></div></li>
-			<li class="E14000734 EN EA r-13 c-34"><div class="hex"><span class="name" title="Harwich and North Essex">Harwich and North Essex</span><span class="n">69290</span></div></li>
-			<li class="E14000735 EN SE r-5 c-34"><div class="hex"><span class="name" title="Hastings and Rye">Hastings and Rye</span><span class="n">75095</span></div></li>
-			<li class="E14000736 EN SE r-5 c-25"><div class="hex"><span class="name" title="Havant">Havant</span><span class="n">70573</span></div></li>
-			<li class="E14000737 EN LO r-9 c-22"><div class="hex"><span class="name" title="Hayes and Harlington">Hayes and Harlington</span><span class="n">74874</span></div></li>
-			<li class="E14000738 EN NW r-22 c-22"><div class="hex"><span class="name" title="Hazel Grove">Hazel Grove</span><span class="n">63098</span></div></li>
-			<li class="E14000739 EN EA r-15 c-28"><div class="hex"><span class="name" title="Hemel Hempstead">Hemel Hempstead</span><span class="n">74616</span></div></li>
-			<li class="E14000740 EN YH r-26 c-28"><div class="hex"><span class="name" title="Hemsworth">Hemsworth</span><span class="n">72714</span></div></li>
-			<li class="E14000741 EN LO r-13 c-26"><div class="hex"><span class="name" title="Hendon">Hendon</span><span class="n">75285</span></div></li>
-			<li class="E14000742 EN SE r-12 c-20"><div class="hex"><span class="name" title="Henley">Henley</span><span class="n">77946</span></div></li>
-			<li class="E14000743 EN WM r-12 c-17"><div class="hex"><span class="name" title="Hereford and South Herefordshire">Hereford and South Herefordshire</span><span class="n">71485</span></div></li>
-			<li class="E14000744 EN EA r-15 c-29"><div class="hex"><span class="name" title="Hertford and Stortford">Hertford and Stortford</span><span class="n">80610</span></div></li>
-			<li class="E14000745 EN EA r-14 c-25"><div class="hex"><span class="name" title="Hertsmere">Hertsmere</span><span class="n">73767</span></div></li>
-			<li class="E14000746 EN NE r-32 c-20"><div class="hex"><span class="name" title="Hexham">Hexham</span><span class="n">59708</span></div></li>
-			<li class="E14000747 EN NW r-28 c-21"><div class="hex"><span class="name" title="Heywood and Middleton">Heywood and Middleton</span><span class="n">79989</span></div></li>
-			<li class="E14000748 EN EM r-22 c-23"><div class="hex"><span class="name" title="High Peak">High Peak</span><span class="n">73336</span></div></li>
-			<li class="E14000749 EN EA r-15 c-25"><div class="hex"><span class="name" title="Hitchin and Harpenden">Hitchin and Harpenden</span><span class="n">80333</span></div></li>
-			<li class="E14000750 EN LO r-11 c-27"><div class="hex"><span class="name" title="Holborn and St Pancras">Holborn and St Pancras</span><span class="n">86764</span></div></li>
-			<li class="E14000751 EN LO r-9 c-34"><div class="hex"><span class="name" title="Hornchurch and Upminster">Hornchurch and Upminster</span><span class="n">79331</span></div></li>
-			<li class="E14000752 EN LO r-11 c-26"><div class="hex"><span class="name" title="Hornsey and Wood Green">Hornsey and Wood Green</span><span class="n">79247</span></div></li>
-			<li class="E14000753 EN SE r-6 c-29"><div class="hex"><span class="name" title="Horsham">Horsham</span><span class="n">79085</span></div></li>
-			<li class="E14000754 EN NE r-31 c-24"><div class="hex"><span class="name" title="Houghton and Sunderland South">Houghton and Sunderland South</span><span class="n">68324</span></div></li>
-			<li class="E14000755 EN SE r-4 c-30"><div class="hex"><span class="name" title="Hove">Hove</span><span class="n">73505</span></div></li>
-			<li class="E14000756 EN YH r-24 c-24"><div class="hex"><span class="name" title="Huddersfield">Huddersfield</span><span class="n">65269</span></div></li>
-			<li class="E14000757 EN EA r-16 c-25"><div class="hex"><span class="name" title="Huntingdon">Huntingdon</span><span class="n">82593</span></div></li>
-			<li class="E14000758 EN NW r-29 c-21"><div class="hex"><span class="name" title="Hyndburn">Hyndburn</span><span class="n">68341</span></div></li>
-			<li class="E14000759 EN LO r-11 c-32"><div class="hex"><span class="name" title="Ilford North">Ilford North</span><span class="n">75294</span></div></li>
-			<li class="E14000760 EN LO r-11 c-33"><div class="hex"><span class="name" title="Ilford South">Ilford South</span><span class="n">91987</span></div></li>
-			<li class="E14000761 EN EA r-14 c-34"><div class="hex"><span class="name" title="Ipswich">Ipswich</span><span class="n">74499</span></div></li>
-			<li class="E14000762 EN SE r-2 c-20"><div class="hex"><span class="name" title="Isle of Wight">Isle of Wight</span><span class="n">108804</span></div></li>
-			<li class="E14000763 EN LO r-12 c-27"><div class="hex"><span class="name" title="Islington North">Islington North</span><span class="n">73326</span></div></li>
-			<li class="E14000764 EN LO r-10 c-28"><div class="hex"><span class="name" title="Islington South and Finsbury">Islington South and Finsbury</span><span class="n">68127</span></div></li>
-			<li class="E14000765 EN NE r-33 c-23"><div class="hex"><span class="name" title="Jarrow">Jarrow</span><span class="n">64002</span></div></li>
-			<li class="E14000766 EN YH r-28 c-23"><div class="hex"><span class="name" title="Keighley">Keighley</span><span class="n">68865</span></div></li>
-			<li class="E14000767 EN WM r-14 c-20"><div class="hex"><span class="name" title="Kenilworth and Southam">Kenilworth and Southam</span><span class="n">63957</span></div></li>
-			<li class="E14000768 EN LO r-10 c-25"><div class="hex"><span class="name" title="Kensington">Kensington</span><span class="n">61133</span></div></li>
-			<li class="E14000769 EN EM r-17 c-26"><div class="hex"><span class="name" title="Kettering">Kettering</span><span class="n">70155</span></div></li>
-			<li class="E14000770 EN LO r-7 c-23"><div class="hex"><span class="name" title="Kingston and Surbiton">Kingston and Surbiton</span><span class="n">81238</span></div></li>
-			<li class="E14000771 EN YH r-24 c-29"><div class="hex"><span class="name" title="Kingston upon Hull East">Kingston upon Hull East</span><span class="n">65710</span></div></li>
-			<li class="E14000772 EN YH r-25 c-29"><div class="hex"><span class="name" title="Kingston upon Hull North">Kingston upon Hull North</span><span class="n">64148</span></div></li>
-			<li class="E14000773 EN YH r-23 c-29"><div class="hex"><span class="name" title="Kingston upon Hull West and Hessle">Kingston upon Hull West and Hessle</span><span class="n">59100</span></div></li>
-			<li class="E14000774 EN SW r-8 c-16"><div class="hex"><span class="name" title="Kingswood">Kingswood</span><span class="n">68193</span></div></li>
-			<li class="E14000775 EN NW r-24 c-16"><div class="hex"><span class="name" title="Knowsley">Knowsley</span><span class="n">79108</span></div></li>
-			<li class="E14000776 EN NW r-30 c-21"><div class="hex"><span class="name" title="Lancaster and Fleetwood">Lancaster and Fleetwood</span><span class="n">61922</span></div></li>
-			<li class="E14000777 EN YH r-26 c-24"><div class="hex"><span class="name" title="Leeds Central">Leeds Central</span><span class="n">81799</span></div></li>
-			<li class="E14000778 EN YH r-26 c-27"><div class="hex"><span class="name" title="Leeds East">Leeds East</span><span class="n">64754</span></div></li>
-			<li class="E14000779 EN YH r-26 c-26"><div class="hex"><span class="name" title="Leeds North East">Leeds North East</span><span class="n">69097</span></div></li>
-			<li class="E14000780 EN YH r-27 c-25"><div class="hex"><span class="name" title="Leeds North West">Leeds North West</span><span class="n">61974</span></div></li>
-			<li class="E14000781 EN YH r-28 c-25"><div class="hex"><span class="name" title="Leeds West">Leeds West</span><span class="n">64950</span></div></li>
-			<li class="E14000782 EN EM r-18 c-25"><div class="hex"><span class="name" title="Leicester East">Leicester East</span><span class="n">75430</span></div></li>
-			<li class="E14000783 EN EM r-16 c-24"><div class="hex"><span class="name" title="Leicester South">Leicester South</span><span class="n">73518</span></div></li>
-			<li class="E14000784 EN EM r-17 c-24"><div class="hex"><span class="name" title="Leicester West">Leicester West</span><span class="n">63204</span></div></li>
-			<li class="E14000785 EN NW r-25 c-17"><div class="hex"><span class="name" title="Leigh">Leigh</span><span class="n">75905</span></div></li>
-			<li class="E14000786 EN SE r-5 c-32"><div class="hex"><span class="name" title="Lewes">Lewes</span><span class="n">69481</span></div></li>
-			<li class="E14000787 EN LO r-8 c-29"><div class="hex"><span class="name" title="Lewisham East">Lewisham East</span><span class="n">66913</span></div></li>
-			<li class="E14000788 EN LO r-7 c-28"><div class="hex"><span class="name" title="Lewisham West and Penge">Lewisham West and Penge</span><span class="n">72290</span></div></li>
-			<li class="E14000789 EN LO r-9 c-30"><div class="hex"><span class="name" title="Lewisham, Deptford">Lewisham, Deptford</span><span class="n">73428</span></div></li>
-			<li class="E14000790 EN LO r-11 c-30"><div class="hex"><span class="name" title="Leyton and Wanstead">Leyton and Wanstead</span><span class="n">64580</span></div></li>
-			<li class="E14000791 EN WM r-21 c-21"><div class="hex"><span class="name" title="Lichfield">Lichfield</span><span class="n">74234</span></div></li>
-			<li class="E14000792 EN EM r-19 c-29"><div class="hex"><span class="name" title="Lincoln">Lincoln</span><span class="n">74121</span></div></li>
-			<li class="E14000793 EN NW r-22 c-15"><div class="hex"><span class="name" title="Liverpool, Riverside">Liverpool, Riverside</span><span class="n">70829</span></div></li>
-			<li class="E14000794 EN NW r-25 c-15"><div class="hex"><span class="name" title="Liverpool, Walton">Liverpool, Walton</span><span class="n">61908</span></div></li>
-			<li class="E14000795 EN NW r-23 c-15"><div class="hex"><span class="name" title="Liverpool, Wavertree">Liverpool, Wavertree</span><span class="n">61549</span></div></li>
-			<li class="E14000796 EN NW r-24 c-15"><div class="hex"><span class="name" title="Liverpool, West Derby">Liverpool, West Derby</span><span class="n">63651</span></div></li>
-			<li class="E14000797 EN EM r-19 c-25"><div class="hex"><span class="name" title="Loughborough">Loughborough</span><span class="n">75217</span></div></li>
-			<li class="E14000798 EN EM r-19 c-30"><div class="hex"><span class="name" title="Louth and Horncastle">Louth and Horncastle</span><span class="n">74870</span></div></li>
-			<li class="E14000799 EN WM r-16 c-16"><div class="hex"><span class="name" title="Ludlow">Ludlow</span><span class="n">66374</span></div></li>
-			<li class="E14000800 EN EA r-14 c-23"><div class="hex"><span class="name" title="Luton North">Luton North</span><span class="n">67329</span></div></li>
-			<li class="E14000801 EN EA r-14 c-24"><div class="hex"><span class="name" title="Luton South">Luton South</span><span class="n">67741</span></div></li>
-			<li class="E14000802 EN NW r-23 c-21"><div class="hex"><span class="name" title="Macclesfield">Macclesfield</span><span class="n">71712</span></div></li>
-			<li class="E14000803 EN SE r-8 c-20"><div class="hex"><span class="name" title="Maidenhead">Maidenhead</span><span class="n">74187</span></div></li>
-			<li class="E14000804 EN SE r-7 c-34"><div class="hex"><span class="name" title="Maidstone and The Weald">Maidstone and The Weald</span><span class="n">73181</span></div></li>
-			<li class="E14000805 EN NW r-26 c-17"><div class="hex"><span class="name" title="Makerfield">Makerfield</span><span class="n">74320</span></div></li>
-			<li class="E14000806 EN EA r-12 c-36"><div class="hex"><span class="name" title="Maldon">Maldon</span><span class="n">69066</span></div></li>
-			<li class="E14000807 EN NW r-25 c-20"><div class="hex"><span class="name" title="Manchester Central">Manchester Central</span><span class="n">86078</span></div></li>
-			<li class="E14000808 EN NW r-25 c-18"><div class="hex"><span class="name" title="Manchester, Gorton">Manchester, Gorton</span><span class="n">72992</span></div></li>
-			<li class="E14000809 EN NW r-24 c-20"><div class="hex"><span class="name" title="Manchester, Withington">Manchester, Withington</span><span class="n">74102</span></div></li>
-			<li class="E14000810 EN EM r-22 c-27"><div class="hex"><span class="name" title="Mansfield">Mansfield</span><span class="n">77534</span></div></li>
-			<li class="E14000811 EN SE r-4 c-22"><div class="hex"><span class="name" title="Meon Valley">Meon Valley</span><span class="n">72738</span></div></li>
-			<li class="E14000812 EN WM r-18 c-21"><div class="hex"><span class="name" title="Meriden">Meriden</span><span class="n">81928</span></div></li>
-			<li class="E14000813 EN EA r-13 c-22"><div class="hex"><span class="name" title="Mid Bedfordshire">Mid Bedfordshire</span><span class="n">78501</span></div></li>
-			<li class="E14000814 EN EM r-20 c-24"><div class="hex"><span class="name" title="Mid Derbyshire">Mid Derbyshire</span><span class="n">67477</span></div></li>
-			<li class="E14000815 EN SW r-4 c-14"><div class="hex"><span class="name" title="Mid Dorset and North Poole">Mid Dorset and North Poole</span><span class="n">64299</span></div></li>
-			<li class="E14000816 EN EA r-17 c-27"><div class="hex"><span class="name" title="Mid Norfolk">Mid Norfolk</span><span class="n">77154</span></div></li>
-			<li class="E14000817 EN SE r-6 c-31"><div class="hex"><span class="name" title="Mid Sussex">Mid Sussex</span><span class="n">81034</span></div></li>
-			<li class="E14000818 EN WM r-13 c-19"><div class="hex"><span class="name" title="Mid Worcestershire">Mid Worcestershire</span><span class="n">73069</span></div></li>
-			<li class="E14000819 EN NE r-30 c-26"><div class="hex"><span class="name" title="Middlesbrough">Middlesbrough</span><span class="n">61873</span></div></li>
-			<li class="E14000820 EN NE r-30 c-27"><div class="hex"><span class="name" title="Middlesbrough South and East Cleveland">Middlesbrough South and East Cleveland</span><span class="n">71154</span></div></li>
-			<li class="E14000821 EN SE r-13 c-21"><div class="hex"><span class="name" title="Milton Keynes North">Milton Keynes North</span><span class="n">86826</span></div></li>
-			<li class="E14000822 EN SE r-12 c-21"><div class="hex"><span class="name" title="Milton Keynes South">Milton Keynes South</span><span class="n">89656</span></div></li>
-			<li class="E14000823 EN LO r-7 c-25"><div class="hex"><span class="name" title="Mitcham and Morden">Mitcham and Morden</span><span class="n">68474</span></div></li>
-			<li class="E14000824 EN SE r-6 c-22"><div class="hex"><span class="name" title="Mole Valley">Mole Valley</span><span class="n">74038</span></div></li>
-			<li class="E14000825 EN NW r-30 c-19"><div class="hex"><span class="name" title="Morecambe and Lunesdale">Morecambe and Lunesdale</span><span class="n">66985</span></div></li>
-			<li class="E14000826 EN YH r-25 c-26"><div class="hex"><span class="name" title="Morley and Outwood">Morley and Outwood</span><span class="n">75820</span></div></li>
-			<li class="E14000827 EN SE r-4 c-18"><div class="hex"><span class="name" title="New Forest East">New Forest East</span><span class="n">72697</span></div></li>
-			<li class="E14000828 EN SE r-3 c-18"><div class="hex"><span class="name" title="New Forest West">New Forest West</span><span class="n">68446</span></div></li>
-			<li class="E14000829 EN EM r-21 c-29"><div class="hex"><span class="name" title="Newark">Newark</span><span class="n">73747</span></div></li>
-			<li class="E14000830 EN SE r-7 c-18"><div class="hex"><span class="name" title="Newbury">Newbury</span><span class="n">79512</span></div></li>
-			<li class="E14000831 EN NE r-32 c-21"><div class="hex"><span class="name" title="Newcastle upon Tyne Central">Newcastle upon Tyne Central</span><span class="n">58147</span></div></li>
-			<li class="E14000832 EN NE r-31 c-22"><div class="hex"><span class="name" title="Newcastle upon Tyne East">Newcastle upon Tyne East</span><span class="n">64243</span></div></li>
-			<li class="E14000833 EN NE r-33 c-21"><div class="hex"><span class="name" title="Newcastle upon Tyne North">Newcastle upon Tyne North</span><span class="n">67902</span></div></li>
-			<li class="E14000834 EN WM r-20 c-16"><div class="hex"><span class="name" title="Newcastle-under-Lyme">Newcastle-under-Lyme</span><span class="n">67619</span></div></li>
-			<li class="E14000835 EN SW r-2 c-12"><div class="hex"><span class="name" title="Newton Abbot">Newton Abbot</span><span class="n">69928</span></div></li>
-			<li class="E14000836 EN YH r-27 c-26"><div class="hex"><span class="name" title="Normanton, Pontefract and Castleford">Normanton, Pontefract and Castleford</span><span class="n">82592</span></div></li>
-			<li class="E14000837 EN SW r-2 c-8"><div class="hex"><span class="name" title="North Cornwall">North Cornwall</span><span class="n">67192</span></div></li>
-			<li class="E14000838 EN SW r-4 c-10"><div class="hex"><span class="name" title="North Devon">North Devon</span><span class="n">74737</span></div></li>
-			<li class="E14000839 EN SW r-5 c-15"><div class="hex"><span class="name" title="North Dorset">North Dorset</span><span class="n">73759</span></div></li>
-			<li class="E14000840 EN NE r-30 c-22"><div class="hex"><span class="name" title="North Durham">North Durham</span><span class="n">65359</span></div></li>
-			<li class="E14000841 EN EA r-15 c-23"><div class="hex"><span class="name" title="North East Bedfordshire">North East Bedfordshire</span><span class="n">83551</span></div></li>
-			<li class="E14000842 EN EA r-16 c-30"><div class="hex"><span class="name" title="North East Cambridgeshire">North East Cambridgeshire</span><span class="n">82990</span></div></li>
-			<li class="E14000843 EN EM r-21 c-24"><div class="hex"><span class="name" title="North East Derbyshire">North East Derbyshire</span><span class="n">71445</span></div></li>
-			<li class="E14000844 EN SE r-6 c-20"><div class="hex"><span class="name" title="North East Hampshire">North East Hampshire</span><span class="n">76918</span></div></li>
-			<li class="E14000845 EN EA r-16 c-29"><div class="hex"><span class="name" title="North East Hertfordshire">North East Hertfordshire</span><span class="n">74000</span></div></li>
-			<li class="E14000846 EN SW r-6 c-15"><div class="hex"><span class="name" title="North East Somerset">North East Somerset</span><span class="n">69380</span></div></li>
-			<li class="E14000847 EN WM r-14 c-16"><div class="hex"><span class="name" title="North Herefordshire">North Herefordshire</span><span class="n">67926</span></div></li>
-			<li class="E14000848 EN EA r-16 c-33"><div class="hex"><span class="name" title="North Norfolk">North Norfolk</span><span class="n">68867</span></div></li>
-			<li class="E14000849 EN WM r-19 c-16"><div class="hex"><span class="name" title="North Shropshire">North Shropshire</span><span class="n">78858</span></div></li>
-			<li class="E14000850 EN SW r-7 c-13"><div class="hex"><span class="name" title="North Somerset">North Somerset</span><span class="n">80161</span></div></li>
-			<li class="E14000851 EN SW r-9 c-18"><div class="hex"><span class="name" title="North Swindon">North Swindon</span><span class="n">80983</span></div></li>
-			<li class="E14000852 EN SE r-7 c-38"><div class="hex"><span class="name" title="North Thanet">North Thanet</span><span class="n">71478</span></div></li>
-			<li class="E14000853 EN NE r-32 c-22"><div class="hex"><span class="name" title="North Tyneside">North Tyneside</span><span class="n">79300</span></div></li>
-			<li class="E14000854 EN WM r-20 c-22"><div class="hex"><span class="name" title="North Warwickshire">North Warwickshire</span><span class="n">70152</span></div></li>
-			<li class="E14000855 EN EA r-16 c-26"><div class="hex"><span class="name" title="North West Cambridgeshire">North West Cambridgeshire</span><span class="n">90318</span></div></li>
-			<li class="E14000856 EN NE r-31 c-21"><div class="hex"><span class="name" title="North West Durham">North West Durham</span><span class="n">69816</span></div></li>
-			<li class="E14000857 EN SE r-6 c-18"><div class="hex"><span class="name" title="North West Hampshire">North West Hampshire</span><span class="n">79223</span></div></li>
-			<li class="E14000858 EN EM r-18 c-24"><div class="hex"><span class="name" title="North West Leicestershire">North West Leicestershire</span><span class="n">72193</span></div></li>
-			<li class="E14000859 EN EA r-17 c-31"><div class="hex"><span class="name" title="North West Norfolk">North West Norfolk</span><span class="n">74402</span></div></li>
-			<li class="E14000860 EN SW r-7 c-17"><div class="hex"><span class="name" title="North Wiltshire">North Wiltshire</span><span class="n">67851</span></div></li>
-			<li class="E14000861 EN EM r-15 c-22"><div class="hex"><span class="name" title="Northampton North">Northampton North</span><span class="n">59144</span></div></li>
-			<li class="E14000862 EN EM r-14 c-22"><div class="hex"><span class="name" title="Northampton South">Northampton South</span><span class="n">61287</span></div></li>
-			<li class="E14000863 EN EA r-16 c-31"><div class="hex"><span class="name" title="Norwich North">Norwich North</span><span class="n">64515</span></div></li>
-			<li class="E14000864 EN EA r-15 c-32"><div class="hex"><span class="name" title="Norwich South">Norwich South</span><span class="n">74875</span></div></li>
-			<li class="E14000865 EN EM r-19 c-28"><div class="hex"><span class="name" title="Nottingham East">Nottingham East</span><span class="n">60464</span></div></li>
-			<li class="E14000866 EN EM r-20 c-28"><div class="hex"><span class="name" title="Nottingham North">Nottingham North</span><span class="n">65918</span></div></li>
-			<li class="E14000867 EN EM r-19 c-27"><div class="hex"><span class="name" title="Nottingham South">Nottingham South</span><span class="n">68987</span></div></li>
-			<li class="E14000868 EN WM r-19 c-22"><div class="hex"><span class="name" title="Nuneaton">Nuneaton</span><span class="n">68037</span></div></li>
-			<li class="E14000869 EN LO r-9 c-32"><div class="hex"><span class="name" title="Old Bexley and Sidcup">Old Bexley and Sidcup</span><span class="n">66035</span></div></li>
-			<li class="E14000870 EN NW r-24 c-22"><div class="hex"><span class="name" title="Oldham East and Saddleworth">Oldham East and Saddleworth</span><span class="n">71475</span></div></li>
-			<li class="E14000871 EN NW r-27 c-21"><div class="hex"><span class="name" title="Oldham West and Royton">Oldham West and Royton</span><span class="n">71652</span></div></li>
-			<li class="E14000872 EN LO r-7 c-30"><div class="hex"><span class="name" title="Orpington">Orpington</span><span class="n">68129</span></div></li>
-			<li class="E14000873 EN SE r-9 c-20"><div class="hex"><span class="name" title="Oxford East">Oxford East</span><span class="n">78978</span></div></li>
-			<li class="E14000874 EN SE r-9 c-19"><div class="hex"><span class="name" title="Oxford West and Abingdon">Oxford West and Abingdon</span><span class="n">76174</span></div></li>
-			<li class="E14000875 EN NW r-28 c-22"><div class="hex"><span class="name" title="Pendle">Pendle</span><span class="n">64573</span></div></li>
-			<li class="E14000876 EN YH r-22 c-24"><div class="hex"><span class="name" title="Penistone and Stocksbridge">Penistone and Stocksbridge</span><span class="n">70817</span></div></li>
-			<li class="E14000877 EN NW r-32 c-19"><div class="hex"><span class="name" title="Penrith and The Border">Penrith and The Border</span><span class="n">65209</span></div></li>
-			<li class="E14000878 EN EA r-16 c-28"><div class="hex"><span class="name" title="Peterborough">Peterborough</span><span class="n">72530</span></div></li>
-			<li class="E14000879 EN SW r-2 c-10"><div class="hex"><span class="name" title="Plymouth, Moor View">Plymouth, Moor View</span><span class="n">68246</span></div></li>
-			<li class="E14000880 EN SW r-2 c-9"><div class="hex"><span class="name" title="Plymouth, Sutton and Devonport">Plymouth, Sutton and Devonport</span><span class="n">73274</span></div></li>
-			<li class="E14000881 EN SW r-4 c-15"><div class="hex"><span class="name" title="Poole">Poole</span><span class="n">72557</span></div></li>
-			<li class="E14000882 EN LO r-10 c-29"><div class="hex"><span class="name" title="Poplar and Limehouse">Poplar and Limehouse</span><span class="n">82081</span></div></li>
-			<li class="E14000883 EN SE r-5 c-23"><div class="hex"><span class="name" title="Portsmouth North">Portsmouth North</span><span class="n">73105</span></div></li>
-			<li class="E14000884 EN SE r-4 c-24"><div class="hex"><span class="name" title="Portsmouth South">Portsmouth South</span><span class="n">71639</span></div></li>
-			<li class="E14000885 EN NW r-28 c-18"><div class="hex"><span class="name" title="Preston">Preston</span><span class="n">59981</span></div></li>
-			<li class="E14000886 EN YH r-28 c-24"><div class="hex"><span class="name" title="Pudsey">Pudsey</span><span class="n">70533</span></div></li>
-			<li class="E14000887 EN LO r-8 c-24"><div class="hex"><span class="name" title="Putney">Putney</span><span class="n">63923</span></div></li>
-			<li class="E14000888 EN EA r-12 c-34"><div class="hex"><span class="name" title="Rayleigh and Wickford">Rayleigh and Wickford</span><span class="n">77174</span></div></li>
-			<li class="E14000889 EN SE r-8 c-19"><div class="hex"><span class="name" title="Reading East">Reading East</span><span class="n">73232</span></div></li>
-			<li class="E14000890 EN SE r-7 c-19"><div class="hex"><span class="name" title="Reading West">Reading West</span><span class="n">72567</span></div></li>
-			<li class="E14000891 EN NE r-31 c-27"><div class="hex"><span class="name" title="Redcar">Redcar</span><span class="n">64826</span></div></li>
-			<li class="E14000892 EN WM r-13 c-18"><div class="hex"><span class="name" title="Redditch">Redditch</span><span class="n">65531</span></div></li>
-			<li class="E14000893 EN SE r-6 c-25"><div class="hex"><span class="name" title="Reigate">Reigate</span><span class="n">73429</span></div></li>
-			<li class="E14000894 EN NW r-29 c-22"><div class="hex"><span class="name" title="Ribble Valley">Ribble Valley</span><span class="n">77379</span></div></li>
-			<li class="E14000895 EN YH r-29 c-24"><div class="hex"><span class="name" title="Richmond (Yorks)">Richmond (Yorks)</span><span class="n">79062</span></div></li>
-			<li class="E14000896 EN LO r-9 c-24"><div class="hex"><span class="name" title="Richmond Park">Richmond Park</span><span class="n">77303</span></div></li>
-			<li class="E14000897 EN NW r-25 c-22"><div class="hex"><span class="name" title="Rochdale">Rochdale</span><span class="n">77248</span></div></li>
-			<li class="E14000898 EN SE r-9 c-35"><div class="hex"><span class="name" title="Rochester and Strood">Rochester and Strood</span><span class="n">77119</span></div></li>
-			<li class="E14000899 EN EA r-11 c-36"><div class="hex"><span class="name" title="Rochford and Southend East">Rochford and Southend East</span><span class="n">71935</span></div></li>
-			<li class="E14000900 EN LO r-10 c-34"><div class="hex"><span class="name" title="Romford">Romford</span><span class="n">72594</span></div></li>
-			<li class="E14000901 EN SE r-5 c-18"><div class="hex"><span class="name" title="Romsey and Southampton North">Romsey and Southampton North</span><span class="n">66519</span></div></li>
-			<li class="E14000902 EN NW r-26 c-22"><div class="hex"><span class="name" title="Rossendale and Darwen">Rossendale and Darwen</span><span class="n">73779</span></div></li>
-			<li class="E14000903 EN YH r-22 c-28"><div class="hex"><span class="name" title="Rother Valley">Rother Valley</span><span class="n">74275</span></div></li>
-			<li class="E14000904 EN YH r-24 c-26"><div class="hex"><span class="name" title="Rotherham">Rotherham</span><span class="n">63698</span></div></li>
-			<li class="E14000905 EN WM r-16 c-21"><div class="hex"><span class="name" title="Rugby">Rugby</span><span class="n">71655</span></div></li>
-			<li class="E14000906 EN LO r-12 c-23"><div class="hex"><span class="name" title="Ruislip, Northwood and Pinner">Ruislip, Northwood and Pinner</span><span class="n">73216</span></div></li>
-			<li class="E14000907 EN SE r-9 c-21"><div class="hex"><span class="name" title="Runnymede and Weybridge">Runnymede and Weybridge</span><span class="n">73771</span></div></li>
-			<li class="E14000908 EN EM r-18 c-28"><div class="hex"><span class="name" title="Rushcliffe">Rushcliffe</span><span class="n">73278</span></div></li>
-			<li class="E14000909 EN EM r-17 c-28"><div class="hex"><span class="name" title="Rutland and Melton">Rutland and Melton</span><span class="n">79693</span></div></li>
-			<li class="E14000910 EN EA r-12 c-32"><div class="hex"><span class="name" title="Saffron Walden">Saffron Walden</span><span class="n">80615</span></div></li>
-			<li class="E14000911 EN NW r-26 c-19"><div class="hex"><span class="name" title="Salford and Eccles">Salford and Eccles</span><span class="n">74291</span></div></li>
-			<li class="E14000912 EN SW r-5 c-17"><div class="hex"><span class="name" title="Salisbury">Salisbury</span><span class="n">69582</span></div></li>
-			<li class="E14000913 EN YH r-28 c-28"><div class="hex"><span class="name" title="Scarborough and Whitby">Scarborough and Whitby</span><span class="n">73511</span></div></li>
-			<li class="E14000914 EN YH r-22 c-29"><div class="hex"><span class="name" title="Scunthorpe">Scunthorpe</span><span class="n">64025</span></div></li>
-			<li class="E14000915 EN NE r-30 c-24"><div class="hex"><span class="name" title="Sedgefield">Sedgefield</span><span class="n">62844</span></div></li>
-			<li class="E14000916 EN NW r-24 c-14"><div class="hex"><span class="name" title="Sefton Central">Sefton Central</span><span class="n">67744</span></div></li>
-			<li class="E14000917 EN YH r-28 c-27"><div class="hex"><span class="name" title="Selby and Ainsty">Selby and Ainsty</span><span class="n">76082</span></div></li>
-			<li class="E14000918 EN SE r-7 c-31"><div class="hex"><span class="name" title="Sevenoaks">Sevenoaks</span><span class="n">71958</span></div></li>
-			<li class="E14000919 EN YH r-23 c-25"><div class="hex"><span class="name" title="Sheffield Central">Sheffield Central</span><span class="n">72321</span></div></li>
-			<li class="E14000920 EN YH r-23 c-27"><div class="hex"><span class="name" title="Sheffield South East">Sheffield South East</span><span class="n">70422</span></div></li>
-			<li class="E14000921 EN YH r-23 c-26"><div class="hex"><span class="name" title="Sheffield, Brightside and Hillsborough">Sheffield, Brightside and Hillsborough</span><span class="n">70874</span></div></li>
-			<li class="E14000922 EN YH r-22 c-25"><div class="hex"><span class="name" title="Sheffield, Hallam">Sheffield, Hallam</span><span class="n">72351</span></div></li>
-			<li class="E14000923 EN YH r-22 c-26"><div class="hex"><span class="name" title="Sheffield, Heeley">Sheffield, Heeley</span><span class="n">67950</span></div></li>
-			<li class="E14000924 EN EM r-21 c-27"><div class="hex"><span class="name" title="Sherwood">Sherwood</span><span class="n">73349</span></div></li>
-			<li class="E14000925 EN YH r-29 c-25"><div class="hex"><span class="name" title="Shipley">Shipley</span><span class="n">70464</span></div></li>
-			<li class="E14000926 EN WM r-18 c-16"><div class="hex"><span class="name" title="Shrewsbury and Atcham">Shrewsbury and Atcham</span><span class="n">76400</span></div></li>
-			<li class="E14000927 EN SE r-8 c-36"><div class="hex"><span class="name" title="Sittingbourne and Sheppey">Sittingbourne and Sheppey</span><span class="n">76018</span></div></li>
-			<li class="E14000928 EN YH r-29 c-23"><div class="hex"><span class="name" title="Skipton and Ripon">Skipton and Ripon</span><span class="n">76645</span></div></li>
-			<li class="E14000929 EN EM r-18 c-29"><div class="hex"><span class="name" title="Sleaford and North Hykeham">Sleaford and North Hykeham</span><span class="n">87972</span></div></li>
-			<li class="E14000930 EN SE r-10 c-21"><div class="hex"><span class="name" title="Slough">Slough</span><span class="n">86366</span></div></li>
-			<li class="E14000931 EN WM r-15 c-20"><div class="hex"><span class="name" title="Solihull">Solihull</span><span class="n">77956</span></div></li>
-			<li class="E14000932 EN SW r-5 c-13"><div class="hex"><span class="name" title="Somerton and Frome">Somerton and Frome</span><span class="n">83281</span></div></li>
-			<li class="E14000933 EN EA r-11 c-35"><div class="hex"><span class="name" title="South Basildon and East Thurrock">South Basildon and East Thurrock</span><span class="n">71155</span></div></li>
-			<li class="E14000934 EN EA r-16 c-27"><div class="hex"><span class="name" title="South Cambridgeshire">South Cambridgeshire</span><span class="n">84132</span></div></li>
-			<li class="E14000935 EN EM r-19 c-23"><div class="hex"><span class="name" title="South Derbyshire">South Derbyshire</span><span class="n">73923</span></div></li>
-			<li class="E14000936 EN SW r-3 c-15"><div class="hex"><span class="name" title="South Dorset">South Dorset</span><span class="n">71534</span></div></li>
-			<li class="E14000937 EN EA r-14 c-31"><div class="hex"><span class="name" title="South East Cambridgeshire">South East Cambridgeshire</span><span class="n">84570</span></div></li>
-			<li class="E14000938 EN SW r-1 c-8"><div class="hex"><span class="name" title="South East Cornwall">South East Cornwall</span><span class="n">71071</span></div></li>
-			<li class="E14000939 EN EM r-17 c-30"><div class="hex"><span class="name" title="South Holland and The Deepings">South Holland and The Deepings</span><span class="n">76460</span></div></li>
-			<li class="E14000940 EN EM r-17 c-23"><div class="hex"><span class="name" title="South Leicestershire">South Leicestershire</span><span class="n">76851</span></div></li>
-			<li class="E14000941 EN EA r-15 c-33"><div class="hex"><span class="name" title="South Norfolk">South Norfolk</span><span class="n">80721</span></div></li>
-			<li class="E14000942 EN EM r-14 c-21"><div class="hex"><span class="name" title="South Northamptonshire">South Northamptonshire</span><span class="n">85781</span></div></li>
-			<li class="E14000943 EN NW r-26 c-15"><div class="hex"><span class="name" title="South Ribble">South Ribble</span><span class="n">76489</span></div></li>
-			<li class="E14000944 EN NE r-33 c-24"><div class="hex"><span class="name" title="South Shields">South Shields</span><span class="n">62730</span></div></li>
-			<li class="E14000945 EN WM r-20 c-17"><div class="hex"><span class="name" title="South Staffordshire">South Staffordshire</span><span class="n">72771</span></div></li>
-			<li class="E14000946 EN EA r-14 c-33"><div class="hex"><span class="name" title="South Suffolk">South Suffolk</span><span class="n">73836</span></div></li>
-			<li class="E14000947 EN SW r-8 c-17"><div class="hex"><span class="name" title="South Swindon">South Swindon</span><span class="n">73926</span></div></li>
-			<li class="E14000948 EN SE r-7 c-37"><div class="hex"><span class="name" title="South Thanet">South Thanet</span><span class="n">70970</span></div></li>
-			<li class="E14000949 EN EA r-12 c-22"><div class="hex"><span class="name" title="South West Bedfordshire">South West Bedfordshire</span><span class="n">79285</span></div></li>
-			<li class="E14000950 EN SW r-1 c-10"><div class="hex"><span class="name" title="South West Devon">South West Devon</span><span class="n">71035</span></div></li>
-			<li class="E14000951 EN EA r-13 c-23"><div class="hex"><span class="name" title="South West Hertfordshire">South West Hertfordshire</span><span class="n">79668</span></div></li>
-			<li class="E14000952 EN EA r-15 c-30"><div class="hex"><span class="name" title="South West Norfolk">South West Norfolk</span><span class="n">76970</span></div></li>
-			<li class="E14000953 EN SE r-5 c-22"><div class="hex"><span class="name" title="South West Surrey">South West Surrey</span><span class="n">77548</span></div></li>
-			<li class="E14000954 EN SW r-5 c-14"><div class="hex"><span class="name" title="South West Wiltshire">South West Wiltshire</span><span class="n">73018</span></div></li>
-			<li class="E14000955 EN SE r-4 c-20"><div class="hex"><span class="name" title="Southampton, Itchen">Southampton, Itchen</span><span class="n">72281</span></div></li>
-			<li class="E14000956 EN SE r-4 c-19"><div class="hex"><span class="name" title="Southampton, Test">Southampton, Test</span><span class="n">70270</span></div></li>
-			<li class="E14000957 EN EA r-12 c-35"><div class="hex"><span class="name" title="Southend West">Southend West</span><span class="n">66876</span></div></li>
-			<li class="E14000958 EN NW r-25 c-14"><div class="hex"><span class="name" title="Southport">Southport</span><span class="n">67326</span></div></li>
-			<li class="E14000959 EN SE r-8 c-21"><div class="hex"><span class="name" title="Spelthorne">Spelthorne</span><span class="n">71592</span></div></li>
-			<li class="E14000960 EN EA r-15 c-27"><div class="hex"><span class="name" title="St Albans">St Albans</span><span class="n">75825</span></div></li>
-			<li class="E14000961 EN SW r-2 c-7"><div class="hex"><span class="name" title="St Austell and Newquay">St Austell and Newquay</span><span class="n">76607</span></div></li>
-			<li class="E14000962 EN NW r-25 c-16"><div class="hex"><span class="name" title="St Helens North">St Helens North</span><span class="n">75262</span></div></li>
-			<li class="E14000963 EN NW r-23 c-16"><div class="hex"><span class="name" title="St Helens South and Whiston">St Helens South and Whiston</span><span class="n">77720</span></div></li>
-			<li class="E14000964 EN SW r-1 c-5"><div class="hex"><span class="name" title="St Ives">St Ives</span><span class="n">65570</span></div></li>
-			<li class="E14000965 EN WM r-20 c-20"><div class="hex"><span class="name" title="Stafford">Stafford</span><span class="n">68705</span></div></li>
-			<li class="E14000966 EN WM r-22 c-19"><div class="hex"><span class="name" title="Staffordshire Moorlands">Staffordshire Moorlands</span><span class="n">63104</span></div></li>
-			<li class="E14000967 EN NW r-23 c-22"><div class="hex"><span class="name" title="Stalybridge and Hyde">Stalybridge and Hyde</span><span class="n">71357</span></div></li>
-			<li class="E14000968 EN EA r-15 c-26"><div class="hex"><span class="name" title="Stevenage">Stevenage</span><span class="n">70597</span></div></li>
-			<li class="E14000969 EN NW r-24 c-21"><div class="hex"><span class="name" title="Stockport">Stockport</span><span class="n">63931</span></div></li>
-			<li class="E14000970 EN NE r-31 c-25"><div class="hex"><span class="name" title="Stockton North">Stockton North</span><span class="n">66126</span></div></li>
-			<li class="E14000971 EN NE r-29 c-26"><div class="hex"><span class="name" title="Stockton South">Stockton South</span><span class="n">75111</span></div></li>
-			<li class="E14000972 EN WM r-21 c-18"><div class="hex"><span class="name" title="Stoke-on-Trent Central">Stoke-on-Trent Central</span><span class="n">60634</span></div></li>
-			<li class="E14000973 EN WM r-21 c-17"><div class="hex"><span class="name" title="Stoke-on-Trent North">Stoke-on-Trent North</span><span class="n">71438</span></div></li>
-			<li class="E14000974 EN WM r-20 c-18"><div class="hex"><span class="name" title="Stoke-on-Trent South">Stoke-on-Trent South</span><span class="n">68091</span></div></li>
-			<li class="E14000975 EN WM r-21 c-20"><div class="hex"><span class="name" title="Stone">Stone</span><span class="n">67339</span></div></li>
-			<li class="E14000976 EN WM r-15 c-17"><div class="hex"><span class="name" title="Stourbridge">Stourbridge</span><span class="n">69077</span></div></li>
-			<li class="E14000977 EN WM r-13 c-20"><div class="hex"><span class="name" title="Stratford-on-Avon">Stratford-on-Avon</span><span class="n">71304</span></div></li>
-			<li class="E14000978 EN LO r-8 c-27"><div class="hex"><span class="name" title="Streatham">Streatham</span><span class="n">79137</span></div></li>
-			<li class="E14000979 EN NW r-26 c-18"><div class="hex"><span class="name" title="Stretford and Urmston">Stretford and Urmston</span><span class="n">69026</span></div></li>
-			<li class="E14000980 EN SW r-9 c-17"><div class="hex"><span class="name" title="Stroud">Stroud</span><span class="n">80544</span></div></li>
-			<li class="E14000981 EN EA r-14 c-36"><div class="hex"><span class="name" title="Suffolk Coastal">Suffolk Coastal</span><span class="n">77816</span></div></li>
-			<li class="E14000982 EN NE r-33 c-25"><div class="hex"><span class="name" title="Sunderland Central">Sunderland Central</span><span class="n">72950</span></div></li>
-			<li class="E14000983 EN SE r-7 c-21"><div class="hex"><span class="name" title="Surrey Heath">Surrey Heath</span><span class="n">79515</span></div></li>
-			<li class="E14000984 EN LO r-7 c-24"><div class="hex"><span class="name" title="Sutton and Cheam">Sutton and Cheam</span><span class="n">69228</span></div></li>
-			<li class="E14000985 EN WM r-19 c-21"><div class="hex"><span class="name" title="Sutton Coldfield">Sutton Coldfield</span><span class="n">74956</span></div></li>
-			<li class="E14000986 EN WM r-21 c-22"><div class="hex"><span class="name" title="Tamworth">Tamworth</span><span class="n">71913</span></div></li>
-			<li class="E14000987 EN NW r-23 c-19"><div class="hex"><span class="name" title="Tatton">Tatton</span><span class="n">65004</span></div></li>
-			<li class="E14000988 EN SW r-4 c-11"><div class="hex"><span class="name" title="Taunton Deane">Taunton Deane</span><span class="n">83221</span></div></li>
-			<li class="E14000989 EN WM r-19 c-17"><div class="hex"><span class="name" title="Telford">Telford</span><span class="n">66166</span></div></li>
-			<li class="E14000990 EN SW r-11 c-17"><div class="hex"><span class="name" title="Tewkesbury">Tewkesbury</span><span class="n">78910</span></div></li>
-			<li class="E14000991 EN SW r-10 c-18"><div class="hex"><span class="name" title="The Cotswolds">The Cotswolds</span><span class="n">78290</span></div></li>
-			<li class="E14000992 EN WM r-17 c-16"><div class="hex"><span class="name" title="The Wrekin">The Wrekin</span><span class="n">65942</span></div></li>
-			<li class="E14000993 EN YH r-27 c-29"><div class="hex"><span class="name" title="Thirsk and Malton">Thirsk and Malton</span><span class="n">77451</span></div></li>
-			<li class="E14000994 EN SW r-9 c-16"><div class="hex"><span class="name" title="Thornbury and Yate">Thornbury and Yate</span><span class="n">66066</span></div></li>
-			<li class="E14000995 EN EA r-10 c-35"><div class="hex"><span class="name" title="Thurrock">Thurrock</span><span class="n">77559</span></div></li>
-			<li class="E14000996 EN SW r-4 c-13"><div class="hex"><span class="name" title="Tiverton and Honiton">Tiverton and Honiton</span><span class="n">76270</span></div></li>
-			<li class="E14000997 EN SE r-7 c-32"><div class="hex"><span class="name" title="Tonbridge and Malling">Tonbridge and Malling</span><span class="n">74877</span></div></li>
-			<li class="E14000998 EN LO r-7 c-26"><div class="hex"><span class="name" title="Tooting">Tooting</span><span class="n">76782</span></div></li>
-			<li class="E14000999 EN SW r-2 c-11"><div class="hex"><span class="name" title="Torbay">Torbay</span><span class="n">76350</span></div></li>
-			<li class="E14001000 EN SW r-3 c-9"><div class="hex"><span class="name" title="Torridge and West Devon">Torridge and West Devon</span><span class="n">78621</span></div></li>
-			<li class="E14001001 EN SW r-1 c-11"><div class="hex"><span class="name" title="Totnes">Totnes</span><span class="n">68630</span></div></li>
-			<li class="E14001002 EN LO r-12 c-28"><div class="hex"><span class="name" title="Tottenham">Tottenham</span><span class="n">70803</span></div></li>
-			<li class="E14001003 EN SW r-1 c-7"><div class="hex"><span class="name" title="Truro and Falmouth">Truro and Falmouth</span><span class="n">73601</span></div></li>
-			<li class="E14001004 EN SE r-7 c-33"><div class="hex"><span class="name" title="Tunbridge Wells">Tunbridge Wells</span><span class="n">73429</span></div></li>
-			<li class="E14001005 EN LO r-8 c-23"><div class="hex"><span class="name" title="Twickenham">Twickenham</span><span class="n">80250</span></div></li>
-			<li class="E14001006 EN NE r-34 c-23"><div class="hex"><span class="name" title="Tynemouth">Tynemouth</span><span class="n">77524</span></div></li>
-			<li class="E14001007 EN LO r-10 c-22"><div class="hex"><span class="name" title="Uxbridge and South Ruislip">Uxbridge and South Ruislip</span><span class="n">70631</span></div></li>
-			<li class="E14001008 EN LO r-9 c-27"><div class="hex"><span class="name" title="Vauxhall">Vauxhall</span><span class="n">82231</span></div></li>
-			<li class="E14001009 EN YH r-26 c-25"><div class="hex"><span class="name" title="Wakefield">Wakefield</span><span class="n">70521</span></div></li>
-			<li class="E14001010 EN NW r-22 c-13"><div class="hex"><span class="name" title="Wallasey">Wallasey</span><span class="n">65495</span></div></li>
-			<li class="E14001011 EN WM r-20 c-19"><div class="hex"><span class="name" title="Walsall North">Walsall North</span><span class="n">67080</span></div></li>
-			<li class="E14001012 EN WM r-19 c-19"><div class="hex"><span class="name" title="Walsall South">Walsall South</span><span class="n">67743</span></div></li>
-			<li class="E14001013 EN LO r-12 c-29"><div class="hex"><span class="name" title="Walthamstow">Walthamstow</span><span class="n">67015</span></div></li>
-			<li class="E14001014 EN NE r-34 c-21"><div class="hex"><span class="name" title="Wansbeck">Wansbeck</span><span class="n">60705</span></div></li>
-			<li class="E14001015 EN SE r-8 c-18"><div class="hex"><span class="name" title="Wantage">Wantage</span><span class="n">82931</span></div></li>
-			<li class="E14001016 EN WM r-17 c-18"><div class="hex"><span class="name" title="Warley">Warley</span><span class="n">63738</span></div></li>
-			<li class="E14001017 EN NW r-24 c-17"><div class="hex"><span class="name" title="Warrington North">Warrington North</span><span class="n">72104</span></div></li>
-			<li class="E14001018 EN NW r-23 c-18"><div class="hex"><span class="name" title="Warrington South">Warrington South</span><span class="n">84767</span></div></li>
-			<li class="E14001019 EN WM r-15 c-21"><div class="hex"><span class="name" title="Warwick and Leamington">Warwick and Leamington</span><span class="n">71578</span></div></li>
-			<li class="E14001020 EN NE r-32 c-24"><div class="hex"><span class="name" title="Washington and Sunderland West">Washington and Sunderland West</span><span class="n">68190</span></div></li>
-			<li class="E14001021 EN EA r-13 c-24"><div class="hex"><span class="name" title="Watford">Watford</span><span class="n">83535</span></div></li>
-			<li class="E14001022 EN EA r-15 c-35"><div class="hex"><span class="name" title="Waveney">Waveney</span><span class="n">80166</span></div></li>
-			<li class="E14001023 EN SE r-6 c-32"><div class="hex"><span class="name" title="Wealden">Wealden</span><span class="n">80236</span></div></li>
-			<li class="E14001024 EN NW r-22 c-17"><div class="hex"><span class="name" title="Weaver Vale">Weaver Vale</span><span class="n">68407</span></div></li>
-			<li class="E14001025 EN EM r-16 c-23"><div class="hex"><span class="name" title="Wellingborough">Wellingborough</span><span class="n">74317</span></div></li>
-			<li class="E14001026 EN SW r-5 c-12"><div class="hex"><span class="name" title="Wells">Wells</span><span class="n">79405</span></div></li>
-			<li class="E14001027 EN EA r-14 c-26"><div class="hex"><span class="name" title="Welwyn Hatfield">Welwyn Hatfield</span><span class="n">73247</span></div></li>
-			<li class="E14001028 EN YH r-25 c-27"><div class="hex"><span class="name" title="Wentworth and Dearne">Wentworth and Dearne</span><span class="n">74283</span></div></li>
-			<li class="E14001029 EN WM r-18 c-19"><div class="hex"><span class="name" title="West Bromwich East">West Bromwich East</span><span class="n">63637</span></div></li>
-			<li class="E14001030 EN WM r-16 c-17"><div class="hex"><span class="name" title="West Bromwich West">West Bromwich West</span><span class="n">65524</span></div></li>
-			<li class="E14001031 EN SW r-3 c-14"><div class="hex"><span class="name" title="West Dorset">West Dorset</span><span class="n">78000</span></div></li>
-			<li class="E14001032 EN LO r-11 c-31"><div class="hex"><span class="name" title="West Ham">West Ham</span><span class="n">90640</span></div></li>
-			<li class="E14001033 EN NW r-26 c-16"><div class="hex"><span class="name" title="West Lancashire">West Lancashire</span><span class="n">70906</span></div></li>
-			<li class="E14001034 EN EA r-15 c-31"><div class="hex"><span class="name" title="West Suffolk">West Suffolk</span><span class="n">76198</span></div></li>
-			<li class="E14001035 EN WM r-12 c-18"><div class="hex"><span class="name" title="West Worcestershire">West Worcestershire</span><span class="n">73394</span></div></li>
-			<li class="E14001036 EN LO r-10 c-26"><div class="hex"><span class="name" title="Westminster North">Westminster North</span><span class="n">62346</span></div></li>
-			<li class="E14001037 EN NW r-30 c-20"><div class="hex"><span class="name" title="Westmorland and Lonsdale">Westmorland and Lonsdale</span><span class="n">65857</span></div></li>
-			<li class="E14001038 EN SW r-6 c-13"><div class="hex"><span class="name" title="Weston-Super-Mare">Weston-Super-Mare</span><span class="n">80309</span></div></li>
-			<li class="E14001039 EN NW r-27 c-17"><div class="hex"><span class="name" title="Wigan">Wigan</span><span class="n">75990</span></div></li>
-			<li class="E14001040 EN LO r-8 c-25"><div class="hex"><span class="name" title="Wimbledon">Wimbledon</span><span class="n">65853</span></div></li>
-			<li class="E14001041 EN SE r-5 c-21"><div class="hex"><span class="name" title="Winchester">Winchester</span><span class="n">74119</span></div></li>
-			<li class="E14001042 EN SE r-8 c-22"><div class="hex"><span class="name" title="Windsor">Windsor</span><span class="n">71538</span></div></li>
-			<li class="E14001043 EN NW r-21 c-14"><div class="hex"><span class="name" title="Wirral South">Wirral South</span><span class="n">56956</span></div></li>
-			<li class="E14001044 EN NW r-21 c-13"><div class="hex"><span class="name" title="Wirral West">Wirral West</span><span class="n">55377</span></div></li>
-			<li class="E14001045 EN EA r-13 c-35"><div class="hex"><span class="name" title="Witham">Witham</span><span class="n">67090</span></div></li>
-			<li class="E14001046 EN SE r-11 c-19"><div class="hex"><span class="name" title="Witney">Witney</span><span class="n">79767</span></div></li>
-			<li class="E14001047 EN SE r-6 c-21"><div class="hex"><span class="name" title="Woking">Woking</span><span class="n">74269</span></div></li>
-			<li class="E14001048 EN SE r-6 c-19"><div class="hex"><span class="name" title="Wokingham">Wokingham</span><span class="n">77881</span></div></li>
-			<li class="E14001049 EN WM r-21 c-19"><div class="hex"><span class="name" title="Wolverhampton North East">Wolverhampton North East</span><span class="n">61065</span></div></li>
-			<li class="E14001050 EN WM r-18 c-18"><div class="hex"><span class="name" title="Wolverhampton South East">Wolverhampton South East</span><span class="n">62556</span></div></li>
-			<li class="E14001051 EN WM r-19 c-18"><div class="hex"><span class="name" title="Wolverhampton South West">Wolverhampton South West</span><span class="n">60368</span></div></li>
-			<li class="E14001052 EN WM r-13 c-17"><div class="hex"><span class="name" title="Worcester">Worcester</span><span class="n">72461</span></div></li>
-			<li class="E14001053 EN NW r-31 c-18"><div class="hex"><span class="name" title="Workington">Workington</span><span class="n">58615</span></div></li>
-			<li class="E14001054 EN NW r-24 c-18"><div class="hex"><span class="name" title="Worsley and Eccles South">Worsley and Eccles South</span><span class="n">72177</span></div></li>
-			<li class="E14001055 EN SE r-4 c-28"><div class="hex"><span class="name" title="Worthing West">Worthing West</span><span class="n">75617</span></div></li>
-			<li class="E14001056 EN SE r-10 c-20"><div class="hex"><span class="name" title="Wycombe">Wycombe</span><span class="n">76371</span></div></li>
-			<li class="E14001057 EN NW r-29 c-20"><div class="hex"><span class="name" title="Wyre and Preston North">Wyre and Preston North</span><span class="n">70637</span></div></li>
-			<li class="E14001058 EN WM r-15 c-16"><div class="hex"><span class="name" title="Wyre Forest">Wyre Forest</span><span class="n">77407</span></div></li>
-			<li class="E14001059 EN NW r-25 c-19"><div class="hex"><span class="name" title="Wythenshawe and Sale East">Wythenshawe and Sale East</span><span class="n">75994</span></div></li>
-			<li class="E14001060 EN SW r-4 c-12"><div class="hex"><span class="name" title="Yeovil">Yeovil</span><span class="n">82447</span></div></li>
-			<li class="E14001061 EN YH r-27 c-27"><div class="hex"><span class="name" title="York Central">York Central</span><span class="n">75351</span></div></li>
-			<li class="E14001062 EN YH r-27 c-28"><div class="hex"><span class="name" title="York Outer">York Outer</span><span class="n">78561</span></div></li>
+			<li class="E14000530 SE r-5 c-20"><div class="hex"><span class="name" title="Aldershot">Aldershot</span><span class="n">72430</span></div></li>
+			<li class="E14000531 WM r-20 c-21"><div class="hex"><span class="name" title="Aldridge-Brownhills">Aldridge-Brownhills</span><span class="n">60215</span></div></li>
+			<li class="E14000532 NW r-24 c-19"><div class="hex"><span class="name" title="Altrincham and Sale West">Altrincham and Sale West</span><span class="n">71511</span></div></li>
+			<li class="E14000533 EM r-20 c-25"><div class="hex"><span class="name" title="Amber Valley">Amber Valley</span><span class="n">69510</span></div></li>
+			<li class="E14000534 SE r-5 c-28"><div class="hex"><span class="name" title="Arundel and South Downs">Arundel and South Downs</span><span class="n">77242</span></div></li>
+			<li class="E14000535 EM r-20 c-26"><div class="hex"><span class="name" title="Ashfield">Ashfield</span><span class="n">77091</span></div></li>
+			<li class="E14000536 SE r-6 c-34"><div class="hex"><span class="name" title="Ashford">Ashford</span><span class="n">85177</span></div></li>
+			<li class="E14000537 NW r-26 c-21"><div class="hex"><span class="name" title="Ashton-under-Lyne">Ashton-under-Lyne</span><span class="n">68343</span></div></li>
+			<li class="E14000538 SE r-10 c-19"><div class="hex"><span class="name" title="Aylesbury">Aylesbury</span><span class="n">80315</span></div></li>
+			<li class="E14000539 SE r-12 c-19"><div class="hex"><span class="name" title="Banbury">Banbury</span><span class="n">86420</span></div></li>
+			<li class="E14000540 LO r-10 c-33"><div class="hex"><span class="name" title="Barking">Barking</span><span class="n">73977</span></div></li>
+			<li class="E14000541 YH r-23 c-24"><div class="hex"><span class="name" title="Barnsley Central">Barnsley Central</span><span class="n">64534</span></div></li>
+			<li class="E14000542 YH r-24 c-25"><div class="hex"><span class="name" title="Barnsley East">Barnsley East</span><span class="n">69135</span></div></li>
+			<li class="E14000543 NW r-29 c-18"><div class="hex"><span class="name" title="Barrow and Furness">Barrow and Furness</span><span class="n">68338</span></div></li>
+			<li class="E14000544 EA r-11 c-34"><div class="hex"><span class="name" title="Basildon and Billericay">Basildon and Billericay</span><span class="n">66347</span></div></li>
+			<li class="E14000545 SE r-5 c-19"><div class="hex"><span class="name" title="Basingstoke">Basingstoke</span><span class="n">79665</span></div></li>
+			<li class="E14000546 EM r-21 c-28"><div class="hex"><span class="name" title="Bassetlaw">Bassetlaw</span><span class="n">76796</span></div></li>
+			<li class="E14000547 SW r-7 c-16"><div class="hex"><span class="name" title="Bath">Bath</span><span class="n">63084</span></div></li>
+			<li class="E14000548 YH r-25 c-24"><div class="hex"><span class="name" title="Batley and Spen">Batley and Spen</span><span class="n">78373</span></div></li>
+			<li class="E14000549 LO r-8 c-26"><div class="hex"><span class="name" title="Battersea">Battersea</span><span class="n">76111</span></div></li>
+			<li class="E14000550 SE r-11 c-21"><div class="hex"><span class="name" title="Beaconsfield">Beaconsfield</span><span class="n">74726</span></div></li>
+			<li class="E14000551 LO r-7 c-29"><div class="hex"><span class="name" title="Beckenham">Beckenham</span><span class="n">67439</span></div></li>
+			<li class="E14000552 EA r-15 c-24"><div class="hex"><span class="name" title="Bedford">Bedford</span><span class="n">69311</span></div></li>
+			<li class="E14000553 LO r-9 c-28"><div class="hex"><span class="name" title="Bermondsey and Old Southwark">Bermondsey and Old Southwark</span><span class="n">83298</span></div></li>
+			<li class="E14000554 NE r-33 c-20"><div class="hex"><span class="name" title="Berwick-upon-Tweed">Berwick-upon-Tweed</span><span class="n">56969</span></div></li>
+			<li class="E14000555 LO r-10 c-30"><div class="hex"><span class="name" title="Bethnal Green and Bow">Bethnal Green and Bow</span><span class="n">82727</span></div></li>
+			<li class="E14000556 YH r-25 c-30"><div class="hex"><span class="name" title="Beverley and Holderness">Beverley and Holderness</span><span class="n">80805</span></div></li>
+			<li class="E14000557 SE r-6 c-33"><div class="hex"><span class="name" title="Bexhill and Battle">Bexhill and Battle</span><span class="n">78796</span></div></li>
+			<li class="E14000558 LO r-8 c-31"><div class="hex"><span class="name" title="Bexleyheath and Crayford">Bexleyheath and Crayford</span><span class="n">64828</span></div></li>
+			<li class="E14000559 NW r-23 c-14"><div class="hex"><span class="name" title="Birkenhead">Birkenhead</span><span class="n">62410</span></div></li>
+			<li class="E14000560 WM r-14 c-17"><div class="hex"><span class="name" title="Birmingham, Edgbaston">Birmingham, Edgbaston</span><span class="n">65591</span></div></li>
+			<li class="E14000561 WM r-18 c-20"><div class="hex"><span class="name" title="Birmingham, Erdington">Birmingham, Erdington</span><span class="n">65128</span></div></li>
+			<li class="E14000562 WM r-15 c-19"><div class="hex"><span class="name" title="Birmingham, Hall Green">Birmingham, Hall Green</span><span class="n">76330</span></div></li>
+			<li class="E14000563 WM r-17 c-20"><div class="hex"><span class="name" title="Birmingham, Hodge Hill">Birmingham, Hodge Hill</span><span class="n">75302</span></div></li>
+			<li class="E14000564 WM r-16 c-19"><div class="hex"><span class="name" title="Birmingham, Ladywood">Birmingham, Ladywood</span><span class="n">68128</span></div></li>
+			<li class="E14000565 WM r-14 c-18"><div class="hex"><span class="name" title="Birmingham, Northfield">Birmingham, Northfield</span><span class="n">71428</span></div></li>
+			<li class="E14000566 WM r-17 c-19"><div class="hex"><span class="name" title="Birmingham, Perry Barr">Birmingham, Perry Barr</span><span class="n">69943</span></div></li>
+			<li class="E14000567 WM r-16 c-18"><div class="hex"><span class="name" title="Birmingham, Selly Oak">Birmingham, Selly Oak</span><span class="n">75092</span></div></li>
+			<li class="E14000568 WM r-16 c-20"><div class="hex"><span class="name" title="Birmingham, Yardley">Birmingham, Yardley</span><span class="n">72146</span></div></li>
+			<li class="E14000569 NE r-30 c-23"><div class="hex"><span class="name" title="Bishop Auckland">Bishop Auckland</span><span class="n">66070</span></div></li>
+			<li class="E14000570 NW r-29 c-19"><div class="hex"><span class="name" title="Blackburn">Blackburn</span><span class="n">73260</span></div></li>
+			<li class="E14000571 NW r-26 c-20"><div class="hex"><span class="name" title="Blackley and Broughton">Blackley and Broughton</span><span class="n">71913</span></div></li>
+			<li class="E14000572 NW r-29 c-17"><div class="hex"><span class="name" title="Blackpool North and Cleveleys">Blackpool North and Cleveleys</span><span class="n">62468</span></div></li>
+			<li class="E14000573 NW r-28 c-16"><div class="hex"><span class="name" title="Blackpool South">Blackpool South</span><span class="n">57411</span></div></li>
+			<li class="E14000574 NE r-31 c-20"><div class="hex"><span class="name" title="Blaydon">Blaydon</span><span class="n">67901</span></div></li>
+			<li class="E14000575 NE r-33 c-22"><div class="hex"><span class="name" title="Blyth Valley">Blyth Valley</span><span class="n">61247</span></div></li>
+			<li class="E14000576 SE r-5 c-27"><div class="hex"><span class="name" title="Bognor Regis and Littlehampton">Bognor Regis and Littlehampton</span><span class="n">72995</span></div></li>
+			<li class="E14000577 EM r-21 c-26"><div class="hex"><span class="name" title="Bolsover">Bolsover</span><span class="n">71979</span></div></li>
+			<li class="E14000578 NW r-28 c-19"><div class="hex"><span class="name" title="Bolton North East">Bolton North East</span><span class="n">67895</span></div></li>
+			<li class="E14000579 NW r-27 c-19"><div class="hex"><span class="name" title="Bolton South East">Bolton South East</span><span class="n">69687</span></div></li>
+			<li class="E14000580 NW r-27 c-18"><div class="hex"><span class="name" title="Bolton West">Bolton West</span><span class="n">72719</span></div></li>
+			<li class="E14000581 NW r-23 c-13"><div class="hex"><span class="name" title="Bootle">Bootle</span><span class="n">70145</span></div></li>
+			<li class="E14000582 EM r-18 c-30"><div class="hex"><span class="name" title="Boston and Skegness">Boston and Skegness</span><span class="n">67064</span></div></li>
+			<li class="E14000583 EM r-18 c-23"><div class="hex"><span class="name" title="Bosworth">Bosworth</span><span class="n">79738</span></div></li>
+			<li class="E14000584 SW r-4 c-16"><div class="hex"><span class="name" title="Bournemouth East">Bournemouth East</span><span class="n">72275</span></div></li>
+			<li class="E14000585 SW r-5 c-16"><div class="hex"><span class="name" title="Bournemouth West">Bournemouth West</span><span class="n">72082</span></div></li>
+			<li class="E14000586 SE r-7 c-20"><div class="hex"><span class="name" title="Bracknell">Bracknell</span><span class="n">81271</span></div></li>
+			<li class="E14000587 YH r-27 c-24"><div class="hex"><span class="name" title="Bradford East">Bradford East</span><span class="n">66121</span></div></li>
+			<li class="E14000588 YH r-26 c-23"><div class="hex"><span class="name" title="Bradford South">Bradford South</span><span class="n">63674</span></div></li>
+			<li class="E14000589 YH r-27 c-23"><div class="hex"><span class="name" title="Bradford West">Bradford West</span><span class="n">63372</span></div></li>
+			<li class="E14000590 EA r-13 c-32"><div class="hex"><span class="name" title="Braintree">Braintree</span><span class="n">73557</span></div></li>
+			<li class="E14000591 LO r-12 c-26"><div class="hex"><span class="name" title="Brent Central">Brent Central</span><span class="n">77038</span></div></li>
+			<li class="E14000592 LO r-12 c-25"><div class="hex"><span class="name" title="Brent North">Brent North</span><span class="n">82196</span></div></li>
+			<li class="E14000593 LO r-10 c-24"><div class="hex"><span class="name" title="Brentford and Isleworth">Brentford and Isleworth</span><span class="n">84602</span></div></li>
+			<li class="E14000594 EA r-13 c-31"><div class="hex"><span class="name" title="Brentwood and Ongar">Brentwood and Ongar</span><span class="n">71918</span></div></li>
+			<li class="E14000595 SW r-5 c-11"><div class="hex"><span class="name" title="Bridgwater and West Somerset">Bridgwater and West Somerset</span><span class="n">80491</span></div></li>
+			<li class="E14000596 YH r-23 c-28"><div class="hex"><span class="name" title="Brigg and Goole">Brigg and Goole</span><span class="n">68488</span></div></li>
+			<li class="E14000597 SE r-5 c-31"><div class="hex"><span class="name" title="Brighton, Kemptown">Brighton, Kemptown</span><span class="n">67858</span></div></li>
+			<li class="E14000598 SE r-5 c-30"><div class="hex"><span class="name" title="Brighton, Pavilion">Brighton, Pavilion</span><span class="n">76557</span></div></li>
+			<li class="E14000599 SW r-8 c-15"><div class="hex"><span class="name" title="Bristol East">Bristol East</span><span class="n">71193</span></div></li>
+			<li class="E14000600 SW r-7 c-14"><div class="hex"><span class="name" title="Bristol North West">Bristol North West</span><span class="n">74743</span></div></li>
+			<li class="E14000601 SW r-6 c-14"><div class="hex"><span class="name" title="Bristol South">Bristol South</span><span class="n">81496</span></div></li>
+			<li class="E14000602 SW r-7 c-15"><div class="hex"><span class="name" title="Bristol West">Bristol West</span><span class="n">91236</span></div></li>
+			<li class="E14000603 EA r-16 c-32"><div class="hex"><span class="name" title="Broadland">Broadland</span><span class="n">73552</span></div></li>
+			<li class="E14000604 LO r-8 c-30"><div class="hex"><span class="name" title="Bromley and Chislehurst">Bromley and Chislehurst</span><span class="n">65477</span></div></li>
+			<li class="E14000605 WM r-14 c-19"><div class="hex"><span class="name" title="Bromsgrove">Bromsgrove</span><span class="n">73337</span></div></li>
+			<li class="E14000606 EA r-14 c-28"><div class="hex"><span class="name" title="Broxbourne">Broxbourne</span><span class="n">72944</span></div></li>
+			<li class="E14000607 EM r-20 c-27"><div class="hex"><span class="name" title="Broxtowe">Broxtowe</span><span class="n">71764</span></div></li>
+			<li class="E14000608 SE r-11 c-22"><div class="hex"><span class="name" title="Buckingham">Buckingham</span><span class="n">77425</span></div></li>
+			<li class="E14000609 NW r-27 c-22"><div class="hex"><span class="name" title="Burnley">Burnley</span><span class="n">64477</span></div></li>
+			<li class="E14000610 WM r-22 c-21"><div class="hex"><span class="name" title="Burton">Burton</span><span class="n">75248</span></div></li>
+			<li class="E14000611 NW r-28 c-20"><div class="hex"><span class="name" title="Bury North">Bury North</span><span class="n">67580</span></div></li>
+			<li class="E14000612 NW r-27 c-20"><div class="hex"><span class="name" title="Bury South">Bury South</span><span class="n">73883</span></div></li>
+			<li class="E14000613 EA r-14 c-32"><div class="hex"><span class="name" title="Bury St Edmunds">Bury St Edmunds</span><span class="n">85982</span></div></li>
+			<li class="E14000614 YH r-24 c-23"><div class="hex"><span class="name" title="Calder Valley">Calder Valley</span><span class="n">77754</span></div></li>
+			<li class="E14000615 LO r-9 c-29"><div class="hex"><span class="name" title="Camberwell and Peckham">Camberwell and Peckham</span><span class="n">82746</span></div></li>
+			<li class="E14000616 SW r-1 c-6"><div class="hex"><span class="name" title="Camborne and Redruth">Camborne and Redruth</span><span class="n">66944</span></div></li>
+			<li class="E14000617 EA r-14 c-30"><div class="hex"><span class="name" title="Cambridge">Cambridge</span><span class="n">83384</span></div></li>
+			<li class="E14000618 WM r-19 c-20"><div class="hex"><span class="name" title="Cannock Chase">Cannock Chase</span><span class="n">74532</span></div></li>
+			<li class="E14000619 SE r-8 c-37"><div class="hex"><span class="name" title="Canterbury">Canterbury</span><span class="n">81341</span></div></li>
+			<li class="E14000620 NW r-31 c-19"><div class="hex"><span class="name" title="Carlisle">Carlisle</span><span class="n">65827</span></div></li>
+			<li class="E14000621 LO r-6 c-26"><div class="hex"><span class="name" title="Carshalton and Wallington">Carshalton and Wallington</span><span class="n">69981</span></div></li>
+			<li class="E14000622 EA r-10 c-36"><div class="hex"><span class="name" title="Castle Point">Castle Point</span><span class="n">68170</span></div></li>
+			<li class="E14000623 SW r-3 c-10"><div class="hex"><span class="name" title="Central Devon">Central Devon</span><span class="n">72737</span></div></li>
+			<li class="E14000624 EA r-14 c-35"><div class="hex"><span class="name" title="Central Suffolk and North Ipswich">Central Suffolk and North Ipswich</span><span class="n">76666</span></div></li>
+			<li class="E14000625 EM r-18 c-26"><div class="hex"><span class="name" title="Charnwood">Charnwood</span><span class="n">77269</span></div></li>
+			<li class="E14000626 SE r-8 c-35"><div class="hex"><span class="name" title="Chatham and Aylesford">Chatham and Aylesford</span><span class="n">66355</span></div></li>
+			<li class="E14000627 NW r-23 c-20"><div class="hex"><span class="name" title="Cheadle">Cheadle</span><span class="n">73239</span></div></li>
+			<li class="E14000628 EA r-12 c-33"><div class="hex"><span class="name" title="Chelmsford">Chelmsford</span><span class="n">78580</span></div></li>
+			<li class="E14000629 LO r-9 c-26"><div class="hex"><span class="name" title="Chelsea and Fulham">Chelsea and Fulham</span><span class="n">63478</span></div></li>
+			<li class="E14000630 SW r-11 c-18"><div class="hex"><span class="name" title="Cheltenham">Cheltenham</span><span class="n">77287</span></div></li>
+			<li class="E14000631 SE r-11 c-20"><div class="hex"><span class="name" title="Chesham and Amersham">Chesham and Amersham</span><span class="n">72547</span></div></li>
+			<li class="E14000632 EM r-21 c-25"><div class="hex"><span class="name" title="Chesterfield">Chesterfield</span><span class="n">71625</span></div></li>
+			<li class="E14000633 SE r-4 c-26"><div class="hex"><span class="name" title="Chichester">Chichester</span><span class="n">83396</span></div></li>
+			<li class="E14000634 LO r-12 c-31"><div class="hex"><span class="name" title="Chingford and Woodford Green">Chingford and Woodford Green</span><span class="n">66680</span></div></li>
+			<li class="E14000635 SW r-6 c-16"><div class="hex"><span class="name" title="Chippenham">Chippenham</span><span class="n">74218</span></div></li>
+			<li class="E14000636 LO r-14 c-27"><div class="hex"><span class="name" title="Chipping Barnet">Chipping Barnet</span><span class="n">77807</span></div></li>
+			<li class="E14000637 NW r-28 c-17"><div class="hex"><span class="name" title="Chorley">Chorley</span><span class="n">74679</span></div></li>
+			<li class="E14000638 SW r-4 c-17"><div class="hex"><span class="name" title="Christchurch">Christchurch</span><span class="n">69303</span></div></li>
+			<li class="E14000639 LO r-10 c-27"><div class="hex"><span class="name" title="Cities of London and Westminster">Cities of London and Westminster</span><span class="n">60992</span></div></li>
+			<li class="E14000640 NW r-21 c-15"><div class="hex"><span class="name" title="City of Chester">City of Chester</span><span class="n">74485</span></div></li>
+			<li class="E14000641 NE r-31 c-23"><div class="hex"><span class="name" title="City of Durham">City of Durham</span><span class="n">68725</span></div></li>
+			<li class="E14000642 EA r-13 c-36"><div class="hex"><span class="name" title="Clacton">Clacton</span><span class="n">68936</span></div></li>
+			<li class="E14000643 YH r-21 c-30"><div class="hex"><span class="name" title="Cleethorpes">Cleethorpes</span><span class="n">71008</span></div></li>
+			<li class="E14000644 EA r-13 c-33"><div class="hex"><span class="name" title="Colchester">Colchester</span><span class="n">74204</span></div></li>
+			<li class="E14000645 YH r-23 c-23"><div class="hex"><span class="name" title="Colne Valley">Colne Valley</span><span class="n">82516</span></div></li>
+			<li class="E14000646 NW r-22 c-20"><div class="hex"><span class="name" title="Congleton">Congleton</span><span class="n">72503</span></div></li>
+			<li class="E14000647 NW r-30 c-18"><div class="hex"><span class="name" title="Copeland">Copeland</span><span class="n">62087</span></div></li>
+			<li class="E14000648 EM r-18 c-27"><div class="hex"><span class="name" title="Corby">Corby</span><span class="n">79775</span></div></li>
+			<li class="E14000649 WM r-18 c-22"><div class="hex"><span class="name" title="Coventry North East">Coventry North East</span><span class="n">75462</span></div></li>
+			<li class="E14000650 WM r-17 c-22"><div class="hex"><span class="name" title="Coventry North West">Coventry North West</span><span class="n">73626</span></div></li>
+			<li class="E14000651 WM r-17 c-21"><div class="hex"><span class="name" title="Coventry South">Coventry South</span><span class="n">70397</span></div></li>
+			<li class="E14000652 SE r-5 c-26"><div class="hex"><span class="name" title="Crawley">Crawley</span><span class="n">73936</span></div></li>
+			<li class="E14000653 NW r-22 c-18"><div class="hex"><span class="name" title="Crewe and Nantwich">Crewe and Nantwich</span><span class="n">74169</span></div></li>
+			<li class="E14000654 LO r-6 c-28"><div class="hex"><span class="name" title="Croydon Central">Croydon Central</span><span class="n">78171</span></div></li>
+			<li class="E14000655 LO r-7 c-27"><div class="hex"><span class="name" title="Croydon North">Croydon North</span><span class="n">85941</span></div></li>
+			<li class="E14000656 LO r-6 c-27"><div class="hex"><span class="name" title="Croydon South">Croydon South</span><span class="n">82010</span></div></li>
+			<li class="E14000657 LO r-9 c-33"><div class="hex"><span class="name" title="Dagenham and Rainham">Dagenham and Rainham</span><span class="n">69128</span></div></li>
+			<li class="E14000658 NE r-30 c-25"><div class="hex"><span class="name" title="Darlington">Darlington</span><span class="n">65851</span></div></li>
+			<li class="E14000659 SE r-8 c-33"><div class="hex"><span class="name" title="Dartford">Dartford</span><span class="n">75209</span></div></li>
+			<li class="E14000660 EM r-16 c-22"><div class="hex"><span class="name" title="Daventry">Daventry</span><span class="n">72873</span></div></li>
+			<li class="E14000661 NW r-25 c-21"><div class="hex"><span class="name" title="Denton and Reddish">Denton and Reddish</span><span class="n">66141</span></div></li>
+			<li class="E14000662 EM r-20 c-23"><div class="hex"><span class="name" title="Derby North">Derby North</span><span class="n">69794</span></div></li>
+			<li class="E14000663 EM r-19 c-24"><div class="hex"><span class="name" title="Derby South">Derby South</span><span class="n">70240</span></div></li>
+			<li class="E14000664 EM r-21 c-23"><div class="hex"><span class="name" title="Derbyshire Dales">Derbyshire Dales</span><span class="n">63476</span></div></li>
+			<li class="E14000665 SW r-6 c-17"><div class="hex"><span class="name" title="Devizes">Devizes</span><span class="n">69205</span></div></li>
+			<li class="E14000666 YH r-25 c-25"><div class="hex"><span class="name" title="Dewsbury">Dewsbury</span><span class="n">79770</span></div></li>
+			<li class="E14000667 YH r-24 c-27"><div class="hex"><span class="name" title="Don Valley">Don Valley</span><span class="n">71299</span></div></li>
+			<li class="E14000668 YH r-24 c-28"><div class="hex"><span class="name" title="Doncaster Central">Doncaster Central</span><span class="n">71136</span></div></li>
+			<li class="E14000669 YH r-25 c-28"><div class="hex"><span class="name" title="Doncaster North">Doncaster North</span><span class="n">70989</span></div></li>
+			<li class="E14000670 SE r-6 c-36"><div class="hex"><span class="name" title="Dover">Dover</span><span class="n">72930</span></div></li>
+			<li class="E14000671 WM r-18 c-17"><div class="hex"><span class="name" title="Dudley North">Dudley North</span><span class="n">60717</span></div></li>
+			<li class="E14000672 WM r-17 c-17"><div class="hex"><span class="name" title="Dudley South">Dudley South</span><span class="n">60363</span></div></li>
+			<li class="E14000673 LO r-8 c-28"><div class="hex"><span class="name" title="Dulwich and West Norwood">Dulwich and West Norwood</span><span class="n">76575</span></div></li>
+			<li class="E14000674 LO r-11 c-24"><div class="hex"><span class="name" title="Ealing Central and Acton">Ealing Central and Acton</span><span class="n">71422</span></div></li>
+			<li class="E14000675 LO r-11 c-23"><div class="hex"><span class="name" title="Ealing North">Ealing North</span><span class="n">73881</span></div></li>
+			<li class="E14000676 LO r-10 c-23"><div class="hex"><span class="name" title="Ealing, Southall">Ealing, Southall</span><span class="n">65606</span></div></li>
+			<li class="E14000677 NE r-32 c-25"><div class="hex"><span class="name" title="Easington">Easington</span><span class="n">61659</span></div></li>
+			<li class="E14000678 SW r-3 c-12"><div class="hex"><span class="name" title="East Devon">East Devon</span><span class="n">76519</span></div></li>
+			<li class="E14000679 LO r-10 c-32"><div class="hex"><span class="name" title="East Ham">East Ham</span><span class="n">87382</span></div></li>
+			<li class="E14000680 SE r-5 c-24"><div class="hex"><span class="name" title="East Hampshire">East Hampshire</span><span class="n">71074</span></div></li>
+			<li class="E14000681 SE r-6 c-30"><div class="hex"><span class="name" title="East Surrey">East Surrey</span><span class="n">79654</span></div></li>
+			<li class="E14000682 SE r-5 c-29"><div class="hex"><span class="name" title="East Worthing and Shoreham">East Worthing and Shoreham</span><span class="n">74775</span></div></li>
+			<li class="E14000683 YH r-26 c-30"><div class="hex"><span class="name" title="East Yorkshire">East Yorkshire</span><span class="n">81023</span></div></li>
+			<li class="E14000684 SE r-5 c-33"><div class="hex"><span class="name" title="Eastbourne">Eastbourne</span><span class="n">78262</span></div></li>
+			<li class="E14000685 SE r-4 c-21"><div class="hex"><span class="name" title="Eastleigh">Eastleigh</span><span class="n">79609</span></div></li>
+			<li class="E14000686 NW r-21 c-16"><div class="hex"><span class="name" title="Eddisbury">Eddisbury</span><span class="n">68569</span></div></li>
+			<li class="E14000687 LO r-12 c-30"><div class="hex"><span class="name" title="Edmonton">Edmonton</span><span class="n">66016</span></div></li>
+			<li class="E14000688 NW r-22 c-14"><div class="hex"><span class="name" title="Ellesmere Port and Neston">Ellesmere Port and Neston</span><span class="n">69223</span></div></li>
+			<li class="E14000689 YH r-28 c-26"><div class="hex"><span class="name" title="Elmet and Rothwell">Elmet and Rothwell</span><span class="n">79143</span></div></li>
+			<li class="E14000690 LO r-9 c-31"><div class="hex"><span class="name" title="Eltham">Eltham</span><span class="n">63998</span></div></li>
+			<li class="E14000691 LO r-13 c-29"><div class="hex"><span class="name" title="Enfield North">Enfield North</span><span class="n">68118</span></div></li>
+			<li class="E14000692 LO r-13 c-28"><div class="hex"><span class="name" title="Enfield, Southgate">Enfield, Southgate</span><span class="n">64937</span></div></li>
+			<li class="E14000693 EA r-13 c-30"><div class="hex"><span class="name" title="Epping Forest">Epping Forest</span><span class="n">73447</span></div></li>
+			<li class="E14000694 SE r-6 c-24"><div class="hex"><span class="name" title="Epsom and Ewell">Epsom and Ewell</span><span class="n">78633</span></div></li>
+			<li class="E14000695 EM r-19 c-26"><div class="hex"><span class="name" title="Erewash">Erewash</span><span class="n">71943</span></div></li>
+			<li class="E14000696 LO r-8 c-32"><div class="hex"><span class="name" title="Erith and Thamesmead">Erith and Thamesmead</span><span class="n">70397</span></div></li>
+			<li class="E14000697 SE r-7 c-22"><div class="hex"><span class="name" title="Esher and Walton">Esher and Walton</span><span class="n">79894</span></div></li>
+			<li class="E14000698 SW r-3 c-11"><div class="hex"><span class="name" title="Exeter">Exeter</span><span class="n">76968</span></div></li>
+			<li class="E14000699 SE r-3 c-22"><div class="hex"><span class="name" title="Fareham">Fareham</span><span class="n">77114</span></div></li>
+			<li class="E14000700 SE r-7 c-35"><div class="hex"><span class="name" title="Faversham and Mid Kent">Faversham and Mid Kent</span><span class="n">69523</span></div></li>
+			<li class="E14000701 LO r-9 c-23"><div class="hex"><span class="name" title="Feltham and Heston">Feltham and Heston</span><span class="n">82340</span></div></li>
+			<li class="E14000702 SW r-9 c-15"><div class="hex"><span class="name" title="Filton and Bradley Stoke">Filton and Bradley Stoke</span><span class="n">71310</span></div></li>
+			<li class="E14000703 LO r-13 c-27"><div class="hex"><span class="name" title="Finchley and Golders Green">Finchley and Golders Green</span><span class="n">72530</span></div></li>
+			<li class="E14000704 SE r-6 c-35"><div class="hex"><span class="name" title="Folkestone and Hythe">Folkestone and Hythe</span><span class="n">83651</span></div></li>
+			<li class="E14000705 SW r-10 c-16"><div class="hex"><span class="name" title="Forest of Dean">Forest of Dean</span><span class="n">69865</span></div></li>
+			<li class="E14000706 NW r-27 c-16"><div class="hex"><span class="name" title="Fylde">Fylde</span><span class="n">65679</span></div></li>
+			<li class="E14000707 EM r-20 c-30"><div class="hex"><span class="name" title="Gainsborough">Gainsborough</span><span class="n">74686</span></div></li>
+			<li class="E14000708 NW r-22 c-16"><div class="hex"><span class="name" title="Garston and Halewood">Garston and Halewood</span><span class="n">73719</span></div></li>
+			<li class="E14000709 NE r-32 c-23"><div class="hex"><span class="name" title="Gateshead">Gateshead</span><span class="n">64524</span></div></li>
+			<li class="E14000710 EM r-20 c-29"><div class="hex"><span class="name" title="Gedling">Gedling</span><span class="n">70000</span></div></li>
+			<li class="E14000711 SE r-7 c-36"><div class="hex"><span class="name" title="Gillingham and Rainham">Gillingham and Rainham</span><span class="n">70984</span></div></li>
+			<li class="E14000712 SW r-10 c-17"><div class="hex"><span class="name" title="Gloucester">Gloucester</span><span class="n">82968</span></div></li>
+			<li class="E14000713 SE r-4 c-23"><div class="hex"><span class="name" title="Gosport">Gosport</span><span class="n">73268</span></div></li>
+			<li class="E14000714 EM r-17 c-29"><div class="hex"><span class="name" title="Grantham and Stamford">Grantham and Stamford</span><span class="n">81150</span></div></li>
+			<li class="E14000715 SE r-8 c-34"><div class="hex"><span class="name" title="Gravesham">Gravesham</span><span class="n">72043</span></div></li>
+			<li class="E14000716 YH r-22 c-30"><div class="hex"><span class="name" title="Great Grimsby">Great Grimsby</span><span class="n">59200</span></div></li>
+			<li class="E14000717 EA r-15 c-34"><div class="hex"><span class="name" title="Great Yarmouth">Great Yarmouth</span><span class="n">69793</span></div></li>
+			<li class="E14000718 LO r-10 c-31"><div class="hex"><span class="name" title="Greenwich and Woolwich">Greenwich and Woolwich</span><span class="n">73315</span></div></li>
+			<li class="E14000719 SE r-6 c-23"><div class="hex"><span class="name" title="Guildford">Guildford</span><span class="n">75733</span></div></li>
+			<li class="E14000720 LO r-11 c-28"><div class="hex"><span class="name" title="Hackney North and Stoke Newington">Hackney North and Stoke Newington</span><span class="n">88153</span></div></li>
+			<li class="E14000721 LO r-11 c-29"><div class="hex"><span class="name" title="Hackney South and Shoreditch">Hackney South and Shoreditch</span><span class="n">84971</span></div></li>
+			<li class="E14000722 WM r-15 c-18"><div class="hex"><span class="name" title="Halesowen and Rowley Regis">Halesowen and Rowley Regis</span><span class="n">66048</span></div></li>
+			<li class="E14000723 YH r-25 c-23"><div class="hex"><span class="name" title="Halifax">Halifax</span><span class="n">70462</span></div></li>
+			<li class="E14000724 YH r-26 c-29"><div class="hex"><span class="name" title="Haltemprice and Howden">Haltemprice and Howden</span><span class="n">71195</span></div></li>
+			<li class="E14000725 NW r-23 c-17"><div class="hex"><span class="name" title="Halton">Halton</span><span class="n">72818</span></div></li>
+			<li class="E14000726 LO r-9 c-25"><div class="hex"><span class="name" title="Hammersmith">Hammersmith</span><span class="n">72254</span></div></li>
+			<li class="E14000727 LO r-11 c-25"><div class="hex"><span class="name" title="Hampstead and Kilburn">Hampstead and Kilburn</span><span class="n">80195</span></div></li>
+			<li class="E14000728 EM r-17 c-25"><div class="hex"><span class="name" title="Harborough">Harborough</span><span class="n">77760</span></div></li>
+			<li class="E14000729 EA r-14 c-29"><div class="hex"><span class="name" title="Harlow">Harlow</span><span class="n">67994</span></div></li>
+			<li class="E14000730 YH r-29 c-27"><div class="hex"><span class="name" title="Harrogate and Knaresborough">Harrogate and Knaresborough</span><span class="n">76408</span></div></li>
+			<li class="E14000731 LO r-13 c-25"><div class="hex"><span class="name" title="Harrow East">Harrow East</span><span class="n">70981</span></div></li>
+			<li class="E14000732 LO r-12 c-24"><div class="hex"><span class="name" title="Harrow West">Harrow West</span><span class="n">69644</span></div></li>
+			<li class="E14000733 NE r-31 c-26"><div class="hex"><span class="name" title="Hartlepool">Hartlepool</span><span class="n">69947</span></div></li>
+			<li class="E14000734 EA r-13 c-34"><div class="hex"><span class="name" title="Harwich and North Essex">Harwich and North Essex</span><span class="n">69290</span></div></li>
+			<li class="E14000735 SE r-5 c-34"><div class="hex"><span class="name" title="Hastings and Rye">Hastings and Rye</span><span class="n">75095</span></div></li>
+			<li class="E14000736 SE r-5 c-25"><div class="hex"><span class="name" title="Havant">Havant</span><span class="n">70573</span></div></li>
+			<li class="E14000737 LO r-9 c-22"><div class="hex"><span class="name" title="Hayes and Harlington">Hayes and Harlington</span><span class="n">74874</span></div></li>
+			<li class="E14000738 NW r-22 c-22"><div class="hex"><span class="name" title="Hazel Grove">Hazel Grove</span><span class="n">63098</span></div></li>
+			<li class="E14000739 EA r-15 c-28"><div class="hex"><span class="name" title="Hemel Hempstead">Hemel Hempstead</span><span class="n">74616</span></div></li>
+			<li class="E14000740 YH r-26 c-28"><div class="hex"><span class="name" title="Hemsworth">Hemsworth</span><span class="n">72714</span></div></li>
+			<li class="E14000741 LO r-13 c-26"><div class="hex"><span class="name" title="Hendon">Hendon</span><span class="n">75285</span></div></li>
+			<li class="E14000742 SE r-12 c-20"><div class="hex"><span class="name" title="Henley">Henley</span><span class="n">77946</span></div></li>
+			<li class="E14000743 WM r-12 c-17"><div class="hex"><span class="name" title="Hereford and South Herefordshire">Hereford and South Herefordshire</span><span class="n">71485</span></div></li>
+			<li class="E14000744 EA r-15 c-29"><div class="hex"><span class="name" title="Hertford and Stortford">Hertford and Stortford</span><span class="n">80610</span></div></li>
+			<li class="E14000745 EA r-14 c-25"><div class="hex"><span class="name" title="Hertsmere">Hertsmere</span><span class="n">73767</span></div></li>
+			<li class="E14000746 NE r-32 c-20"><div class="hex"><span class="name" title="Hexham">Hexham</span><span class="n">59708</span></div></li>
+			<li class="E14000747 NW r-28 c-21"><div class="hex"><span class="name" title="Heywood and Middleton">Heywood and Middleton</span><span class="n">79989</span></div></li>
+			<li class="E14000748 EM r-22 c-23"><div class="hex"><span class="name" title="High Peak">High Peak</span><span class="n">73336</span></div></li>
+			<li class="E14000749 EA r-15 c-25"><div class="hex"><span class="name" title="Hitchin and Harpenden">Hitchin and Harpenden</span><span class="n">80333</span></div></li>
+			<li class="E14000750 LO r-11 c-27"><div class="hex"><span class="name" title="Holborn and St Pancras">Holborn and St Pancras</span><span class="n">86764</span></div></li>
+			<li class="E14000751 LO r-9 c-34"><div class="hex"><span class="name" title="Hornchurch and Upminster">Hornchurch and Upminster</span><span class="n">79331</span></div></li>
+			<li class="E14000752 LO r-11 c-26"><div class="hex"><span class="name" title="Hornsey and Wood Green">Hornsey and Wood Green</span><span class="n">79247</span></div></li>
+			<li class="E14000753 SE r-6 c-29"><div class="hex"><span class="name" title="Horsham">Horsham</span><span class="n">79085</span></div></li>
+			<li class="E14000754 NE r-31 c-24"><div class="hex"><span class="name" title="Houghton and Sunderland South">Houghton and Sunderland South</span><span class="n">68324</span></div></li>
+			<li class="E14000755 SE r-4 c-30"><div class="hex"><span class="name" title="Hove">Hove</span><span class="n">73505</span></div></li>
+			<li class="E14000756 YH r-24 c-24"><div class="hex"><span class="name" title="Huddersfield">Huddersfield</span><span class="n">65269</span></div></li>
+			<li class="E14000757 EA r-16 c-25"><div class="hex"><span class="name" title="Huntingdon">Huntingdon</span><span class="n">82593</span></div></li>
+			<li class="E14000758 NW r-29 c-21"><div class="hex"><span class="name" title="Hyndburn">Hyndburn</span><span class="n">68341</span></div></li>
+			<li class="E14000759 LO r-11 c-32"><div class="hex"><span class="name" title="Ilford North">Ilford North</span><span class="n">75294</span></div></li>
+			<li class="E14000760 LO r-11 c-33"><div class="hex"><span class="name" title="Ilford South">Ilford South</span><span class="n">91987</span></div></li>
+			<li class="E14000761 EA r-14 c-34"><div class="hex"><span class="name" title="Ipswich">Ipswich</span><span class="n">74499</span></div></li>
+			<li class="E14000762 SE r-2 c-20"><div class="hex"><span class="name" title="Isle of Wight">Isle of Wight</span><span class="n">108804</span></div></li>
+			<li class="E14000763 LO r-12 c-27"><div class="hex"><span class="name" title="Islington North">Islington North</span><span class="n">73326</span></div></li>
+			<li class="E14000764 LO r-10 c-28"><div class="hex"><span class="name" title="Islington South and Finsbury">Islington South and Finsbury</span><span class="n">68127</span></div></li>
+			<li class="E14000765 NE r-33 c-23"><div class="hex"><span class="name" title="Jarrow">Jarrow</span><span class="n">64002</span></div></li>
+			<li class="E14000766 YH r-28 c-23"><div class="hex"><span class="name" title="Keighley">Keighley</span><span class="n">68865</span></div></li>
+			<li class="E14000767 WM r-14 c-20"><div class="hex"><span class="name" title="Kenilworth and Southam">Kenilworth and Southam</span><span class="n">63957</span></div></li>
+			<li class="E14000768 LO r-10 c-25"><div class="hex"><span class="name" title="Kensington">Kensington</span><span class="n">61133</span></div></li>
+			<li class="E14000769 EM r-17 c-26"><div class="hex"><span class="name" title="Kettering">Kettering</span><span class="n">70155</span></div></li>
+			<li class="E14000770 LO r-7 c-23"><div class="hex"><span class="name" title="Kingston and Surbiton">Kingston and Surbiton</span><span class="n">81238</span></div></li>
+			<li class="E14000771 YH r-24 c-29"><div class="hex"><span class="name" title="Kingston upon Hull East">Kingston upon Hull East</span><span class="n">65710</span></div></li>
+			<li class="E14000772 YH r-25 c-29"><div class="hex"><span class="name" title="Kingston upon Hull North">Kingston upon Hull North</span><span class="n">64148</span></div></li>
+			<li class="E14000773 YH r-23 c-29"><div class="hex"><span class="name" title="Kingston upon Hull West and Hessle">Kingston upon Hull West and Hessle</span><span class="n">59100</span></div></li>
+			<li class="E14000774 SW r-8 c-16"><div class="hex"><span class="name" title="Kingswood">Kingswood</span><span class="n">68193</span></div></li>
+			<li class="E14000775 NW r-24 c-16"><div class="hex"><span class="name" title="Knowsley">Knowsley</span><span class="n">79108</span></div></li>
+			<li class="E14000776 NW r-30 c-21"><div class="hex"><span class="name" title="Lancaster and Fleetwood">Lancaster and Fleetwood</span><span class="n">61922</span></div></li>
+			<li class="E14000777 YH r-26 c-24"><div class="hex"><span class="name" title="Leeds Central">Leeds Central</span><span class="n">81799</span></div></li>
+			<li class="E14000778 YH r-26 c-27"><div class="hex"><span class="name" title="Leeds East">Leeds East</span><span class="n">64754</span></div></li>
+			<li class="E14000779 YH r-26 c-26"><div class="hex"><span class="name" title="Leeds North East">Leeds North East</span><span class="n">69097</span></div></li>
+			<li class="E14000780 YH r-27 c-25"><div class="hex"><span class="name" title="Leeds North West">Leeds North West</span><span class="n">61974</span></div></li>
+			<li class="E14000781 YH r-28 c-25"><div class="hex"><span class="name" title="Leeds West">Leeds West</span><span class="n">64950</span></div></li>
+			<li class="E14000782 EM r-18 c-25"><div class="hex"><span class="name" title="Leicester East">Leicester East</span><span class="n">75430</span></div></li>
+			<li class="E14000783 EM r-16 c-24"><div class="hex"><span class="name" title="Leicester South">Leicester South</span><span class="n">73518</span></div></li>
+			<li class="E14000784 EM r-17 c-24"><div class="hex"><span class="name" title="Leicester West">Leicester West</span><span class="n">63204</span></div></li>
+			<li class="E14000785 NW r-25 c-17"><div class="hex"><span class="name" title="Leigh">Leigh</span><span class="n">75905</span></div></li>
+			<li class="E14000786 SE r-5 c-32"><div class="hex"><span class="name" title="Lewes">Lewes</span><span class="n">69481</span></div></li>
+			<li class="E14000787 LO r-8 c-29"><div class="hex"><span class="name" title="Lewisham East">Lewisham East</span><span class="n">66913</span></div></li>
+			<li class="E14000788 LO r-7 c-28"><div class="hex"><span class="name" title="Lewisham West and Penge">Lewisham West and Penge</span><span class="n">72290</span></div></li>
+			<li class="E14000789 LO r-9 c-30"><div class="hex"><span class="name" title="Lewisham, Deptford">Lewisham, Deptford</span><span class="n">73428</span></div></li>
+			<li class="E14000790 LO r-11 c-30"><div class="hex"><span class="name" title="Leyton and Wanstead">Leyton and Wanstead</span><span class="n">64580</span></div></li>
+			<li class="E14000791 WM r-21 c-21"><div class="hex"><span class="name" title="Lichfield">Lichfield</span><span class="n">74234</span></div></li>
+			<li class="E14000792 EM r-19 c-29"><div class="hex"><span class="name" title="Lincoln">Lincoln</span><span class="n">74121</span></div></li>
+			<li class="E14000793 NW r-22 c-15"><div class="hex"><span class="name" title="Liverpool, Riverside">Liverpool, Riverside</span><span class="n">70829</span></div></li>
+			<li class="E14000794 NW r-25 c-15"><div class="hex"><span class="name" title="Liverpool, Walton">Liverpool, Walton</span><span class="n">61908</span></div></li>
+			<li class="E14000795 NW r-23 c-15"><div class="hex"><span class="name" title="Liverpool, Wavertree">Liverpool, Wavertree</span><span class="n">61549</span></div></li>
+			<li class="E14000796 NW r-24 c-15"><div class="hex"><span class="name" title="Liverpool, West Derby">Liverpool, West Derby</span><span class="n">63651</span></div></li>
+			<li class="E14000797 EM r-19 c-25"><div class="hex"><span class="name" title="Loughborough">Loughborough</span><span class="n">75217</span></div></li>
+			<li class="E14000798 EM r-19 c-30"><div class="hex"><span class="name" title="Louth and Horncastle">Louth and Horncastle</span><span class="n">74870</span></div></li>
+			<li class="E14000799 WM r-16 c-16"><div class="hex"><span class="name" title="Ludlow">Ludlow</span><span class="n">66374</span></div></li>
+			<li class="E14000800 EA r-14 c-23"><div class="hex"><span class="name" title="Luton North">Luton North</span><span class="n">67329</span></div></li>
+			<li class="E14000801 EA r-14 c-24"><div class="hex"><span class="name" title="Luton South">Luton South</span><span class="n">67741</span></div></li>
+			<li class="E14000802 NW r-23 c-21"><div class="hex"><span class="name" title="Macclesfield">Macclesfield</span><span class="n">71712</span></div></li>
+			<li class="E14000803 SE r-8 c-20"><div class="hex"><span class="name" title="Maidenhead">Maidenhead</span><span class="n">74187</span></div></li>
+			<li class="E14000804 SE r-7 c-34"><div class="hex"><span class="name" title="Maidstone and The Weald">Maidstone and The Weald</span><span class="n">73181</span></div></li>
+			<li class="E14000805 NW r-26 c-17"><div class="hex"><span class="name" title="Makerfield">Makerfield</span><span class="n">74320</span></div></li>
+			<li class="E14000806 EA r-12 c-36"><div class="hex"><span class="name" title="Maldon">Maldon</span><span class="n">69066</span></div></li>
+			<li class="E14000807 NW r-25 c-20"><div class="hex"><span class="name" title="Manchester Central">Manchester Central</span><span class="n">86078</span></div></li>
+			<li class="E14000808 NW r-25 c-18"><div class="hex"><span class="name" title="Manchester, Gorton">Manchester, Gorton</span><span class="n">72992</span></div></li>
+			<li class="E14000809 NW r-24 c-20"><div class="hex"><span class="name" title="Manchester, Withington">Manchester, Withington</span><span class="n">74102</span></div></li>
+			<li class="E14000810 EM r-22 c-27"><div class="hex"><span class="name" title="Mansfield">Mansfield</span><span class="n">77534</span></div></li>
+			<li class="E14000811 SE r-4 c-22"><div class="hex"><span class="name" title="Meon Valley">Meon Valley</span><span class="n">72738</span></div></li>
+			<li class="E14000812 WM r-18 c-21"><div class="hex"><span class="name" title="Meriden">Meriden</span><span class="n">81928</span></div></li>
+			<li class="E14000813 EA r-13 c-22"><div class="hex"><span class="name" title="Mid Bedfordshire">Mid Bedfordshire</span><span class="n">78501</span></div></li>
+			<li class="E14000814 EM r-20 c-24"><div class="hex"><span class="name" title="Mid Derbyshire">Mid Derbyshire</span><span class="n">67477</span></div></li>
+			<li class="E14000815 SW r-4 c-14"><div class="hex"><span class="name" title="Mid Dorset and North Poole">Mid Dorset and North Poole</span><span class="n">64299</span></div></li>
+			<li class="E14000816 EA r-17 c-27"><div class="hex"><span class="name" title="Mid Norfolk">Mid Norfolk</span><span class="n">77154</span></div></li>
+			<li class="E14000817 SE r-6 c-31"><div class="hex"><span class="name" title="Mid Sussex">Mid Sussex</span><span class="n">81034</span></div></li>
+			<li class="E14000818 WM r-13 c-19"><div class="hex"><span class="name" title="Mid Worcestershire">Mid Worcestershire</span><span class="n">73069</span></div></li>
+			<li class="E14000819 NE r-30 c-26"><div class="hex"><span class="name" title="Middlesbrough">Middlesbrough</span><span class="n">61873</span></div></li>
+			<li class="E14000820 NE r-30 c-27"><div class="hex"><span class="name" title="Middlesbrough South and East Cleveland">Middlesbrough South and East Cleveland</span><span class="n">71154</span></div></li>
+			<li class="E14000821 SE r-13 c-21"><div class="hex"><span class="name" title="Milton Keynes North">Milton Keynes North</span><span class="n">86826</span></div></li>
+			<li class="E14000822 SE r-12 c-21"><div class="hex"><span class="name" title="Milton Keynes South">Milton Keynes South</span><span class="n">89656</span></div></li>
+			<li class="E14000823 LO r-7 c-25"><div class="hex"><span class="name" title="Mitcham and Morden">Mitcham and Morden</span><span class="n">68474</span></div></li>
+			<li class="E14000824 SE r-6 c-22"><div class="hex"><span class="name" title="Mole Valley">Mole Valley</span><span class="n">74038</span></div></li>
+			<li class="E14000825 NW r-30 c-19"><div class="hex"><span class="name" title="Morecambe and Lunesdale">Morecambe and Lunesdale</span><span class="n">66985</span></div></li>
+			<li class="E14000826 YH r-25 c-26"><div class="hex"><span class="name" title="Morley and Outwood">Morley and Outwood</span><span class="n">75820</span></div></li>
+			<li class="E14000827 SE r-4 c-18"><div class="hex"><span class="name" title="New Forest East">New Forest East</span><span class="n">72697</span></div></li>
+			<li class="E14000828 SE r-3 c-18"><div class="hex"><span class="name" title="New Forest West">New Forest West</span><span class="n">68446</span></div></li>
+			<li class="E14000829 EM r-21 c-29"><div class="hex"><span class="name" title="Newark">Newark</span><span class="n">73747</span></div></li>
+			<li class="E14000830 SE r-7 c-18"><div class="hex"><span class="name" title="Newbury">Newbury</span><span class="n">79512</span></div></li>
+			<li class="E14000831 NE r-32 c-21"><div class="hex"><span class="name" title="Newcastle upon Tyne Central">Newcastle upon Tyne Central</span><span class="n">58147</span></div></li>
+			<li class="E14000832 NE r-31 c-22"><div class="hex"><span class="name" title="Newcastle upon Tyne East">Newcastle upon Tyne East</span><span class="n">64243</span></div></li>
+			<li class="E14000833 NE r-33 c-21"><div class="hex"><span class="name" title="Newcastle upon Tyne North">Newcastle upon Tyne North</span><span class="n">67902</span></div></li>
+			<li class="E14000834 WM r-20 c-16"><div class="hex"><span class="name" title="Newcastle-under-Lyme">Newcastle-under-Lyme</span><span class="n">67619</span></div></li>
+			<li class="E14000835 SW r-2 c-12"><div class="hex"><span class="name" title="Newton Abbot">Newton Abbot</span><span class="n">69928</span></div></li>
+			<li class="E14000836 YH r-27 c-26"><div class="hex"><span class="name" title="Normanton, Pontefract and Castleford">Normanton, Pontefract and Castleford</span><span class="n">82592</span></div></li>
+			<li class="E14000837 SW r-2 c-8"><div class="hex"><span class="name" title="North Cornwall">North Cornwall</span><span class="n">67192</span></div></li>
+			<li class="E14000838 SW r-4 c-10"><div class="hex"><span class="name" title="North Devon">North Devon</span><span class="n">74737</span></div></li>
+			<li class="E14000839 SW r-5 c-15"><div class="hex"><span class="name" title="North Dorset">North Dorset</span><span class="n">73759</span></div></li>
+			<li class="E14000840 NE r-30 c-22"><div class="hex"><span class="name" title="North Durham">North Durham</span><span class="n">65359</span></div></li>
+			<li class="E14000841 EA r-15 c-23"><div class="hex"><span class="name" title="North East Bedfordshire">North East Bedfordshire</span><span class="n">83551</span></div></li>
+			<li class="E14000842 EA r-16 c-30"><div class="hex"><span class="name" title="North East Cambridgeshire">North East Cambridgeshire</span><span class="n">82990</span></div></li>
+			<li class="E14000843 EM r-21 c-24"><div class="hex"><span class="name" title="North East Derbyshire">North East Derbyshire</span><span class="n">71445</span></div></li>
+			<li class="E14000844 SE r-6 c-20"><div class="hex"><span class="name" title="North East Hampshire">North East Hampshire</span><span class="n">76918</span></div></li>
+			<li class="E14000845 EA r-16 c-29"><div class="hex"><span class="name" title="North East Hertfordshire">North East Hertfordshire</span><span class="n">74000</span></div></li>
+			<li class="E14000846 SW r-6 c-15"><div class="hex"><span class="name" title="North East Somerset">North East Somerset</span><span class="n">69380</span></div></li>
+			<li class="E14000847 WM r-14 c-16"><div class="hex"><span class="name" title="North Herefordshire">North Herefordshire</span><span class="n">67926</span></div></li>
+			<li class="E14000848 EA r-16 c-33"><div class="hex"><span class="name" title="North Norfolk">North Norfolk</span><span class="n">68867</span></div></li>
+			<li class="E14000849 WM r-19 c-16"><div class="hex"><span class="name" title="North Shropshire">North Shropshire</span><span class="n">78858</span></div></li>
+			<li class="E14000850 SW r-7 c-13"><div class="hex"><span class="name" title="North Somerset">North Somerset</span><span class="n">80161</span></div></li>
+			<li class="E14000851 SW r-9 c-18"><div class="hex"><span class="name" title="North Swindon">North Swindon</span><span class="n">80983</span></div></li>
+			<li class="E14000852 SE r-7 c-38"><div class="hex"><span class="name" title="North Thanet">North Thanet</span><span class="n">71478</span></div></li>
+			<li class="E14000853 NE r-32 c-22"><div class="hex"><span class="name" title="North Tyneside">North Tyneside</span><span class="n">79300</span></div></li>
+			<li class="E14000854 WM r-20 c-22"><div class="hex"><span class="name" title="North Warwickshire">North Warwickshire</span><span class="n">70152</span></div></li>
+			<li class="E14000855 EA r-16 c-26"><div class="hex"><span class="name" title="North West Cambridgeshire">North West Cambridgeshire</span><span class="n">90318</span></div></li>
+			<li class="E14000856 NE r-31 c-21"><div class="hex"><span class="name" title="North West Durham">North West Durham</span><span class="n">69816</span></div></li>
+			<li class="E14000857 SE r-6 c-18"><div class="hex"><span class="name" title="North West Hampshire">North West Hampshire</span><span class="n">79223</span></div></li>
+			<li class="E14000858 EM r-18 c-24"><div class="hex"><span class="name" title="North West Leicestershire">North West Leicestershire</span><span class="n">72193</span></div></li>
+			<li class="E14000859 EA r-17 c-31"><div class="hex"><span class="name" title="North West Norfolk">North West Norfolk</span><span class="n">74402</span></div></li>
+			<li class="E14000860 SW r-7 c-17"><div class="hex"><span class="name" title="North Wiltshire">North Wiltshire</span><span class="n">67851</span></div></li>
+			<li class="E14000861 EM r-15 c-22"><div class="hex"><span class="name" title="Northampton North">Northampton North</span><span class="n">59144</span></div></li>
+			<li class="E14000862 EM r-14 c-22"><div class="hex"><span class="name" title="Northampton South">Northampton South</span><span class="n">61287</span></div></li>
+			<li class="E14000863 EA r-16 c-31"><div class="hex"><span class="name" title="Norwich North">Norwich North</span><span class="n">64515</span></div></li>
+			<li class="E14000864 EA r-15 c-32"><div class="hex"><span class="name" title="Norwich South">Norwich South</span><span class="n">74875</span></div></li>
+			<li class="E14000865 EM r-19 c-28"><div class="hex"><span class="name" title="Nottingham East">Nottingham East</span><span class="n">60464</span></div></li>
+			<li class="E14000866 EM r-20 c-28"><div class="hex"><span class="name" title="Nottingham North">Nottingham North</span><span class="n">65918</span></div></li>
+			<li class="E14000867 EM r-19 c-27"><div class="hex"><span class="name" title="Nottingham South">Nottingham South</span><span class="n">68987</span></div></li>
+			<li class="E14000868 WM r-19 c-22"><div class="hex"><span class="name" title="Nuneaton">Nuneaton</span><span class="n">68037</span></div></li>
+			<li class="E14000869 LO r-9 c-32"><div class="hex"><span class="name" title="Old Bexley and Sidcup">Old Bexley and Sidcup</span><span class="n">66035</span></div></li>
+			<li class="E14000870 NW r-24 c-22"><div class="hex"><span class="name" title="Oldham East and Saddleworth">Oldham East and Saddleworth</span><span class="n">71475</span></div></li>
+			<li class="E14000871 NW r-27 c-21"><div class="hex"><span class="name" title="Oldham West and Royton">Oldham West and Royton</span><span class="n">71652</span></div></li>
+			<li class="E14000872 LO r-7 c-30"><div class="hex"><span class="name" title="Orpington">Orpington</span><span class="n">68129</span></div></li>
+			<li class="E14000873 SE r-9 c-20"><div class="hex"><span class="name" title="Oxford East">Oxford East</span><span class="n">78978</span></div></li>
+			<li class="E14000874 SE r-9 c-19"><div class="hex"><span class="name" title="Oxford West and Abingdon">Oxford West and Abingdon</span><span class="n">76174</span></div></li>
+			<li class="E14000875 NW r-28 c-22"><div class="hex"><span class="name" title="Pendle">Pendle</span><span class="n">64573</span></div></li>
+			<li class="E14000876 YH r-22 c-24"><div class="hex"><span class="name" title="Penistone and Stocksbridge">Penistone and Stocksbridge</span><span class="n">70817</span></div></li>
+			<li class="E14000877 NW r-32 c-19"><div class="hex"><span class="name" title="Penrith and The Border">Penrith and The Border</span><span class="n">65209</span></div></li>
+			<li class="E14000878 EA r-16 c-28"><div class="hex"><span class="name" title="Peterborough">Peterborough</span><span class="n">72530</span></div></li>
+			<li class="E14000879 SW r-2 c-10"><div class="hex"><span class="name" title="Plymouth, Moor View">Plymouth, Moor View</span><span class="n">68246</span></div></li>
+			<li class="E14000880 SW r-2 c-9"><div class="hex"><span class="name" title="Plymouth, Sutton and Devonport">Plymouth, Sutton and Devonport</span><span class="n">73274</span></div></li>
+			<li class="E14000881 SW r-4 c-15"><div class="hex"><span class="name" title="Poole">Poole</span><span class="n">72557</span></div></li>
+			<li class="E14000882 LO r-10 c-29"><div class="hex"><span class="name" title="Poplar and Limehouse">Poplar and Limehouse</span><span class="n">82081</span></div></li>
+			<li class="E14000883 SE r-5 c-23"><div class="hex"><span class="name" title="Portsmouth North">Portsmouth North</span><span class="n">73105</span></div></li>
+			<li class="E14000884 SE r-4 c-24"><div class="hex"><span class="name" title="Portsmouth South">Portsmouth South</span><span class="n">71639</span></div></li>
+			<li class="E14000885 NW r-28 c-18"><div class="hex"><span class="name" title="Preston">Preston</span><span class="n">59981</span></div></li>
+			<li class="E14000886 YH r-28 c-24"><div class="hex"><span class="name" title="Pudsey">Pudsey</span><span class="n">70533</span></div></li>
+			<li class="E14000887 LO r-8 c-24"><div class="hex"><span class="name" title="Putney">Putney</span><span class="n">63923</span></div></li>
+			<li class="E14000888 EA r-12 c-34"><div class="hex"><span class="name" title="Rayleigh and Wickford">Rayleigh and Wickford</span><span class="n">77174</span></div></li>
+			<li class="E14000889 SE r-8 c-19"><div class="hex"><span class="name" title="Reading East">Reading East</span><span class="n">73232</span></div></li>
+			<li class="E14000890 SE r-7 c-19"><div class="hex"><span class="name" title="Reading West">Reading West</span><span class="n">72567</span></div></li>
+			<li class="E14000891 NE r-31 c-27"><div class="hex"><span class="name" title="Redcar">Redcar</span><span class="n">64826</span></div></li>
+			<li class="E14000892 WM r-13 c-18"><div class="hex"><span class="name" title="Redditch">Redditch</span><span class="n">65531</span></div></li>
+			<li class="E14000893 SE r-6 c-25"><div class="hex"><span class="name" title="Reigate">Reigate</span><span class="n">73429</span></div></li>
+			<li class="E14000894 NW r-29 c-22"><div class="hex"><span class="name" title="Ribble Valley">Ribble Valley</span><span class="n">77379</span></div></li>
+			<li class="E14000895 YH r-29 c-24"><div class="hex"><span class="name" title="Richmond (Yorks)">Richmond (Yorks)</span><span class="n">79062</span></div></li>
+			<li class="E14000896 LO r-9 c-24"><div class="hex"><span class="name" title="Richmond Park">Richmond Park</span><span class="n">77303</span></div></li>
+			<li class="E14000897 NW r-25 c-22"><div class="hex"><span class="name" title="Rochdale">Rochdale</span><span class="n">77248</span></div></li>
+			<li class="E14000898 SE r-9 c-35"><div class="hex"><span class="name" title="Rochester and Strood">Rochester and Strood</span><span class="n">77119</span></div></li>
+			<li class="E14000899 EA r-11 c-36"><div class="hex"><span class="name" title="Rochford and Southend East">Rochford and Southend East</span><span class="n">71935</span></div></li>
+			<li class="E14000900 LO r-10 c-34"><div class="hex"><span class="name" title="Romford">Romford</span><span class="n">72594</span></div></li>
+			<li class="E14000901 SE r-5 c-18"><div class="hex"><span class="name" title="Romsey and Southampton North">Romsey and Southampton North</span><span class="n">66519</span></div></li>
+			<li class="E14000902 NW r-26 c-22"><div class="hex"><span class="name" title="Rossendale and Darwen">Rossendale and Darwen</span><span class="n">73779</span></div></li>
+			<li class="E14000903 YH r-22 c-28"><div class="hex"><span class="name" title="Rother Valley">Rother Valley</span><span class="n">74275</span></div></li>
+			<li class="E14000904 YH r-24 c-26"><div class="hex"><span class="name" title="Rotherham">Rotherham</span><span class="n">63698</span></div></li>
+			<li class="E14000905 WM r-16 c-21"><div class="hex"><span class="name" title="Rugby">Rugby</span><span class="n">71655</span></div></li>
+			<li class="E14000906 LO r-12 c-23"><div class="hex"><span class="name" title="Ruislip, Northwood and Pinner">Ruislip, Northwood and Pinner</span><span class="n">73216</span></div></li>
+			<li class="E14000907 SE r-9 c-21"><div class="hex"><span class="name" title="Runnymede and Weybridge">Runnymede and Weybridge</span><span class="n">73771</span></div></li>
+			<li class="E14000908 EM r-18 c-28"><div class="hex"><span class="name" title="Rushcliffe">Rushcliffe</span><span class="n">73278</span></div></li>
+			<li class="E14000909 EM r-17 c-28"><div class="hex"><span class="name" title="Rutland and Melton">Rutland and Melton</span><span class="n">79693</span></div></li>
+			<li class="E14000910 EA r-12 c-32"><div class="hex"><span class="name" title="Saffron Walden">Saffron Walden</span><span class="n">80615</span></div></li>
+			<li class="E14000911 NW r-26 c-19"><div class="hex"><span class="name" title="Salford and Eccles">Salford and Eccles</span><span class="n">74291</span></div></li>
+			<li class="E14000912 SW r-5 c-17"><div class="hex"><span class="name" title="Salisbury">Salisbury</span><span class="n">69582</span></div></li>
+			<li class="E14000913 YH r-28 c-28"><div class="hex"><span class="name" title="Scarborough and Whitby">Scarborough and Whitby</span><span class="n">73511</span></div></li>
+			<li class="E14000914 YH r-22 c-29"><div class="hex"><span class="name" title="Scunthorpe">Scunthorpe</span><span class="n">64025</span></div></li>
+			<li class="E14000915 NE r-30 c-24"><div class="hex"><span class="name" title="Sedgefield">Sedgefield</span><span class="n">62844</span></div></li>
+			<li class="E14000916 NW r-24 c-14"><div class="hex"><span class="name" title="Sefton Central">Sefton Central</span><span class="n">67744</span></div></li>
+			<li class="E14000917 YH r-28 c-27"><div class="hex"><span class="name" title="Selby and Ainsty">Selby and Ainsty</span><span class="n">76082</span></div></li>
+			<li class="E14000918 SE r-7 c-31"><div class="hex"><span class="name" title="Sevenoaks">Sevenoaks</span><span class="n">71958</span></div></li>
+			<li class="E14000919 YH r-23 c-25"><div class="hex"><span class="name" title="Sheffield Central">Sheffield Central</span><span class="n">72321</span></div></li>
+			<li class="E14000920 YH r-23 c-27"><div class="hex"><span class="name" title="Sheffield South East">Sheffield South East</span><span class="n">70422</span></div></li>
+			<li class="E14000921 YH r-23 c-26"><div class="hex"><span class="name" title="Sheffield, Brightside and Hillsborough">Sheffield, Brightside and Hillsborough</span><span class="n">70874</span></div></li>
+			<li class="E14000922 YH r-22 c-25"><div class="hex"><span class="name" title="Sheffield, Hallam">Sheffield, Hallam</span><span class="n">72351</span></div></li>
+			<li class="E14000923 YH r-22 c-26"><div class="hex"><span class="name" title="Sheffield, Heeley">Sheffield, Heeley</span><span class="n">67950</span></div></li>
+			<li class="E14000924 EM r-21 c-27"><div class="hex"><span class="name" title="Sherwood">Sherwood</span><span class="n">73349</span></div></li>
+			<li class="E14000925 YH r-29 c-25"><div class="hex"><span class="name" title="Shipley">Shipley</span><span class="n">70464</span></div></li>
+			<li class="E14000926 WM r-18 c-16"><div class="hex"><span class="name" title="Shrewsbury and Atcham">Shrewsbury and Atcham</span><span class="n">76400</span></div></li>
+			<li class="E14000927 SE r-8 c-36"><div class="hex"><span class="name" title="Sittingbourne and Sheppey">Sittingbourne and Sheppey</span><span class="n">76018</span></div></li>
+			<li class="E14000928 YH r-29 c-23"><div class="hex"><span class="name" title="Skipton and Ripon">Skipton and Ripon</span><span class="n">76645</span></div></li>
+			<li class="E14000929 EM r-18 c-29"><div class="hex"><span class="name" title="Sleaford and North Hykeham">Sleaford and North Hykeham</span><span class="n">87972</span></div></li>
+			<li class="E14000930 SE r-10 c-21"><div class="hex"><span class="name" title="Slough">Slough</span><span class="n">86366</span></div></li>
+			<li class="E14000931 WM r-15 c-20"><div class="hex"><span class="name" title="Solihull">Solihull</span><span class="n">77956</span></div></li>
+			<li class="E14000932 SW r-5 c-13"><div class="hex"><span class="name" title="Somerton and Frome">Somerton and Frome</span><span class="n">83281</span></div></li>
+			<li class="E14000933 EA r-11 c-35"><div class="hex"><span class="name" title="South Basildon and East Thurrock">South Basildon and East Thurrock</span><span class="n">71155</span></div></li>
+			<li class="E14000934 EA r-16 c-27"><div class="hex"><span class="name" title="South Cambridgeshire">South Cambridgeshire</span><span class="n">84132</span></div></li>
+			<li class="E14000935 EM r-19 c-23"><div class="hex"><span class="name" title="South Derbyshire">South Derbyshire</span><span class="n">73923</span></div></li>
+			<li class="E14000936 SW r-3 c-15"><div class="hex"><span class="name" title="South Dorset">South Dorset</span><span class="n">71534</span></div></li>
+			<li class="E14000937 EA r-14 c-31"><div class="hex"><span class="name" title="South East Cambridgeshire">South East Cambridgeshire</span><span class="n">84570</span></div></li>
+			<li class="E14000938 SW r-1 c-8"><div class="hex"><span class="name" title="South East Cornwall">South East Cornwall</span><span class="n">71071</span></div></li>
+			<li class="E14000939 EM r-17 c-30"><div class="hex"><span class="name" title="South Holland and The Deepings">South Holland and The Deepings</span><span class="n">76460</span></div></li>
+			<li class="E14000940 EM r-17 c-23"><div class="hex"><span class="name" title="South Leicestershire">South Leicestershire</span><span class="n">76851</span></div></li>
+			<li class="E14000941 EA r-15 c-33"><div class="hex"><span class="name" title="South Norfolk">South Norfolk</span><span class="n">80721</span></div></li>
+			<li class="E14000942 EM r-14 c-21"><div class="hex"><span class="name" title="South Northamptonshire">South Northamptonshire</span><span class="n">85781</span></div></li>
+			<li class="E14000943 NW r-26 c-15"><div class="hex"><span class="name" title="South Ribble">South Ribble</span><span class="n">76489</span></div></li>
+			<li class="E14000944 NE r-33 c-24"><div class="hex"><span class="name" title="South Shields">South Shields</span><span class="n">62730</span></div></li>
+			<li class="E14000945 WM r-20 c-17"><div class="hex"><span class="name" title="South Staffordshire">South Staffordshire</span><span class="n">72771</span></div></li>
+			<li class="E14000946 EA r-14 c-33"><div class="hex"><span class="name" title="South Suffolk">South Suffolk</span><span class="n">73836</span></div></li>
+			<li class="E14000947 SW r-8 c-17"><div class="hex"><span class="name" title="South Swindon">South Swindon</span><span class="n">73926</span></div></li>
+			<li class="E14000948 SE r-7 c-37"><div class="hex"><span class="name" title="South Thanet">South Thanet</span><span class="n">70970</span></div></li>
+			<li class="E14000949 EA r-12 c-22"><div class="hex"><span class="name" title="South West Bedfordshire">South West Bedfordshire</span><span class="n">79285</span></div></li>
+			<li class="E14000950 SW r-1 c-10"><div class="hex"><span class="name" title="South West Devon">South West Devon</span><span class="n">71035</span></div></li>
+			<li class="E14000951 EA r-13 c-23"><div class="hex"><span class="name" title="South West Hertfordshire">South West Hertfordshire</span><span class="n">79668</span></div></li>
+			<li class="E14000952 EA r-15 c-30"><div class="hex"><span class="name" title="South West Norfolk">South West Norfolk</span><span class="n">76970</span></div></li>
+			<li class="E14000953 SE r-5 c-22"><div class="hex"><span class="name" title="South West Surrey">South West Surrey</span><span class="n">77548</span></div></li>
+			<li class="E14000954 SW r-5 c-14"><div class="hex"><span class="name" title="South West Wiltshire">South West Wiltshire</span><span class="n">73018</span></div></li>
+			<li class="E14000955 SE r-4 c-20"><div class="hex"><span class="name" title="Southampton, Itchen">Southampton, Itchen</span><span class="n">72281</span></div></li>
+			<li class="E14000956 SE r-4 c-19"><div class="hex"><span class="name" title="Southampton, Test">Southampton, Test</span><span class="n">70270</span></div></li>
+			<li class="E14000957 EA r-12 c-35"><div class="hex"><span class="name" title="Southend West">Southend West</span><span class="n">66876</span></div></li>
+			<li class="E14000958 NW r-25 c-14"><div class="hex"><span class="name" title="Southport">Southport</span><span class="n">67326</span></div></li>
+			<li class="E14000959 SE r-8 c-21"><div class="hex"><span class="name" title="Spelthorne">Spelthorne</span><span class="n">71592</span></div></li>
+			<li class="E14000960 EA r-15 c-27"><div class="hex"><span class="name" title="St Albans">St Albans</span><span class="n">75825</span></div></li>
+			<li class="E14000961 SW r-2 c-7"><div class="hex"><span class="name" title="St Austell and Newquay">St Austell and Newquay</span><span class="n">76607</span></div></li>
+			<li class="E14000962 NW r-25 c-16"><div class="hex"><span class="name" title="St Helens North">St Helens North</span><span class="n">75262</span></div></li>
+			<li class="E14000963 NW r-23 c-16"><div class="hex"><span class="name" title="St Helens South and Whiston">St Helens South and Whiston</span><span class="n">77720</span></div></li>
+			<li class="E14000964 SW r-1 c-5"><div class="hex"><span class="name" title="St Ives">St Ives</span><span class="n">65570</span></div></li>
+			<li class="E14000965 WM r-20 c-20"><div class="hex"><span class="name" title="Stafford">Stafford</span><span class="n">68705</span></div></li>
+			<li class="E14000966 WM r-22 c-19"><div class="hex"><span class="name" title="Staffordshire Moorlands">Staffordshire Moorlands</span><span class="n">63104</span></div></li>
+			<li class="E14000967 NW r-23 c-22"><div class="hex"><span class="name" title="Stalybridge and Hyde">Stalybridge and Hyde</span><span class="n">71357</span></div></li>
+			<li class="E14000968 EA r-15 c-26"><div class="hex"><span class="name" title="Stevenage">Stevenage</span><span class="n">70597</span></div></li>
+			<li class="E14000969 NW r-24 c-21"><div class="hex"><span class="name" title="Stockport">Stockport</span><span class="n">63931</span></div></li>
+			<li class="E14000970 NE r-31 c-25"><div class="hex"><span class="name" title="Stockton North">Stockton North</span><span class="n">66126</span></div></li>
+			<li class="E14000971 NE r-29 c-26"><div class="hex"><span class="name" title="Stockton South">Stockton South</span><span class="n">75111</span></div></li>
+			<li class="E14000972 WM r-21 c-18"><div class="hex"><span class="name" title="Stoke-on-Trent Central">Stoke-on-Trent Central</span><span class="n">60634</span></div></li>
+			<li class="E14000973 WM r-21 c-17"><div class="hex"><span class="name" title="Stoke-on-Trent North">Stoke-on-Trent North</span><span class="n">71438</span></div></li>
+			<li class="E14000974 WM r-20 c-18"><div class="hex"><span class="name" title="Stoke-on-Trent South">Stoke-on-Trent South</span><span class="n">68091</span></div></li>
+			<li class="E14000975 WM r-21 c-20"><div class="hex"><span class="name" title="Stone">Stone</span><span class="n">67339</span></div></li>
+			<li class="E14000976 WM r-15 c-17"><div class="hex"><span class="name" title="Stourbridge">Stourbridge</span><span class="n">69077</span></div></li>
+			<li class="E14000977 WM r-13 c-20"><div class="hex"><span class="name" title="Stratford-on-Avon">Stratford-on-Avon</span><span class="n">71304</span></div></li>
+			<li class="E14000978 LO r-8 c-27"><div class="hex"><span class="name" title="Streatham">Streatham</span><span class="n">79137</span></div></li>
+			<li class="E14000979 NW r-26 c-18"><div class="hex"><span class="name" title="Stretford and Urmston">Stretford and Urmston</span><span class="n">69026</span></div></li>
+			<li class="E14000980 SW r-9 c-17"><div class="hex"><span class="name" title="Stroud">Stroud</span><span class="n">80544</span></div></li>
+			<li class="E14000981 EA r-14 c-36"><div class="hex"><span class="name" title="Suffolk Coastal">Suffolk Coastal</span><span class="n">77816</span></div></li>
+			<li class="E14000982 NE r-33 c-25"><div class="hex"><span class="name" title="Sunderland Central">Sunderland Central</span><span class="n">72950</span></div></li>
+			<li class="E14000983 SE r-7 c-21"><div class="hex"><span class="name" title="Surrey Heath">Surrey Heath</span><span class="n">79515</span></div></li>
+			<li class="E14000984 LO r-7 c-24"><div class="hex"><span class="name" title="Sutton and Cheam">Sutton and Cheam</span><span class="n">69228</span></div></li>
+			<li class="E14000985 WM r-19 c-21"><div class="hex"><span class="name" title="Sutton Coldfield">Sutton Coldfield</span><span class="n">74956</span></div></li>
+			<li class="E14000986 WM r-21 c-22"><div class="hex"><span class="name" title="Tamworth">Tamworth</span><span class="n">71913</span></div></li>
+			<li class="E14000987 NW r-23 c-19"><div class="hex"><span class="name" title="Tatton">Tatton</span><span class="n">65004</span></div></li>
+			<li class="E14000988 SW r-4 c-11"><div class="hex"><span class="name" title="Taunton Deane">Taunton Deane</span><span class="n">83221</span></div></li>
+			<li class="E14000989 WM r-19 c-17"><div class="hex"><span class="name" title="Telford">Telford</span><span class="n">66166</span></div></li>
+			<li class="E14000990 SW r-11 c-17"><div class="hex"><span class="name" title="Tewkesbury">Tewkesbury</span><span class="n">78910</span></div></li>
+			<li class="E14000991 SW r-10 c-18"><div class="hex"><span class="name" title="The Cotswolds">The Cotswolds</span><span class="n">78290</span></div></li>
+			<li class="E14000992 WM r-17 c-16"><div class="hex"><span class="name" title="The Wrekin">The Wrekin</span><span class="n">65942</span></div></li>
+			<li class="E14000993 YH r-27 c-29"><div class="hex"><span class="name" title="Thirsk and Malton">Thirsk and Malton</span><span class="n">77451</span></div></li>
+			<li class="E14000994 SW r-9 c-16"><div class="hex"><span class="name" title="Thornbury and Yate">Thornbury and Yate</span><span class="n">66066</span></div></li>
+			<li class="E14000995 EA r-10 c-35"><div class="hex"><span class="name" title="Thurrock">Thurrock</span><span class="n">77559</span></div></li>
+			<li class="E14000996 SW r-4 c-13"><div class="hex"><span class="name" title="Tiverton and Honiton">Tiverton and Honiton</span><span class="n">76270</span></div></li>
+			<li class="E14000997 SE r-7 c-32"><div class="hex"><span class="name" title="Tonbridge and Malling">Tonbridge and Malling</span><span class="n">74877</span></div></li>
+			<li class="E14000998 LO r-7 c-26"><div class="hex"><span class="name" title="Tooting">Tooting</span><span class="n">76782</span></div></li>
+			<li class="E14000999 SW r-2 c-11"><div class="hex"><span class="name" title="Torbay">Torbay</span><span class="n">76350</span></div></li>
+			<li class="E14001000 SW r-3 c-9"><div class="hex"><span class="name" title="Torridge and West Devon">Torridge and West Devon</span><span class="n">78621</span></div></li>
+			<li class="E14001001 SW r-1 c-11"><div class="hex"><span class="name" title="Totnes">Totnes</span><span class="n">68630</span></div></li>
+			<li class="E14001002 LO r-12 c-28"><div class="hex"><span class="name" title="Tottenham">Tottenham</span><span class="n">70803</span></div></li>
+			<li class="E14001003 SW r-1 c-7"><div class="hex"><span class="name" title="Truro and Falmouth">Truro and Falmouth</span><span class="n">73601</span></div></li>
+			<li class="E14001004 SE r-7 c-33"><div class="hex"><span class="name" title="Tunbridge Wells">Tunbridge Wells</span><span class="n">73429</span></div></li>
+			<li class="E14001005 LO r-8 c-23"><div class="hex"><span class="name" title="Twickenham">Twickenham</span><span class="n">80250</span></div></li>
+			<li class="E14001006 NE r-34 c-23"><div class="hex"><span class="name" title="Tynemouth">Tynemouth</span><span class="n">77524</span></div></li>
+			<li class="E14001007 LO r-10 c-22"><div class="hex"><span class="name" title="Uxbridge and South Ruislip">Uxbridge and South Ruislip</span><span class="n">70631</span></div></li>
+			<li class="E14001008 LO r-9 c-27"><div class="hex"><span class="name" title="Vauxhall">Vauxhall</span><span class="n">82231</span></div></li>
+			<li class="E14001009 YH r-26 c-25"><div class="hex"><span class="name" title="Wakefield">Wakefield</span><span class="n">70521</span></div></li>
+			<li class="E14001010 NW r-22 c-13"><div class="hex"><span class="name" title="Wallasey">Wallasey</span><span class="n">65495</span></div></li>
+			<li class="E14001011 WM r-20 c-19"><div class="hex"><span class="name" title="Walsall North">Walsall North</span><span class="n">67080</span></div></li>
+			<li class="E14001012 WM r-19 c-19"><div class="hex"><span class="name" title="Walsall South">Walsall South</span><span class="n">67743</span></div></li>
+			<li class="E14001013 LO r-12 c-29"><div class="hex"><span class="name" title="Walthamstow">Walthamstow</span><span class="n">67015</span></div></li>
+			<li class="E14001014 NE r-34 c-21"><div class="hex"><span class="name" title="Wansbeck">Wansbeck</span><span class="n">60705</span></div></li>
+			<li class="E14001015 SE r-8 c-18"><div class="hex"><span class="name" title="Wantage">Wantage</span><span class="n">82931</span></div></li>
+			<li class="E14001016 WM r-17 c-18"><div class="hex"><span class="name" title="Warley">Warley</span><span class="n">63738</span></div></li>
+			<li class="E14001017 NW r-24 c-17"><div class="hex"><span class="name" title="Warrington North">Warrington North</span><span class="n">72104</span></div></li>
+			<li class="E14001018 NW r-23 c-18"><div class="hex"><span class="name" title="Warrington South">Warrington South</span><span class="n">84767</span></div></li>
+			<li class="E14001019 WM r-15 c-21"><div class="hex"><span class="name" title="Warwick and Leamington">Warwick and Leamington</span><span class="n">71578</span></div></li>
+			<li class="E14001020 NE r-32 c-24"><div class="hex"><span class="name" title="Washington and Sunderland West">Washington and Sunderland West</span><span class="n">68190</span></div></li>
+			<li class="E14001021 EA r-13 c-24"><div class="hex"><span class="name" title="Watford">Watford</span><span class="n">83535</span></div></li>
+			<li class="E14001022 EA r-15 c-35"><div class="hex"><span class="name" title="Waveney">Waveney</span><span class="n">80166</span></div></li>
+			<li class="E14001023 SE r-6 c-32"><div class="hex"><span class="name" title="Wealden">Wealden</span><span class="n">80236</span></div></li>
+			<li class="E14001024 NW r-22 c-17"><div class="hex"><span class="name" title="Weaver Vale">Weaver Vale</span><span class="n">68407</span></div></li>
+			<li class="E14001025 EM r-16 c-23"><div class="hex"><span class="name" title="Wellingborough">Wellingborough</span><span class="n">74317</span></div></li>
+			<li class="E14001026 SW r-5 c-12"><div class="hex"><span class="name" title="Wells">Wells</span><span class="n">79405</span></div></li>
+			<li class="E14001027 EA r-14 c-26"><div class="hex"><span class="name" title="Welwyn Hatfield">Welwyn Hatfield</span><span class="n">73247</span></div></li>
+			<li class="E14001028 YH r-25 c-27"><div class="hex"><span class="name" title="Wentworth and Dearne">Wentworth and Dearne</span><span class="n">74283</span></div></li>
+			<li class="E14001029 WM r-18 c-19"><div class="hex"><span class="name" title="West Bromwich East">West Bromwich East</span><span class="n">63637</span></div></li>
+			<li class="E14001030 WM r-16 c-17"><div class="hex"><span class="name" title="West Bromwich West">West Bromwich West</span><span class="n">65524</span></div></li>
+			<li class="E14001031 SW r-3 c-14"><div class="hex"><span class="name" title="West Dorset">West Dorset</span><span class="n">78000</span></div></li>
+			<li class="E14001032 LO r-11 c-31"><div class="hex"><span class="name" title="West Ham">West Ham</span><span class="n">90640</span></div></li>
+			<li class="E14001033 NW r-26 c-16"><div class="hex"><span class="name" title="West Lancashire">West Lancashire</span><span class="n">70906</span></div></li>
+			<li class="E14001034 EA r-15 c-31"><div class="hex"><span class="name" title="West Suffolk">West Suffolk</span><span class="n">76198</span></div></li>
+			<li class="E14001035 WM r-12 c-18"><div class="hex"><span class="name" title="West Worcestershire">West Worcestershire</span><span class="n">73394</span></div></li>
+			<li class="E14001036 LO r-10 c-26"><div class="hex"><span class="name" title="Westminster North">Westminster North</span><span class="n">62346</span></div></li>
+			<li class="E14001037 NW r-30 c-20"><div class="hex"><span class="name" title="Westmorland and Lonsdale">Westmorland and Lonsdale</span><span class="n">65857</span></div></li>
+			<li class="E14001038 SW r-6 c-13"><div class="hex"><span class="name" title="Weston-Super-Mare">Weston-Super-Mare</span><span class="n">80309</span></div></li>
+			<li class="E14001039 NW r-27 c-17"><div class="hex"><span class="name" title="Wigan">Wigan</span><span class="n">75990</span></div></li>
+			<li class="E14001040 LO r-8 c-25"><div class="hex"><span class="name" title="Wimbledon">Wimbledon</span><span class="n">65853</span></div></li>
+			<li class="E14001041 SE r-5 c-21"><div class="hex"><span class="name" title="Winchester">Winchester</span><span class="n">74119</span></div></li>
+			<li class="E14001042 SE r-8 c-22"><div class="hex"><span class="name" title="Windsor">Windsor</span><span class="n">71538</span></div></li>
+			<li class="E14001043 NW r-21 c-14"><div class="hex"><span class="name" title="Wirral South">Wirral South</span><span class="n">56956</span></div></li>
+			<li class="E14001044 NW r-21 c-13"><div class="hex"><span class="name" title="Wirral West">Wirral West</span><span class="n">55377</span></div></li>
+			<li class="E14001045 EA r-13 c-35"><div class="hex"><span class="name" title="Witham">Witham</span><span class="n">67090</span></div></li>
+			<li class="E14001046 SE r-11 c-19"><div class="hex"><span class="name" title="Witney">Witney</span><span class="n">79767</span></div></li>
+			<li class="E14001047 SE r-6 c-21"><div class="hex"><span class="name" title="Woking">Woking</span><span class="n">74269</span></div></li>
+			<li class="E14001048 SE r-6 c-19"><div class="hex"><span class="name" title="Wokingham">Wokingham</span><span class="n">77881</span></div></li>
+			<li class="E14001049 WM r-21 c-19"><div class="hex"><span class="name" title="Wolverhampton North East">Wolverhampton North East</span><span class="n">61065</span></div></li>
+			<li class="E14001050 WM r-18 c-18"><div class="hex"><span class="name" title="Wolverhampton South East">Wolverhampton South East</span><span class="n">62556</span></div></li>
+			<li class="E14001051 WM r-19 c-18"><div class="hex"><span class="name" title="Wolverhampton South West">Wolverhampton South West</span><span class="n">60368</span></div></li>
+			<li class="E14001052 WM r-13 c-17"><div class="hex"><span class="name" title="Worcester">Worcester</span><span class="n">72461</span></div></li>
+			<li class="E14001053 NW r-31 c-18"><div class="hex"><span class="name" title="Workington">Workington</span><span class="n">58615</span></div></li>
+			<li class="E14001054 NW r-24 c-18"><div class="hex"><span class="name" title="Worsley and Eccles South">Worsley and Eccles South</span><span class="n">72177</span></div></li>
+			<li class="E14001055 SE r-4 c-28"><div class="hex"><span class="name" title="Worthing West">Worthing West</span><span class="n">75617</span></div></li>
+			<li class="E14001056 SE r-10 c-20"><div class="hex"><span class="name" title="Wycombe">Wycombe</span><span class="n">76371</span></div></li>
+			<li class="E14001057 NW r-29 c-20"><div class="hex"><span class="name" title="Wyre and Preston North">Wyre and Preston North</span><span class="n">70637</span></div></li>
+			<li class="E14001058 WM r-15 c-16"><div class="hex"><span class="name" title="Wyre Forest">Wyre Forest</span><span class="n">77407</span></div></li>
+			<li class="E14001059 NW r-25 c-19"><div class="hex"><span class="name" title="Wythenshawe and Sale East">Wythenshawe and Sale East</span><span class="n">75994</span></div></li>
+			<li class="E14001060 SW r-4 c-12"><div class="hex"><span class="name" title="Yeovil">Yeovil</span><span class="n">82447</span></div></li>
+			<li class="E14001061 YH r-27 c-27"><div class="hex"><span class="name" title="York Central">York Central</span><span class="n">75351</span></div></li>
+			<li class="E14001062 YH r-27 c-28"><div class="hex"><span class="name" title="York Outer">York Outer</span><span class="n">78561</span></div></li>
 			<li class="N06000001 NI r-27 c-4"><div class="hex"><span class="name" title="Belfast East">Belfast East</span><span class="n">63157</span></div></li>
 			<li class="N06000002 NI r-28 c-4"><div class="hex"><span class="name" title="Belfast North">Belfast North</span><span class="n">68553</span></div></li>
 			<li class="N06000003 NI r-27 c-3"><div class="hex"><span class="name" title="Belfast South">Belfast South</span><span class="n">64927</span></div></li>
@@ -867,7 +949,7 @@
 			<li class="S14000057 SC r-40 c-15"><div class="hex"><span class="name" title="Stirling">Stirling</span><span class="n">67236</span></div></li>
 			<li class="S14000058 SC r-40 c-18"><div class="hex"><span class="name" title="West Aberdeenshire and Kincardine">West Aberdeenshire and Kincardine</span><span class="n">73445</span></div></li>
 			<li class="S14000059 SC r-39 c-15"><div class="hex"><span class="name" title="West Dunbartonshire">West Dunbartonshire</span><span class="n">69208</span></div></li>
-			<li class="W07000041 WA r-20 c-11"><div class="hex"><span class="name" title="Ynys MÙn">Ynys MÙn</span><span class="n">49939</span></div></li>
+			<li class="W07000041 WA r-20 c-11"><div class="hex"><span class="name" title="Ynys Môn">Ynys M&ocirc;n</span><span class="n">49939</span></div></li>
 			<li class="W07000042 WA r-20 c-14"><div class="hex"><span class="name" title="Delyn">Delyn</span><span class="n">53639</span></div></li>
 			<li class="W07000043 WA r-20 c-15"><div class="hex"><span class="name" title="Alyn and Deeside">Alyn and Deeside</span><span class="n">62016</span></div></li>
 			<li class="W07000044 WA r-19 c-15"><div class="hex"><span class="name" title="Wrexham">Wrexham</span><span class="n">50992</span></div></li>
