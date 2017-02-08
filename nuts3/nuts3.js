@@ -1,7 +1,7 @@
 var hex;
 S(document).ready(function(){
 
-	hex = new HexMap('hexmap',400,566);
+	hex = new HexMap('hexmap',400,580);
 	
 	// Create an initial hexmap
 	hex.update();
@@ -206,8 +206,8 @@ function HexMap(id,w,h){
 		"UKM62": { "name": "Inverness, Nairn, Moray, and Badenoch and Strathspey", "short": "Inverness Nairn/Moray Badenoch Strathspey", "r": 23, "c": 4 },
 		"UKM63": { "name": "Lochaber, Skye and Lochalsh, Arran and Cumbrae, and Argyll and Bute", "short": "Lochaber Skye-Lochalsh Arran-Cumbrae Argyll-Bute", "r": 22, "c": 3 },
 		"UKM64": { "name": "Eilean Siar (Western Isles)", "r": 24, "c": 3 },
-		"UKM65": { "name": "Orkney Islands", "r": 24, "c": 5 },
-		"UKM66": { "name": "Shetland Islands", "r": 26, "c": 6 },
+		"UKM65": { "name": "Orkney Islands", "r": 25, "c": 6 },
+		"UKM66": { "name": "Shetland Islands", "r": 27, "c": 7 },
 		"UKN01": { "name": "Belfast", "r": 17, "c": 1 },
 		"UKN02": { "name": "Outer Belfast", "r": 16, "c": 1 },
 		"UKN03": { "name": "East of Northern Ireland", "r": 16, "c": 0 },
