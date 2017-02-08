@@ -2,7 +2,7 @@ var hex;
 S(document).ready(function(){
 
 	hex = new HexMap('hexmap',400,566);
-
+	
 	// Create an initial hexmap
 	hex.update();
 	
@@ -375,7 +375,7 @@ function HexMap(id,w,h){
 			_obj.on('mouseover',{hexmap:this,me:_obj,nut:nut,x:parseFloat(x),y:parseFloat(y)},function(e){
 				this.attr('stroke','black').attr('stroke-width',1)//.css({'z-index':1});
 				S('.infobubble').remove();
-				S('#'+e.data.hexmap.id).after('<div class="infobubble" style="position:absolute;left:'+(e.data.x+s*0.5)+'px;top:'+(e.data.y)+'px;margin-bottom:'+(s+50)+'px"><div class="infobubble_inner">'+this.attr('title')+'</div></div>');
+				S('#'+e.data.hexmap.id+' svg').after('<div class="infobubble" style="position:absolute;left:'+(e.data.x+s*0.5)+'px;top:'+(e.data.y)+'px;margin-bottom:'+(s+60)+'px"><div class="infobubble_inner">'+this.attr('title')+'</div></div>');
 			}).on('mouseout',{hexmap:this,me:_obj},function(e){
 				S('#infobubble').remove();
 				this.attr('stroke','none');
