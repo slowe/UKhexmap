@@ -148,7 +148,7 @@ function HexMap(id,w,h){
 		"UKJ21": { "name": "Brighton and Hove", "r": 1, "c": 9 },
 		"UKJ22": { "name": "East Sussex CC", "r": 1, "c": 10 },
 		"UKJ25": { "name": "West Surrey", "r": 3, "c": 8 },
-		"UKK41": { "name": "Plymouth", "r": 1, "c": 2 },
+		"UKK41": { "name": "Plymouth", "r": 1, "c": 3 },
 		"UKJ27": { "name": "West Sussex (South West)", "r": 1, "c": 8 },
 		"UKJ28": { "name": "West Sussex (North East)", "r": 2, "c": 8 },
 		"UKJ31": { "name": "Portsmouth", "r": 2, "c": 7 },
@@ -171,7 +171,7 @@ function HexMap(id,w,h){
 		"UKK21": { "name": "Bournemouth and Poole", "r": 3, "c": 5 },
 		"UKK22": { "name": "Dorset CC", "r": 3, "c": 4 },
 		"UKK23": { "name": "Somerset", "r": 2, "c": 3 },
-		"UKK30": { "name": "Cornwall and Isles of Scilly", "r": 1, "c": 1 },
+		"UKK30": { "name": "Cornwall and Isles of Scilly", "r": 1, "c": 2 },
 		"UKK43": { "name": "Devon CC", "r": 2, "c": 2 },
 		"UKL11": { "name": "Isle of Anglesey", "r": 10, "c": 1 },
 		"UKL12": { "name": "Gwynedd", "r": 9, "c": 2 },
@@ -369,7 +369,7 @@ function HexMap(id,w,h){
 			var x = ((s + dx*c) + dx/2 - (r%2)*dx/2).toFixed(1);
 
 			var h = drawHex(x,y,s);
-			ps.push( this.paper.path(h).attr({'fill':'#FF6700','stroke':'none','opacity':(0.7+Math.random()*0.3),'title':nuts[nut].name}) );
+			ps.push( this.paper.path(h).attr({'fill':'#FF6700','stroke':'none','opacity':(0.7+Math.random()*0.3),'title':nuts[nut].name, 'style':'cursor: pointer;'}) );
 
 			var _obj = ps[ps.length-1];
 			_obj.on('mouseover',{hexmap:this,me:_obj,nut:nut,x:parseFloat(x),y:parseFloat(y)},function(e){
