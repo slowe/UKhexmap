@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script type="text/javascript" src="stuquery.js"></script>
+	<script type="text/javascript" src="stuquery.svg.js"></script>
+	<script type="text/javascript" src="nuts3.js"></script>
+	<style>
+		body {
+			font-family: VAGRoundedStd-Thin,"Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+		}
+		#hexmap {
+			width: 400;
+			height: 800;
+		}
+		.infobubble {
+			position: absolute;
+			left: 50%;
+			width: auto;
+			min-height: 2em;
+			border-radius: 0px;
+			background-color: white;
+			z-index: 100;
+			box-shadow: 1px 1px 10px rgba(0,0,0,0.25);
+			margin-top: -0.5em;
+			margin-left: 1em;
+			line-height: 1em;
+		}
+		.infobubble_inner {
+			padding: 0.5em;
+		}
+		.infobubble:after {
+			content: '';
+			position: absolute;
+			bottom: auto;
+			width: 0;
+			height: 0;
+			border: 1em solid transparent; 
+			left: 0;
+			top: 0%;
+			margin-top: 0em;
+			border-right-color: white;
+			left: -2em;
+		}
+		.infobubble ul {
+			list-style: none;
+			margin: 0px;
+			padding: 0px;
+		}
+		.infobubble li {
+			margin: 0px;
+		}
+		.infobubble li a {
+			color: white;
+			width: 100%;
+			font-size: 0.8em;
+			margin: 1px;
+			border: 0px!important;
+		}
+		.infobubble h3 {
+			margin-top: 0px;
+			margin-bottom: 4px;
+			font-size: 1em;
+		}	</style>
+</head>
+<body>
+
+
+	<div id="hexmap">
+	
+	</div>
+
+</body>
+</html>
