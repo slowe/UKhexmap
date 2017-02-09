@@ -7,64 +7,35 @@
 	<style>
 		body {
 			font-family: VAGRoundedStd-Thin,"Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
-			background: #333333;
+			background: #dfdfdf;
 		}
 		#hexmap {
 			margin: auto;
-			width: 400;
-			height: 800;
+			max-width: 100%;
 			position: relative;
 		}
 		.infobubble {
-			white-space: nowrap;
-			position: absolute;
-			left: 50%;
-			width: auto;
-			min-height: 2em;
+			display: block;
 			border-radius: 0px;
-			background-color: white;
-			z-index: 100;
-			box-shadow: 1px 1px 10px rgba(0,0,0,0.25);
-			margin-top: -1em;
-			margin-left: 10px;
+			margin: auto;
 			line-height: 1em;
-		}
-		.infobubble_inner {
+			text-align: center;
+			position: relative;
+			height: 2em;
 			padding: 0.5em;
 		}
-		.infobubble:after {
-			content: '';
+		.infobubble_inner {
+			display: inline-block;
+			width: auto;
+			background-color: white;
+			padding: 0.5em;
+			left: 50%;
+			transform: translate3d(-50%,0%, 0);
 			position: absolute;
-			bottom: auto;
-			width: 0;
-			height: 0;
-			border: 1em solid transparent; 
-			left: 0;
-			top: 0%;
-			margin-top: 0em;
-			border-right-color: white;
-			left: -2em;
+			text-align: center;
+			margin-right: -50%;
 		}
-		.infobubble ul {
-			list-style: none;
-			margin: 0px;
-			padding: 0px;
-		}
-		.infobubble li {
-			margin: 0px;
-		}
-		.infobubble li a {
-			color: white;
-			width: 100%;
-			font-size: 0.8em;
-			margin: 1px;
-			border: 0px!important;
-		}
-		.infobubble h3 {
-			margin-top: 0px;
-			margin-bottom: 4px;
-			font-size: 1em;
-		}	</style>
+		</style>
 </head>
 <body>
 
@@ -73,5 +44,19 @@
 	
 	</div>
 
+	<div>
+	<button region="UK">UK</button>
+	<button region="UKC">North East</button>
+	<button region="UKD">North West</button>
+	<button region="UKE">Yorkshire</button>
+	<button region="UKF">East Midlands</button>
+	<button region="UKG">West Midlands</button>
+	<button region="UKH">East of England</button>
+	<button region="UKI">London</button>
+	<button region="UKJ">South East</button>
+	<button region="UKK">South West</button>
+	<button region="UKL">Wales</button>
+	<button region="UKM">Scotland</button>
+	</div>
 </body>
 </html>

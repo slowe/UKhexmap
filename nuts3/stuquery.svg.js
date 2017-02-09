@@ -87,9 +87,15 @@ function SVG(id){
 		this.events.push({'type':type,'attr':attr,'fn':fn});
 		return this;
 	}
-	Node.prototype.attr = function(a){
-		this.attributes = a;
-		this.orig.attributes = JSON.parse(JSON.stringify(a));
+	Node.prototype.attr = function(attr,arg){
+		if(arg){ attr = {}; attr[attr] = arg; }
+		if(!this.attributes) this.attributes = {};
+		if(!this.el || this.el.length == 0) this.el = S('#'+this.id);
+		for(a in attr){
+			this.attributes[a] = attr[a];
+			this.el.attr(a,attr[a]);
+		}
+		this.orig.attributes = JSON.parse(JSON.stringify(this.attributes));
 		return this;
 	}
 	Node.prototype.transform = function(ts){

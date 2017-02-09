@@ -1,15 +1,13 @@
 var hex;
 S(document).ready(function(){
 
-	hex = new HexMap('hexmap',400,580);
+	hex = new HexMap('hexmap',300,504);
 	
 	// Create an initial hexmap
 	hex.update();
 	
+	S('button').on('click',function(e){ hex.toggleRegion(S(e.currentTarget).attr('region')); });
 });
-
-
-
 
 
 function HexMap(id,w,h){
@@ -18,206 +16,188 @@ function HexMap(id,w,h){
 	this.h = h;
 	this.aspectratio = w/h;
 	this.id = id;
-	this.rounded = Math.random();
 	this.saveable = (typeof Blob==="function");
+	this.hexes = {};
 
 	var points,eye,patterns;
 	var path = "";
-	var colours = {
-		"c1": { "bg": "#2254F4", "text": "white" },
-		"c2": { "bg": "#178CFF", "text": "white" },
-		"c3": { "bg": "#00B6FF", "text": "white" },
-		"c4": { "bg": "#08DEF9", "text": "black" },
-		"c5": { "bg": "#1DD3A7", "text": "white" },
-		"c6": { "bg": "#0DBC37", "text": "white" },
-		"c7": { "bg": "#67E767", "text": "white" },
-		"c8": { "bg": "#722EA5", "text": "white" },
-		"c9": { "bg": "#E6007C", "text": "white" },
-		"c10": { "bg": "#EF3AAB", "text": "white" },
-		"c11": { "bg": "#D73058", "text": "white" },
-		"c12": { "bg": "#D60303", "text": "white" },
-		"c13": { "bg": "#FF6700", "text": "white" },
-		"c14": { "bg": "#F9BC26", "text": "black"}
-	}
-	var nuts = {
-		"UKC11": { "name": "Hartlepool and Stockton-on-Tees", "short": "Hartlepool Stockton-on-T", "r": 15, "c": 7 },
-		"UKC12": { "name": "South Teesside", "r": 15, "c": 8 },
-		"UKC13": { "name": "Darlington", "r": 16, "c": 6 },
-		"UKC14": { "name": "Durham CC", "r": 16, "c": 5 },
-		"UKD36": { "name": "Greater Manchester North West", "r": 13, "c": 5 },
-		"UKD37": { "name": "Greater Manchester North East", "r": 13, "c": 6 },
-		"UKC21": { "name": "Northumberland", "r": 17, "c": 6 },
-		"UKC22": { "name": "Tyneside", "r": 17, "c": 7 },
-		"UKC23": { "name": "Sunderland", "r": 16, "c": 7 },
-		"UKH21": { "name": "Luton", "r": 7, "c": 8 },
-		"UKD11": { "name": "West Cumbria", "r": 16, "c": 4 },
-		"UKD41": { "name": "Blackburn with Darwen", "r": 14, "c": 4 },
-		"UKD42": { "name": "Blackpool", "r": 15, "c": 4 },
-		"UKD47": { "name": "Chorley and West Lancashire", "r": 13, "c": 4 },
-		"UKD61": { "name": "Warrington", "r": 12, "c": 4 },
-		"UKD12": { "name": "East Cumbria", "r": 15, "c": 6 },
-		"UKD33": { "name": "Manchester", "r": 12, "c": 5 },
-		"UKD34": { "name": "Greater Manchester South West", "r": 11, "c": 5 },
-		"UKD35": { "name": "Greater Manchester South East", "r": 11, "c": 6 },
-		"UKD44": { "name": "Lancaster and Wyre", "r": 15, "c": 5 },
-		"UKD45": { "name": "Mid Lancashire", "r": 14, "c": 5 },
-		"UKD46": { "name": "East Lancashire", "r": 14, "c": 6 },
-		"UKD74": { "name": "Wirral", "r": 11, "c": 3 },
-		"UKD62": { "name": "Cheshire East", "r": 10, "c": 4 },
-		"UKD63": { "name": "Cheshire West and Chester", "r": 10, "c": 3 },
-		"UKD71": { "name": "East Merseyside", "r": 11, "c": 4 },
-		"UKD72": { "name": "Liverpool", "r": 12, "c": 3 },
-		"UKD73": { "name": "Sefton", "r": 13, "c": 3 },
-		"UKE11": { "name": "Kingston upon Hull, City of", "short": "Kingston upon Hull", "r": 13, "c": 10 },
-		"UKE12": { "name": "East Riding of Yorkshire", "r": 13, "c": 9 },
-		"UKE13": { "name": "North and North East Lincolnshire", "r": 12, "c": 9 },
-		"UKE21": { "name": "York", "r": 14, "c": 8 },
-		"UKE32": { "name": "Sheffield", "r": 11, "c": 8 },
-		"UKI34": { "name": "Wandsworth", "r": 3, "c": 9 },
-		"UKE22": { "name": "North Yorkshire CC", "r": 14, "c": 7 },
-		"UKE31": { "name": "Barnsley, Doncaster and Rotherham", "r": 12, "c": 7 },
-		"UKE41": { "name": "Bradford", "r": 13, "c": 7 },
-		"UKE42": { "name": "Leeds", "r": 13, "c": 8 },
-		"UKE44": { "name": "Calderdale and Kirklees", "r": 12, "c": 6 },
-		"UKE45": { "name": "Wakefield", "r": 12, "c": 8 },
-		"UKF11": { "name": "Derby", "r": 9, "c": 6 },
-		"UKF12": { "name": "East Derbyshire", "r": 11, "c": 7 },
-		"UKF25": { "name": "North Northamptonshire", "short": "North Northamptons.", "r": 9, "c": 10 },
-		"UKF13": { "name": "South and West Derbyshire", "r": 10, "c": 6 },
-		"UKF14": { "name": "Nottingham", "r": 11, "c": 9 },
-		"UKF15": { "name": "North Nottinghamshire", "short": "North Nottinghams.", "r": 11, "c": 10 },
-		"UKG38": { "name": "Walsall", "r": 8, "c": 6 },
-		"UKG39": { "name": "Wolverhampton", "r": 8, "c": 4 },
-		"UKF16": { "name": "South Nottinghamshire", "short": "South Nottinghams.", "r": 10, "c": 9 },
-		"UKF21": { "name": "Leicester", "r": 10, "c": 7 },
-		"UKF22": { "name": "Leicestershire CC and Rutland", "r": 10, "c": 8 },
-		"UKF24": { "name": "West Northamptonshire", "short": "West Northamptons.", "r": 9, "c": 7 },
-		"UKH11": { "name": "Peterborough", "r": 9, "c": 11 },
-		"UKF30": { "name": "Lincolnshire", "r": 10, "c": 10 },
-		"UKG11": { "name": "Herefordshire, County of", "r": 7, "c": 4 },
-		"UKI41": { "name": "Hackney and Newham", "r": 6, "c": 10 },
-		"UKG12": { "name": "Worcestershire", "r": 6, "c": 4 },
-		"UKG13": { "name": "Warwickshire", "r": 6, "c": 5 },
-		"UKG21": { "name": "Telford and Wrekin", "r": 9, "c": 4 },
-		"UKI42": { "name": "Tower Hamlets", "r": 5, "c": 10 },
-		"UKI43": { "name": "Haringey and Islington", "r": 7, "c": 10 },
-		"UKG22": { "name": "Shropshire CC", "r": 7, "c": 3 },
-		"UKG23": { "name": "Stoke-on-Trent", "r": 10, "c": 5 },
-		"UKH12": { "name": "Cambridgeshire CC", "r": 8, "c": 10 },
-		"UKG24": { "name": "Staffordshire CC", "r": 9, "c": 5 },
-		"UKG31": { "name": "Birmingham", "r": 7, "c": 5 },
-		"UKG32": { "name": "Solihull", "r": 7, "c": 6 },
-		"UKG33": { "name": "Coventry", "r": 7, "c": 7 },
-		"UKG36": { "name": "Dudley", "r": 8, "c": 5 },
-		"UKG37": { "name": "Sandwell", "r": 8, "c": 3 },
-		"UKH14": { "name": "Suffolk", "r": 8, "c": 12 },
-		"UKH15": { "name": "Norwich and East Norfolk", "r": 9, "c": 12 },
-		"UKH16": { "name": "North and West Norfolk", "r": 10, "c": 11 },
-		"UKH17": { "name": "Breckland and South Norfolk", "r": 8, "c": 11 },
-		"UKH23": { "name": "Hertfordshire", "r": 8, "c": 8 },
-		"UKH24": { "name": "Bedford", "r": 9, "c": 9 },
-		"UKH25": { "name": "Central Bedfordshire", "r": 8, "c": 7 },
-		"UKH31": { "name": "Southend-on-Sea", "r": 5, "c": 13 },
-		"UKH32": { "name": "Thurrock", "r": 5, "c": 12 },
-		"UKI44": { "name": "Lewisham and Southwark", "r": 4, "c": 10 },
-		"UKI45": { "name": "Lambeth", "r": 4, "c": 9 },
-		"UKH34": { "name": "Essex Haven Gateway", "r": 6, "c": 13 },
-		"UKH35": { "name": "West Essex", "r": 7, "c": 12 },
-		"UKI51": { "name": "Bexley and Greenwich", "r": 5, "c": 11 },
-		"UKI52": { "name": "Barking & Dagenham and Havering", "r": 6, "c": 11 },
-		"UKH36": { "name": "Heart of Essex", "r": 7, "c": 13 },
-		"UKH37": { "name": "Essex Thames Gateway", "r": 6, "c": 12 },
-		"UKI31": { "name": "Camden and City of London", "r": 6, "c": 9 },
-		"UKI32": { "name": "Westminster", "r": 5, "c": 9 },
-		"UKI33": { "name": "Kensington & Chelsea and Hammersmith & Fulham", "short": "Kensington Chelsea Hammersmith Fulham", "r": 4, "c": 8 },
-		"UKI53": { "name": "Redbridge and Waltham Forest", "r": 7, "c": 11 },
-		"UKI54": { "name": "Enfield", "r": 8, "c": 9 },
-		"UKI61": { "name": "Bromley", "r": 4, "c": 11 },
-		"UKI62": { "name": "Croydon", "r": 3, "c": 11 },
-		"UKI63": { "name": "Merton, Kingston upon Thames and Sutton", "r": 3, "c": 10 },
-		"UKI71": { "name": "Barnet", "r": 7, "c": 9 },
-		"UKI72": { "name": "Brent", "r": 6, "c": 8 },
-		"UKI73": { "name": "Ealing", "r": 5, "c": 8 },
-		"UKI74": { "name": "Harrow and Hillingdon", "r": 6, "c": 7 },
-		"UKI75": { "name": "Hounslow and Richmond upon Thames", "r": 4, "c": 7 },
-		"UKJ11": { "name": "Berkshire", "r": 5, "c": 7 },
-		"UKJ12": { "name": "Milton Keynes", "r": 9, "c": 8 },
-		"UKJ13": { "name": "Buckinghamshire CC", "r": 6, "c": 6 },
-		"UKJ26": { "name": "East Surrey", "r": 2, "c": 9 },
-		"UKJ14": { "name": "Oxfordshire", "r": 5, "c": 6 },
-		"UKJ21": { "name": "Brighton and Hove", "r": 1, "c": 9 },
-		"UKJ22": { "name": "East Sussex CC", "r": 1, "c": 10 },
-		"UKJ25": { "name": "West Surrey", "r": 3, "c": 8 },
-		"UKK41": { "name": "Plymouth", "r": 1, "c": 3 },
-		"UKJ27": { "name": "West Sussex (South West)", "r": 1, "c": 8 },
-		"UKJ28": { "name": "West Sussex (North East)", "r": 2, "c": 8 },
-		"UKJ31": { "name": "Portsmouth", "r": 2, "c": 7 },
-		"UKJ32": { "name": "Southampton", "r": 3, "c": 6 },
-		"UKJ34": { "name": "Isle of Wight", "r": 0, "c": 5 },
-		"UKJ35": { "name": "South Hampshire", "r": 2, "c": 6 },
-		"UKJ36": { "name": "Central Hampshire", "r": 3, "c": 7 },
-		"UKJ37": { "name": "North Hampshire", "r": 4, "c": 6 },
-		"UKJ41": { "name": "Medway", "r": 3, "c": 13 },
-		"UKJ43": { "name": "Kent Thames Gateway", "r": 3, "c": 12 },
-		"UKJ44": { "name": "East Kent", "r": 2, "c": 12 },
-		"UKJ45": { "name": "Mid Kent", "r": 2, "c": 11 },
-		"UKJ46": { "name": "West Kent", "r": 2, "c": 10 },
-		"UKK11": { "name": "Bristol, City of", "r": 4, "c": 3 },
-		"UKK12": { "name": "Bath and North East Somerset, North Somerset and South Gloucestershire", "short": "Bath North-East Somerset, N-Somerset South-Glou.", "r": 4, "c": 4 },
-		"UKK42": { "name": "Torbay", "r": 2, "c": 4 },
-		"UKK13": { "name": "Gloucestershire", "r": 5, "c": 4 },
-		"UKK14": { "name": "Swindon", "r": 5, "c": 5 },
-		"UKK15": { "name": "Wiltshire", "r": 4, "c": 5 },
-		"UKK21": { "name": "Bournemouth and Poole", "r": 3, "c": 5 },
-		"UKK22": { "name": "Dorset CC", "r": 3, "c": 4 },
-		"UKK23": { "name": "Somerset", "r": 2, "c": 3 },
-		"UKK30": { "name": "Cornwall and Isles of Scilly", "r": 1, "c": 2 },
-		"UKK43": { "name": "Devon CC", "r": 2, "c": 2 },
-		"UKL11": { "name": "Isle of Anglesey", "r": 10, "c": 1 },
-		"UKL12": { "name": "Gwynedd", "r": 9, "c": 2 },
-		"UKL13": { "name": "Conwy and Denbighshire", "r": 8, "c": 2 },
-		"UKL14": { "name": "South West Wales", "r": 5, "c": 1 },
-		"UKL15": { "name": "Central Valleys", "r": 7, "c": 2 },
-		"UKL16": { "name": "Gwent Valleys", "r": 6, "c": 2 },
-		"UKL17": { "name": "Bridgend and Neath Port Talbot", "r": 6, "c": 1 },
-		"UKL18": { "name": "Swansea", "r": 5, "c": 2 },
-		"UKL21": { "name": "Monmouthshire and Newport", "short": "Monmouthshire Newport", "r": 6, "c": 3 },
-		"UKL22": { "name": "Cardiff and Vale of Glamorgan", "r": 5, "c": 3 },
-		"UKL23": { "name": "Flintshire and Wrexham", "r": 9, "c": 3 },
-		"UKL24": { "name": "Powys", "r": 8, "c": 1 },
-		"UKM21": { "name": "Angus and Dundee", "r": 23, "c": 6 },
-		"UKM22": { "name": "Clackmannanshire and Fife", "short": "Clackm. Fife", "r": 22, "c": 5 },
-		"UKM23": { "name": "East Lothian and Midlothian", "r": 19, "c": 6 },
-		"UKM24": { "name": "Scottish Borders", "r": 18, "c": 5 },
-		"UKM25": { "name": "Edinburgh", "r": 20, "c": 5 },
-		"UKM26": { "name": "Falkirk", "r": 21, "c": 5 },
-		"UKM27": { "name": "Perth and Kinross, and Stirling", "r": 22, "c": 4 },
-		"UKM28": { "name": "West Lothian", "r": 19, "c": 5 },
-		"UKM31": { "name": "East Dunbartonshire, West Dunbartonshire, and Helensburgh and Lomond", "short": "E-Dunbart., W-Dunbart. Helensburgh Lomond", "r": 21, "c": 4 },
-		"UKM32": { "name": "Dumfries and Galloway", "r": 17, "c": 5 },
-		"UKM33": { "name": "East and North Ayrshire mainland", "r": 19, "c": 3 },
-		"UKM34": { "name": "Glasgow", "r": 19, "c": 4 },
-		"UKM35": { "name": "Inverclyde, East Renfrewshire, and Renfrewshire", "r": 20, "c": 3 },
-		"UKM36": { "name": "North Lanarkshire", "r": 20, "c": 4 },
-		"UKM37": { "name": "South Ayrshire", "r": 18, "c": 3 },
-		"UKM38": { "name": "South Lanarkshire", "r": 18, "c": 4 },
-		"UKM50": { "name": "Aberdeen and Aberdeenshire", "r": 23, "c": 5 },
-		"UKM61": { "name": "Caithness and Sutherland, and Ross and Cromarty", "r": 24, "c": 4 },
-		"UKM62": { "name": "Inverness, Nairn, Moray, and Badenoch and Strathspey", "short": "Inverness Nairn/Moray Badenoch Strathspey", "r": 23, "c": 4 },
-		"UKM63": { "name": "Lochaber, Skye and Lochalsh, Arran and Cumbrae, and Argyll and Bute", "short": "Lochaber Skye-Lochalsh Arran-Cumbrae Argyll-Bute", "r": 22, "c": 2 },
-		"UKM64": { "name": "Eilean Siar (Western Isles)", "r": 24, "c": 2 },
-		"UKM65": { "name": "Orkney Islands", "r": 25, "c": 6 },
-		"UKM66": { "name": "Shetland Islands", "r": 27, "c": 7 },
-		"UKN01": { "name": "Belfast", "r": 17, "c": 1 },
-		"UKN02": { "name": "Outer Belfast", "r": 16, "c": 1 },
-		"UKN03": { "name": "East of Northern Ireland", "r": 16, "c": 0 },
-		"UKN04": { "name": "North of Northern Ireland", "r": 18, "c": 0 },
-		"UKN05": { "name": "West and South of Northern Ireland", "r": 17, "c": 0 }
+	var colour = "#FF6700";
+	this.nuts = {
+		"UKC11": { "n": "Hartlepool and Stockton-on-Tees",  "r": 15, "c": 7 },
+		"UKC12": { "n": "South Teesside", "r": 15, "c": 8 },
+		"UKC13": { "n": "Darlington", "r": 16, "c": 6 },
+		"UKC14": { "n": "Durham CC", "r": 16, "c": 5 },
+		"UKD36": { "n": "Greater Manchester North West", "r": 13, "c": 5 },
+		"UKD37": { "n": "Greater Manchester North East", "r": 13, "c": 6 },
+		"UKC21": { "n": "Northumberland", "r": 17, "c": 6 },
+		"UKC22": { "n": "Tyneside", "r": 17, "c": 7 },
+		"UKC23": { "n": "Sunderland", "r": 16, "c": 7 },
+		"UKH21": { "n": "Luton", "r": 8, "c": 9 },
+		"UKD11": { "n": "West Cumbria", "r": 16, "c": 4 },
+		"UKD41": { "n": "Blackburn with Darwen", "r": 14, "c": 4 },
+		"UKD42": { "n": "Blackpool", "r": 15, "c": 4 },
+		"UKD47": { "n": "Chorley and West Lancashire", "r": 13, "c": 4 },
+		"UKD61": { "n": "Warrington", "r": 12, "c": 4 },
+		"UKD12": { "n": "East Cumbria", "r": 15, "c": 6 },
+		"UKD33": { "n": "Manchester", "r": 12, "c": 5 },
+		"UKD34": { "n": "Greater Manchester South West", "r": 11, "c": 5 },
+		"UKD35": { "n": "Greater Manchester South East", "r": 11, "c": 6 },
+		"UKD44": { "n": "Lancaster and Wyre", "r": 15, "c": 5 },
+		"UKD45": { "n": "Mid Lancashire", "r": 14, "c": 5 },
+		"UKD46": { "n": "East Lancashire", "r": 14, "c": 6 },
+		"UKD74": { "n": "Wirral", "r": 11, "c": 3 },
+		"UKD62": { "n": "Cheshire East", "r": 10, "c": 4 },
+		"UKD63": { "n": "Cheshire West and Chester", "r": 10, "c": 3 },
+		"UKD71": { "n": "East Merseyside", "r": 11, "c": 4 },
+		"UKD72": { "n": "Liverpool", "r": 12, "c": 3 },
+		"UKD73": { "n": "Sefton", "r": 13, "c": 3 },
+		"UKE11": { "n": "Kingston upon Hull, City of",  "r": 13, "c": 10 },
+		"UKE12": { "n": "East Riding of Yorkshire", "r": 13, "c": 9 },
+		"UKE13": { "n": "North and North East Lincolnshire", "r": 12, "c": 9 },
+		"UKE21": { "n": "York", "r": 14, "c": 8 },
+		"UKE32": { "n": "Sheffield", "r": 11, "c": 8 },
+		"UKI34": { "n": "Wandsworth", "r": 3, "c": 9 },
+		"UKE22": { "n": "North Yorkshire CC", "r": 14, "c": 7 },
+		"UKE31": { "n": "Barnsley, Doncaster and Rotherham", "r": 12, "c": 7 },
+		"UKE41": { "n": "Bradford", "r": 13, "c": 7 },
+		"UKE42": { "n": "Leeds", "r": 13, "c": 8 },
+		"UKE44": { "n": "Calderdale and Kirklees", "r": 12, "c": 6 },
+		"UKE45": { "n": "Wakefield", "r": 12, "c": 8 },
+		"UKF11": { "n": "Derby", "r": 9, "c": 6 },
+		"UKF12": { "n": "East Derbyshire", "r": 11, "c": 7 },
+		"UKF25": { "n": "North Northamptonshire",  "r": 9, "c": 8 },
+		"UKF13": { "n": "South and West Derbyshire", "r": 10, "c": 6 },
+		"UKF14": { "n": "Nottingham", "r": 11, "c": 9 },
+		"UKF15": { "n": "North Nottinghamshire",  "r": 11, "c": 10 },
+		"UKG38": { "n": "Walsall", "r": 8, "c": 6 },
+		"UKG39": { "n": "Wolverhampton", "r": 8, "c": 4 },
+		"UKF16": { "n": "South Nottinghamshire",  "r": 10, "c": 9 },
+		"UKF21": { "n": "Leicester", "r": 10, "c": 7 },
+		"UKF22": { "n": "Leicestershire CC and Rutland", "r": 10, "c": 8 },
+		"UKF24": { "n": "West Northamptonshire",  "r": 8, "c": 7 },
+		"UKH11": { "n": "Peterborough", "r": 9, "c": 11 },
+		"UKF30": { "n": "Lincolnshire", "r": 10, "c": 10 },
+		"UKG11": { "n": "Herefordshire, County of", "r": 7, "c": 4 },
+		"UKI41": { "n": "Hackney and Newham", "r": 6, "c": 10 },
+		"UKG12": { "n": "Worcestershire", "r": 6, "c": 4 },
+		"UKG13": { "n": "Warwickshire", "r": 6, "c": 5 },
+		"UKG21": { "n": "Telford and Wrekin", "r": 9, "c": 4 },
+		"UKI42": { "n": "Tower Hamlets", "r": 5, "c": 10 },
+		"UKI43": { "n": "Haringey and Islington", "r": 7, "c": 10 },
+		"UKG22": { "n": "Shropshire CC", "r": 7, "c": 3 },
+		"UKG23": { "n": "Stoke-on-Trent", "r": 10, "c": 5 },
+		"UKH12": { "n": "Cambridgeshire CC", "r": 8, "c": 10 },
+		"UKG24": { "n": "Staffordshire CC", "r": 9, "c": 5 },
+		"UKG31": { "n": "Birmingham", "r": 7, "c": 5 },
+		"UKG32": { "n": "Solihull", "r": 7, "c": 6 },
+		"UKG33": { "n": "Coventry", "r": 9, "c": 7 },
+		"UKG36": { "n": "Dudley", "r": 8, "c": 5 },
+		"UKG37": { "n": "Sandwell", "r": 8, "c": 3 },
+		"UKH14": { "n": "Suffolk", "r": 8, "c": 12 },
+		"UKH15": { "n": "Norwich and East Norfolk", "r": 9, "c": 12 },
+		"UKH16": { "n": "North and West Norfolk", "r": 10, "c": 11 },
+		"UKH17": { "n": "Breckland and South Norfolk", "r": 8, "c": 11 },
+		"UKH23": { "n": "Hertfordshire", "r": 8, "c": 8 },
+		"UKH24": { "n": "Bedford", "r": 9, "c": 9 },
+		"UKH25": { "n": "Central Bedfordshire", "r": 9, "c": 10 },
+		"UKH31": { "n": "Southend-on-Sea", "r": 5, "c": 13 },
+		"UKH32": { "n": "Thurrock", "r": 5, "c": 12 },
+		"UKI44": { "n": "Lewisham and Southwark", "r": 4, "c": 10 },
+		"UKI45": { "n": "Lambeth", "r": 4, "c": 9 },
+		"UKH34": { "n": "Essex Haven Gateway", "r": 6, "c": 13 },
+		"UKH35": { "n": "West Essex", "r": 7, "c": 12 },
+		"UKI51": { "n": "Bexley and Greenwich", "r": 5, "c": 11 },
+		"UKI52": { "n": "Barking & Dagenham and Havering", "r": 6, "c": 11 },
+		"UKH36": { "n": "Heart of Essex", "r": 7, "c": 13 },
+		"UKH37": { "n": "Essex Thames Gateway", "r": 6, "c": 12 },
+		"UKI31": { "n": "Camden and City of London", "r": 6, "c": 9 },
+		"UKI32": { "n": "Westminster", "r": 5, "c": 9 },
+		"UKI33": { "n": "Kensington & Chelsea and Hammersmith & Fulham",  "r": 4, "c": 8 },
+		"UKI53": { "n": "Redbridge and Waltham Forest", "r": 7, "c": 11 },
+		"UKI54": { "n": "Enfield", "r": 7, "c": 9 },
+		"UKI61": { "n": "Bromley", "r": 4, "c": 11 },
+		"UKI62": { "n": "Croydon", "r": 3, "c": 11 },
+		"UKI63": { "n": "Merton, Kingston upon Thames and Sutton", "r": 3, "c": 10 },
+		"UKI71": { "n": "Barnet", "r": 7, "c": 8 },
+		"UKI72": { "n": "Brent", "r": 6, "c": 8 },
+		"UKI73": { "n": "Ealing", "r": 5, "c": 8 },
+		"UKI74": { "n": "Harrow and Hillingdon", "r": 6, "c": 7 },
+		"UKI75": { "n": "Hounslow and Richmond upon Thames", "r": 4, "c": 7 },
+		"UKJ11": { "n": "Berkshire", "r": 5, "c": 7 },
+		"UKJ12": { "n": "Milton Keynes", "r": 7, "c": 7 },
+		"UKJ13": { "n": "Buckinghamshire CC", "r": 6, "c": 6 },
+		"UKJ26": { "n": "East Surrey", "r": 2, "c": 9 },
+		"UKJ14": { "n": "Oxfordshire", "r": 5, "c": 6 },
+		"UKJ21": { "n": "Brighton and Hove", "r": 1, "c": 9 },
+		"UKJ22": { "n": "East Sussex CC", "r": 1, "c": 10 },
+		"UKJ25": { "n": "West Surrey", "r": 3, "c": 8 },
+		"UKK41": { "n": "Plymouth", "r": 1, "c": 3 },
+		"UKJ27": { "n": "West Sussex (South West)", "r": 1, "c": 8 },
+		"UKJ28": { "n": "West Sussex (North East)", "r": 2, "c": 8 },
+		"UKJ31": { "n": "Portsmouth", "r": 2, "c": 7 },
+		"UKJ32": { "n": "Southampton", "r": 3, "c": 6 },
+		"UKJ34": { "n": "Isle of Wight", "r": 0, "c": 5 },
+		"UKJ35": { "n": "South Hampshire", "r": 2, "c": 6 },
+		"UKJ36": { "n": "Central Hampshire", "r": 3, "c": 7 },
+		"UKJ37": { "n": "North Hampshire", "r": 4, "c": 6 },
+		"UKJ41": { "n": "Medway", "r": 3, "c": 13 },
+		"UKJ43": { "n": "Kent Thames Gateway", "r": 3, "c": 12 },
+		"UKJ44": { "n": "East Kent", "r": 2, "c": 12 },
+		"UKJ45": { "n": "Mid Kent", "r": 2, "c": 11 },
+		"UKJ46": { "n": "West Kent", "r": 2, "c": 10 },
+		"UKK11": { "n": "Bristol, City of", "r": 4, "c": 3 },
+		"UKK12": { "n": "Bath and North East Somerset, North Somerset and South Gloucestershire",  "r": 4, "c": 4 },
+		"UKK42": { "n": "Torbay", "r": 2, "c": 4 },
+		"UKK13": { "n": "Gloucestershire", "r": 5, "c": 4 },
+		"UKK14": { "n": "Swindon", "r": 5, "c": 5 },
+		"UKK15": { "n": "Wiltshire", "r": 4, "c": 5 },
+		"UKK21": { "n": "Bournemouth and Poole", "r": 3, "c": 5 },
+		"UKK22": { "n": "Dorset CC", "r": 3, "c": 4 },
+		"UKK23": { "n": "Somerset", "r": 2, "c": 3 },
+		"UKK30": { "n": "Cornwall and Isles of Scilly", "r": 1, "c": 2 },
+		"UKK43": { "n": "Devon CC", "r": 2, "c": 2 },
+		"UKL11": { "n": "Isle of Anglesey", "r": 10, "c": 1 },
+		"UKL12": { "n": "Gwynedd", "r": 9, "c": 2 },
+		"UKL13": { "n": "Conwy and Denbighshire", "r": 8, "c": 2 },
+		"UKL14": { "n": "South West Wales", "r": 5, "c": 1 },
+		"UKL15": { "n": "Central Valleys", "r": 7, "c": 2 },
+		"UKL16": { "n": "Gwent Valleys", "r": 6, "c": 2 },
+		"UKL17": { "n": "Bridgend and Neath Port Talbot", "r": 6, "c": 1 },
+		"UKL18": { "n": "Swansea", "r": 5, "c": 2 },
+		"UKL21": { "n": "Monmouthshire and Newport",  "r": 6, "c": 3 },
+		"UKL22": { "n": "Cardiff and Vale of Glamorgan", "r": 5, "c": 3 },
+		"UKL23": { "n": "Flintshire and Wrexham", "r": 9, "c": 3 },
+		"UKL24": { "n": "Powys", "r": 8, "c": 1 },
+		"UKM21": { "n": "Angus and Dundee", "r": 23, "c": 6 },
+		"UKM22": { "n": "Clackmannanshire and Fife",  "r": 22, "c": 5 },
+		"UKM23": { "n": "East Lothian and Midlothian", "r": 19, "c": 6 },
+		"UKM24": { "n": "Scottish Borders", "r": 18, "c": 5 },
+		"UKM25": { "n": "Edinburgh", "r": 20, "c": 5 },
+		"UKM26": { "n": "Falkirk", "r": 21, "c": 5 },
+		"UKM27": { "n": "Perth and Kinross, and Stirling", "r": 22, "c": 4 },
+		"UKM28": { "n": "West Lothian", "r": 19, "c": 5 },
+		"UKM31": { "n": "East Dunbartonshire, West Dunbartonshire, and Helensburgh and Lomond",  "r": 21, "c": 4 },
+		"UKM32": { "n": "Dumfries and Galloway", "r": 17, "c": 5 },
+		"UKM33": { "n": "East and North Ayrshire mainland", "r": 19, "c": 3 },
+		"UKM34": { "n": "Glasgow", "r": 19, "c": 4 },
+		"UKM35": { "n": "Inverclyde, East Renfrewshire, and Renfrewshire", "r": 20, "c": 3 },
+		"UKM36": { "n": "North Lanarkshire", "r": 20, "c": 4 },
+		"UKM37": { "n": "South Ayrshire", "r": 18, "c": 3 },
+		"UKM38": { "n": "South Lanarkshire", "r": 18, "c": 4 },
+		"UKM50": { "n": "Aberdeen and Aberdeenshire", "r": 23, "c": 5 },
+		"UKM61": { "n": "Caithness and Sutherland, and Ross and Cromarty", "r": 24, "c": 4 },
+		"UKM62": { "n": "Inverness, Nairn, Moray, and Badenoch and Strathspey",  "r": 23, "c": 4 },
+		"UKM63": { "n": "Lochaber, Skye and Lochalsh, Arran and Cumbrae, and Argyll and Bute",  "r": 22, "c": 2 },
+		"UKM64": { "n": "Eilean Siar (Western Isles)", "r": 24, "c": 2 },
+		"UKM65": { "n": "Orkney Islands", "r": 25, "c": 6 },
+		"UKM66": { "n": "Shetland Islands", "r": 27, "c": 7 },
+		"UKN01": { "n": "Belfast", "r": 17, "c": 1 },
+		"UKN02": { "n": "Outer Belfast", "r": 16, "c": 1 },
+		"UKN03": { "n": "East of Northern Ireland", "r": 16, "c": 0 },
+		"UKN04": { "n": "North of Northern Ireland", "r": 18, "c": 0 },
+		"UKN05": { "n": "West and South of Northern Ireland", "r": 17, "c": 0 }
 	}
 
-	function inRange(lo,hi){
-		return Math.min(Math.max(lo,Math.random()),hi);
-	}
 	function random(lo,hi){
 		return Math.random()*(hi-lo)+lo;
 	}
@@ -227,8 +207,19 @@ function HexMap(id,w,h){
 	// We'll need to change the sizes when the window changes size
 	window.addEventListener('resize', function(event){ _obj.resize(); });
 
+	this.toggleRegion = function(r){
+		for(nut in this.hexes){
+			if(nut.indexOf(r)==0){
+				h = this.hexes[nut];
+				h.selected = !h.selected;
+				h.attr({'fill':(h.selected ? h.fillcolour : '#5f5f5f')});
+			}
+		}
+		return this;
+	}
+
 	this.size = function(){
-		S('#'+this.id).css({'height':''});
+		S('#'+this.id).css({'height':'','width':''});
 		w = Math.min(this.w,S('#'+this.id)[0].offsetWidth);
 		S('#'+this.id).css({'height':(w/this.aspectratio)+'px','width':w+'px'});
 		this.paper = new SVG(this.id);
@@ -240,10 +231,11 @@ function HexMap(id,w,h){
 		return this;
 	}
 	this.resize = function(){
-		this.size();
+		return this;
+/*		this.size();
 		this.paper.clear();
 		this.draw();
-		return this;
+		return this;*/
 	}
 
 	this.update = function(){ this.create().draw(); }
@@ -253,61 +245,8 @@ function HexMap(id,w,h){
 		
 		
 		return this;
-				
-		var c = 'c'+Math.ceil(Math.random()*14);
-		this.colour = c;
-		this.colour2 = colours[c].text;
-		
-		front = inRange(0.1,0.9);
-		head = random(0,0.1);
-		back = inRange(0.1,0.9);
-		back2 = inRange(0.1,0.9);
-		tail = random(0,0.05);
-		tailend = random(0.025,0.05);
-		nose = random(-0.05,0.05);
-
-		points = new Array(10);
-		patterns = new Array();
-
-		// Start with nose
-		points[0] = { x: 0.1 - nose, y: 0.5 - front*(Math.random()-0.5)*0.5 };
-		points[1] = { x: points[0].x, y: points[0].y - front*Math.random()*0.2 };
-
-		// Slightly move top of nose forwards
-		points[1].x -= (1-Math.pow(front,2))*0.02;
-
-		// Add head
-		points[2] = {x: 0.3 + head, y:((1 - front)/2)};
-		points[9] = {x: 0.3 + head, y:((1 + front)/2)};
-
-		// Add end of body
-		points[3] = {x: 0.7, y: ((1 - back)/2) };
-		points[8] = {x: 0.7, y: 0.75+random(-0.15,0.15) };
-
-		// Add start of tail
-		points[4] = {x: 0.83, y: 0.45 + tail };
-		points[7] = {x: 0.83, y: 0.55 - tail };
-
-		// Add end of tail
-		points[5] = {x: 0.875 + tailend,y: 0.4 };
-		points[6] = {x: 0.875 + tailend,y: 0.6 };
-
-		eye = { x: points[0].x + (points[2].x-points[0].x)*0.75, y: (points[1].y - inRange(0,0.6)*Math.abs(points[2].y - points[1].y)) };
-
-		if(Math.random() > 0.8) patterns.push({'pattern':getPattern('belly'),'attr':{'stroke-width':0,'stroke':'none','fill':this.colour2,'opacity':0.6}});
-		else {
-			if(Math.random() > 0.9) patterns.push({'pattern':getPattern('face'),'attr':{'stroke-width':0,'stroke':'none','fill':'black','opacity':0.7}});
-			if(Math.random() > 0.7) patterns.push({'pattern':getPattern('stripes'),'attr':{'stroke-width':0.02,'stroke':this.colour2,'fill':this.colour2,'opacity':0.6}});
-			else{
-				if(Math.random() > 0.7) patterns.push({'pattern':getPattern('lines'),'attr':{'stroke-width':0.01,'stroke':this.colour2,'fill':this.colour2,'opacity':0.6}});
-				else{
-					if(Math.random() > 0.7) patterns.push({'circles':getPattern('circles'),'attr':{'stroke-width':0.008,'stroke':this.colour2,'fill':'none','opacity':0.8}});
-				}
-			}
-		}
-
-		return this;
 	}
+
 	this.save = function(){
 
 		var textFileAsBlob = new Blob([this.svg], {type:'text/application/svg+xml'});
@@ -333,58 +272,80 @@ function HexMap(id,w,h){
 		return this;
 	}
 
+	this.label = function(id,l){
+		if(S('.infobubble').length == 0) S('#'+id+'').after('<div class="infobubble"><div class="infobubble_inner"></div></div>');
+		S('.infobubble_inner').html(l);
+		return this;
+	}
+	
 	this.draw = function(){
 
+		var b = new Colour(colour);
+		var a = new Colour('#cccccc');
 
 		function drawHex(x,y,s){
 
 			var path = [['M',[x,y]]];
 			var cs = (s*Math.sqrt(3)/2).toFixed(2);	// cos(30)
 			var ss = (s*0.5).toFixed(2);
-			
 			path.push(['m',[cs,-ss]]);
-			path.push(['l',[-cs,-ss,-cs,ss,0,s,cs,ss,cs,-ss]]);
+			path.push(['l',[-cs,-ss,-cs,ss,0,s.toFixed(2),cs,ss,cs,-ss]]);
 			path.push(['z',[]]);
 			return path;
 		}
 
-		var ncol = 14;
+		function getColour(pc){
+			return 'rgb('+parseInt(a.rgb[0] + (b.rgb[0]-a.rgb[0])*pc)+','+parseInt(a.rgb[1] + (b.rgb[1]-a.rgb[1])*pc)+','+parseInt(a.rgb[2] + (b.rgb[2]-a.rgb[2])*pc)+')';
+		}
+
+		var ncol = 12.1;
 		var r = 0;
 		var c = -1;
 		var s = (this.w/(ncol*1.05))/2;
-
 		var dx = (s*Math.sqrt(3));
-		var ps = [];
-
-		for(nut in nuts){
+	
+		for(nut in this.nuts){
 			c++;
 			if(c > ncol){
 				r++;
 				c = 0;
 			}
-			c = nuts[nut].c;
-			r = nuts[nut].r;
+			c = this.nuts[nut].c;
+			r = this.nuts[nut].r;
 
 			var y = (this.h - (s + 1.5*s*r)).toFixed(1);
 			var x = ((s + dx*c) + dx/2 - (r%2)*dx/2).toFixed(1);
 
 			var h = drawHex(x,y,s);
-			ps.push( this.paper.path(h).attr({'fill':'#FF6700','stroke':'none','opacity':(0.7+Math.random()*0.3),'title':nuts[nut].name, 'style':'cursor: pointer;'}) );
+			if(!this.nuts[nut].value) this.nuts[nut].value = Math.min(1,0.5*(Math.abs(r-12)/10) + 0.5*(random(0,c)/10));
 
-			var _obj = ps[ps.length-1];
-			_obj.on('mouseover',{hexmap:this,me:_obj,nut:nut,x:parseFloat(x),y:parseFloat(y)},function(e){
-				//this.attr('stroke','black').attr('stroke-width',1)
-				if(S('.infobubble').length == 0) S('#'+e.data.hexmap.id+' svg').after('<div class="infobubble"><div class="infobubble_inner"></div></div>');
-				S('.infobubble').css({'position':'absolute','left':(e.data.x+s*0.5)+'px','top':(e.data.y)+'px','margin-bottom':(s+60)+'px'});
-				S('.infobubble_inner').html(this.attr('title'));
-			}).on('mouseout',{hexmap:this,me:_obj},function(e){
-				//S('.infobubble').remove();
-				this.attr('stroke','none');
-			});
-			// Add text label
-			//var t = this.paper.text(x,y,n).attr({'stroke':'none','fill':'black','text-anchor':'middle','font-size':'8px','font-family':'Arial'});
+			if(!this.constructed){
+				this.hexes[nut] = this.paper.path(h);
+				this.hexes[nut].selected = true;
+
+				// Attach events
+				var _obj = this.hexes[nut];
+				_obj.id = 'hex-'+nut;
+				_obj.on('mouseover',{hexmap:this,me:_obj,nut:nut,x:parseFloat(x),y:parseFloat(y)},function(e){
+					e.data.hexmap.label(e.data.hexmap.id,this.attr('title'));
+					e.data.me.attr({'fill':(e.data.me.selected ? colour : '#000000')});
+				}).on('mouseout',{hexmap:this,me:_obj},function(e){
+					S('.infobubble').remove();
+					e.data.me.attr({'fill':(e.data.me.selected ? e.data.me.fillcolour : '#5f5f5f')});
+				}).on('click',{hexmap:this,nut:nut,me:_obj},function(e){
+					e.data.hexmap.toggleRegion(e.data.nut)
+					e.data.hexmap.label(e.data.hexmap.id,this.attr('title'));
+					e.data.me.attr({'fill':(e.data.me.selected ? colour : '#000000')});
+				});
+			}
+			this.hexes[nut].fillcolour = getColour(this.nuts[nut].value);
+			this.hexes[nut].attr({'fill':(this.hexes[nut].selected ? this.hexes[nut].fillcolour : '#5f5f5f'),'stroke':'#ffffff','title':this.nuts[nut].n,'data-nuts':nut,'style':'cursor: pointer;'});
+			this.hexes[nut].update();
 		}
-		this.paper.draw();
+		
+		if(!this.constructed) this.paper.draw();
+
+		this.constructed = true;
 
 		return this;
 	}
@@ -399,5 +360,63 @@ function HexMap(id,w,h){
 	
 	this.size();
 
+	return this;
+}
+
+
+// Define colour routines
+function Colour(c,n){
+	if(!c) return {};
+
+	function d2h(d) { return ((d < 16) ? "0" : "")+d.toString(16);}
+	function h2d(h) {return parseInt(h,16);}
+	/**
+	 * Converts an RGB color value to HSV. Conversion formula
+	 * adapted from http://en.wikipedia.org/wiki/HSV_color_space.
+	 * Assumes r, g, and b are contained in the set [0, 255] and
+	 * returns h, s, and v in the set [0, 1].
+	 *
+	 * @param   Number  r       The red color value
+	 * @param   Number  g       The green color value
+	 * @param   Number  b       The blue color value
+	 * @return  Array           The HSV representation
+	 */
+	function rgb2hsv(r, g, b){
+		r = r/255, g = g/255, b = b/255;
+		var max = Math.max(r, g, b), min = Math.min(r, g, b);
+		var h, s, v = max;
+		var d = max - min;
+		s = max == 0 ? 0 : d / max;
+		if(max == min) h = 0; // achromatic
+		else{
+			switch(max){
+				case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+				case g: h = (b - r) / d + 2; break;
+				case b: h = (r - g) / d + 4; break;
+			}
+			h /= 6;
+		}
+		return [h, s, v];
+	}
+
+	this.alpha = 1;
+
+	// Let's deal with a variety of input
+	if(c.indexOf('#')==0){
+		this.hex = c;
+		this.rgb = [h2d(c.substring(1,3)),h2d(c.substring(3,5)),h2d(c.substring(5,7))];
+	}else if(c.indexOf('rgb')==0){
+		var bits = c.match(/[0-9\.]+/g);
+		if(bits.length == 4) this.alpha = parseFloat(bits[3]);
+		this.rgb = [parseInt(bits[0]),parseInt(bits[1]),parseInt(bits[2])];
+		this.hex = "#"+d2h(this.rgb[0])+d2h(this.rgb[1])+d2h(this.rgb[2]);
+	}else return {};
+	this.hsv = rgb2hsv(this.rgb[0],this.rgb[1],this.rgb[2]);
+	this.name = (n || "Name");
+	var r,sat;
+	for(r = 0, sat = 0; r < this.rgb.length ; r++){
+		if(this.rgb[r] > 200) sat++;
+	}
+	this.text = (this.rgb[0] + this.rgb[1] + this.rgb[2] > 500 || sat > 1) ? "black" : "white";
 	return this;
 }
