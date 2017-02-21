@@ -4,9 +4,12 @@ S(document).ready(function(){
 	hex = new HexMap('hexmap',300,504);
 	
 	// Create an initial hexmap
-	hex.update();
+	hex.init();
 	
-	S('button').on('click',function(e){ hex.toggleRegion(S(e.currentTarget).attr('region')); });
+	S('button').on('click',function(e){
+		if(S(e.currentTarget).attr('region')) hex.toggleRegion(S(e.currentTarget).attr('region'));
+		if(S(e.currentTarget).attr('gva')) hex.loadGVA(parseInt(S(e.currentTarget).attr('gva')));
+	});
 });
 
 
@@ -22,6 +25,8 @@ function HexMap(id,w,h){
 	var points,eye,patterns;
 	var path = "";
 	var colour = "#FF6700";
+	this.min = 0;
+	this.max = 1;
 	this.nuts = {
 		"UKC11": { "n": "Hartlepool and Stockton-on-Tees",  "r": 15, "c": 7 },
 		"UKC12": { "n": "South Teesside", "r": 15, "c": 8 },
@@ -238,12 +243,9 @@ function HexMap(id,w,h){
 		return this;*/
 	}
 
-	this.update = function(){ this.create().draw(); }
+	this.init = function(){ this.create().draw(); }
 	this.create = function(){
-
 		this.paper.clear();
-		
-		
 		return this;
 	}
 
@@ -277,7 +279,63 @@ function HexMap(id,w,h){
 		S('.infobubble_inner').html(l);
 		return this;
 	}
+
+	this.autoscale = function(){
+		var min = 1e100;
+		var max = -1e100;
+		for(nut in this.nuts){
+			if(typeof this.nuts[nut].value==="number"){
+				if(this.nuts[nut].value < min) min = this.nuts[nut].value;
+				if(this.nuts[nut].value > max) max = this.nuts[nut].value;
+			}
+		}
+		this.min = min;
+		this.max = max;
+		return this;
+	}	
+	this.update = function(){
+		var b = new Colour(colour);
+		var a = new Colour('#cccccc');
+
+		function getColour(pc){ return 'rgb('+parseInt(a.rgb[0] + (b.rgb[0]-a.rgb[0])*pc)+','+parseInt(a.rgb[1] + (b.rgb[1]-a.rgb[1])*pc)+','+parseInt(a.rgb[2] + (b.rgb[2]-a.rgb[2])*pc)+')'; }
+		
+		var range = this.max-this.min;
+		for(nut in this.nuts){
+			this.hexes[nut].fillcolour = (typeof this.nuts[nut].value==="number") ? getColour((this.nuts[nut].value-this.min)/range) : '#5f5f5f';
+			this.hexes[nut].attr({'fill':(this.hexes[nut].selected ? this.hexes[nut].fillcolour : '#5f5f5f')});
+		}
+		return this;
+	}
 	
+	this.loadGVA = function(y){
+		var min = 2004;
+		var max = 2015;
+		if(!y) y = min;
+		if(y < min) y = min;
+		if(y > max) y = max;
+		if(!this.gva){
+			S(document).ajax('gva.json',{
+				'complete': function(data){
+					this.gva = data;
+					this.loadGVA(y);
+				},
+				'error': this.failLoad,
+				'this': this,
+				'dataType':'json'
+			});
+		}else{
+			for(nut in this.nuts){
+				if(this.gva[nut]) this.nuts[nut].value = this.gva[nut][y-min];
+				else this.nuts[nut].value = undefined;
+				this.nuts[nut].label = 'GVA per hour worked for <strong>'+this.nuts[nut].n+'</strong> in '+y+': '+(this.nuts[nut].value ? '&pound;'+Math.round(this.nuts[nut].value) : 'not recorded');
+			}
+			
+			this.autoscale();
+			this.update();
+		}
+		return this;
+	}
+		
 	this.draw = function(){
 
 		var b = new Colour(colour);
@@ -317,7 +375,7 @@ function HexMap(id,w,h){
 			var x = ((s + dx*c) + dx/2 - (r%2)*dx/2).toFixed(1);
 
 			var h = drawHex(x,y,s);
-			if(!this.nuts[nut].value) this.nuts[nut].value = Math.min(1,0.5*(Math.abs(r-12)/10) + 0.5*(random(0,c)/10));
+			if(!this.nuts[nut].value) this.nuts[nut].value = 0;//Math.min(1,0.5*(Math.abs(r-12)/10) + 0.5*(random(0,c)/10));
 
 			if(!this.constructed){
 				this.hexes[nut] = this.paper.path(h);
@@ -327,7 +385,7 @@ function HexMap(id,w,h){
 				var _obj = this.hexes[nut];
 				_obj.id = 'hex-'+nut;
 				_obj.on('mouseover',{hexmap:this,me:_obj,nut:nut,x:parseFloat(x),y:parseFloat(y)},function(e){
-					e.data.hexmap.label(e.data.hexmap.id,this.attr('title'));
+					e.data.hexmap.label(e.data.hexmap.id,(e.data.hexmap.nuts[e.data.nut].label ? e.data.hexmap.nuts[e.data.nut].label : this.attr('title')));
 					e.data.me.attr({'fill':(e.data.me.selected ? colour : '#000000')});
 				}).on('mouseout',{hexmap:this,me:_obj},function(e){
 					S('.infobubble').remove();
