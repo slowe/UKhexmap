@@ -329,8 +329,9 @@ function HexMap(id,w,h){
 				else this.nuts[nut].value = undefined;
 				this.nuts[nut].label = 'GVA per hour worked for <strong>'+this.nuts[nut].n+'</strong> in '+y+': '+(this.nuts[nut].value ? '&pound;'+Math.round(this.nuts[nut].value) : 'not recorded');
 			}
-			
-			this.autoscale();
+			this.max = 200;
+			this.min = 60;
+			//this.autoscale();
 			this.update();
 		}
 		return this;
