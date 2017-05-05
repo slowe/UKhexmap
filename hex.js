@@ -175,8 +175,10 @@ function HexMap(id,w,h,s,file){
 		this.properties.s.s = this.properties.s.sin.toFixed(2);
 		return this;
 	}
-	this.drawHex = function(q,r){
+	this.drawHex = function(q,r,scale){
 		if(this.properties){
+			if(typeof scale!=="number") scale = 1;
+			scale = Math.sqrt(scale);
 
 			var x = this.properties.x + (q * this.properties.s.cos * 2);
 			var y = this.properties.y - (r * this.properties.s.sin * 3);
@@ -191,17 +193,17 @@ function HexMap(id,w,h,s,file){
 			}
 			
 			var path = [['M',[x,y]]];
-			var cs = this.properties.s.c;
-			var ss = this.properties.s.s;
+			var cs = this.properties.s.c * scale;
+			var ss = this.properties.s.s * scale;
 			if(this.properties.orientation == "r"){
 				// Pointy topped
 				path.push(['m',[cs,-ss]]);
-				path.push(['l',[-cs,-ss,-cs,ss,0,this.properties.size.toFixed(2),cs,ss,cs,-ss]]);
+				path.push(['l',[-cs,-ss,-cs,ss,0,(this.properties.size*scale).toFixed(2),cs,ss,cs,-ss]]);
 				path.push(['z',[]]);
 			}else{
 				// Flat topped
 				path.push(['m',[-ss,cs]]);
-				path.push(['l',[-ss,-cs,ss,cs,this.properties.size.toFixed(2),0,ss,cs,-ss,cs]]);
+				path.push(['l',[-ss,-cs,ss,cs,(this.properties.size*scale).toFixed(2),0,ss,cs,-ss,cs]]);
 				path.push(['z',[]]);
 			}
 			return { 'path':path, 'x':x, 'y': y };
@@ -211,8 +213,8 @@ function HexMap(id,w,h,s,file){
 	
 	this.draw = function(){
 
-		var b = new Colour(colour);
-		var a = new Colour('#cccccc');
+		var b = new Colour('#F9BC26');
+		var a = new Colour('#722EA5');
 
 		function getColour(pc){
 			return 'rgb('+parseInt(a.rgb[0] + (b.rgb[0]-a.rgb[0])*pc)+','+parseInt(a.rgb[1] + (b.rgb[1]-a.rgb[1])*pc)+','+parseInt(a.rgb[2] + (b.rgb[2]-a.rgb[2])*pc)+')';
@@ -234,44 +236,61 @@ function HexMap(id,w,h,s,file){
 			return "#efefef";
 		}
 
-		var ncol = 12.1;
-		var r = 0;
-		var q = -1;
-		var s = (this.w/(ncol*1.05))/2;
-		var dx = (s*Math.sqrt(3));
+		var r,q;
 		var fs = this.properties.size*0.4;
 				
+		var range = { 'r': {'min':1e9,'max':-1e9}, 'q': {'min':1e9,'max':-1e9} };
+		for(region in this.mapping.hexes){
+			q = this.mapping.hexes[region].q;
+			r = this.mapping.hexes[region].r;
+			if(q > range.q.max) range.q.max = q;
+			if(q < range.q.min) range.q.min = q;
+			if(r > range.r.max) range.r.max = r;
+			if(r < range.r.min) range.r.min = r;
+		}
+		this.properties.x = (this.w)*(0-range.q.min)/(range.q.max-range.q.min); 
+		this.properties.y = (this.h)*(1-(0-range.r.min)/(range.r.max-range.r.min)); 
+
 		var h,p;
-		for(var q = -18; q < 15; q++){
-
-			for(var r = -19; r < 29; r++){
-
+		
+		for(q = range.q.min; q <= range.q.max; q++){
+			for(r = range.r.min; r <= range.r.max; r++){
 				h = this.drawHex(q,r);
 				p = this.paper.path(h.path).attr({'fill':'transparent','stroke':'#999'});
 				this.paper.text(h.x,h.y+fs/2,q+"\n"+r).attr({'text-anchor':'middle','font-size':fs+'px','fill':'#999'});
 
 			}
 		}
-	
-	
+
+
+		var min = 50000;
+		var max = 80000;
+		/*
+		for(region in this.mapping.hexes){
+			if(this.mapping.hexes[region].p > max) max = this.mapping.hexes[region].p;
+			if(this.mapping.hexes[region].p < min) min = this.mapping.hexes[region].p;
+		}*/
+
 		for(region in this.mapping.hexes){
 			
-			var h = this.drawHex(this.mapping.hexes[region].q,this.mapping.hexes[region].r);
-			//console.log(h,this.mapping.hexes[region])
-			if(!this.mapping.hexes[region].value) this.mapping.hexes[region].value = 0;
+			this.mapping.hexes[region].value = (this.mapping.hexes[region].p - min)/(max-min);
+			if(this.mapping.hexes[region].value < 0) this.mapping.hexes[region].value = 0;
+			if(this.mapping.hexes[region].value > 1) this.mapping.hexes[region].value = 1;
 
+			var h = this.drawHex(this.mapping.hexes[region].q,this.mapping.hexes[region].r);//,this.mapping.hexes[region].value*0.5 + 0.5);
+			
 			if(!this.constructed){
 				this.hexes[region] = this.paper.path(h.path);
 				if(!this.labels) this.labels = {};
-				this.labels[region] = this.paper.text(h.x,h.y+fs/2,this.mapping.hexes[region].n.substr(0,2)).attr({'text-anchor':'middle','font-size':fs+'px','title':this.mapping.hexes[region].n});
+				this.labels[region] = this.paper.text(h.x,h.y+fs/2,this.mapping.hexes[region].n.substr(0,3)).attr({'text-anchor':'middle','font-size':fs+'px','title':this.mapping.hexes[region].n});
 				//console.log(this.hexes[region])
 				this.hexes[region].selected = true;
 
 				// Attach events
 				var _obj = this.hexes[region];
 				_obj.id = 'hex-'+region;
-				_obj.on('mouseover',{hexmap:this,me:_obj,region:region},function(e){
-					e.data.hexmap.label(e.data.hexmap.id,(e.data.hexmap.mapping.hexes[e.data.region].label ? e.data.hexmap.mapping.hexes[e.data.region].label : this.attr('title')));
+				_obj.on('mouseover',{hexmap:this,me:_obj,region:region,pop:this.mapping.hexes[region].p},function(e){
+					e.data.hexmap.label(e.data.hexmap.id,(e.data.hexmap.mapping.hexes[e.data.region].label ? e.data.hexmap.mapping.hexes[e.data.region].label : this.attr('title')+'<br />Population: '+e.data.pop));
 					e.data.me.attr({'fill':(e.data.me.selected ? colour : '#000000')});
 				}).on('mouseout',{hexmap:this,me:_obj},function(e){
 					S('.infobubble').remove();
@@ -282,7 +301,8 @@ function HexMap(id,w,h,s,file){
 					e.data.me.attr({'fill':(e.data.me.selected ? colour : '#000000')});
 				});
 			}
-			this.hexes[region].fillcolour = getRegionColour(this.mapping.hexes[region].a); //getColour(this.mapping.hexes[region].value);
+			this.hexes[region].fillcolour = getRegionColour(this.mapping.hexes[region].a);
+			//this.hexes[region].fillcolour = getColour(this.mapping.hexes[region].value);
 			this.hexes[region].attr({'fill':(this.hexes[region].selected ? this.hexes[region].fillcolour : '#5f5f5f'),'stroke':'#ffffff','title':this.mapping.hexes[region].n,'data-regions':region,'style':'cursor: pointer;'});
 			this.hexes[region].update();
 		}

@@ -8,7 +8,7 @@
 	var hex;
 	S(document).ready(function(){
 
-		hex = new HexMap('hexmap',1000,1300,15,"constituencies.hexjson");
+		hex = new HexMap('hexmap',950,1200,15,"constituencies.hexjson");
 		
 		S('button').on('click',function(e){
 			if(S(e.currentTarget).attr('region')) hex.toggleRegion(S(e.currentTarget).attr('region'));
