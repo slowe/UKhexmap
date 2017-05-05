@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script type="text/javascript" src="stuquery.js"></script>
+	<script type="text/javascript" src="stuquery.svg.js"></script>
+	<script type="text/javascript" src="hex.js"></script>
+	<script>
+	var hex;
+	S(document).ready(function(){
+
+		hex = new HexMap('hexmap',1000,1300,15,"constituencies.hexjson");
+		
+		S('button').on('click',function(e){
+			if(S(e.currentTarget).attr('region')) hex.toggleRegion(S(e.currentTarget).attr('region'));
+			//if(S(e.currentTarget).attr('gva')) hex.loadGVA(parseInt(S(e.currentTarget).attr('gva')));
+		});
+	});
+	</script>
+	<style>
+		body {
+			font-family: VAGRoundedStd-Thin,"Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+			background: #dfdfdf;
+			font-size: 16px;
+		}
+		#hexmap {
+			margin: auto;
+			max-width: 100%;
+			position: relative;
+		}
+		.infobubble {
+			display: inline-block;
+			border-radius: 0px;
+			line-height: 1em;
+			position: relative;
+			height: 2em;
+			padding: 0.5em;
+			position: fixed;
+			white-space: nowrap;
+			top: 0px;
+			left: 50%;
+		}
+		.infobubble_inner {
+			display: inline-block;
+			width: auto;
+			background-color: white;
+			padding: 0.5em;
+			left: 50%;
+			transform: translate3d(-50%,0%, 0);
+			position: absolute;
+			text-align: center;
+			margin-right: -50%;
+		}
+		button, .button { border: 0px; font-size: 1em; background-color: #efefef; color: black; text-decoration: none!important; display: inline-block; padding: 0.5em 1em; margin-bottom: 0.5em; margin-right: 0.5em; cursor: pointer; }
+		button:hover, a.button:hover, button:focus, a.button:focus { background-color: #333333!important; color: #efefef!important; }
+		</style>
+</head>
+<body>
+
+	<div style="text-align:center;">
+		<!--<button region="UK">UK</button><button region="UKC">North East</button><button region="UKD">North West</button><button region="UKE">Yorkshire</button><button region="UKF">East Midlands</button><button region="UKG">West Midlands</button><button region="UKH">East of England</button><button region="UKI">London</button><button region="UKJ">South East</button><button region="UKK">South West</button><button region="UKL">Wales</button><button region="UKM">Scotland</button><button region="UKN">Northern Ireland</button>
+		<br />-->
+	</div>
+
+	<div id="hexmap"></div>
+
+</body>
+</html>
