@@ -175,7 +175,7 @@ function HexMap(id,w,h,s,file){
 		this.properties.s.s = this.properties.s.sin.toFixed(2);
 		return this;
 	}
-	this.drawHex = function(q,r,n){
+	this.drawHex = function(q,r){
 		if(this.properties){
 
 			var x = this.properties.x + (q * this.properties.s.cos * 2);
@@ -227,9 +227,9 @@ function HexMap(id,w,h,s,file){
 			if(r == "WA") return "#0DBC37";
 			if(r == "NW") return "#1DD3A7";
 			if(r == "NE") return "#D60303";
-			if(r == "SW") return "#67E767";
+			if(r == "SW") return "#178CFF";
 			if(r == "LO") return "#D73058";
-			if(r == "SE") return "#178CFF";
+			if(r == "SE") return "#67E767";
 			
 			return "#efefef";
 		}
@@ -239,17 +239,30 @@ function HexMap(id,w,h,s,file){
 		var q = -1;
 		var s = (this.w/(ncol*1.05))/2;
 		var dx = (s*Math.sqrt(3));
+		var fs = this.properties.size*0.4;
+				
+		var h,p;
+		for(var q = -18; q < 15; q++){
+
+			for(var r = -19; r < 29; r++){
+
+				h = this.drawHex(q,r);
+				p = this.paper.path(h.path).attr({'fill':'transparent','stroke':'#999'});
+				this.paper.text(h.x,h.y+fs/2,q+"\n"+r).attr({'text-anchor':'middle','font-size':fs+'px','fill':'#999'});
+
+			}
+		}
+	
 	
 		for(region in this.mapping.hexes){
 			
-			var h = this.drawHex(this.mapping.hexes[region].q,this.mapping.hexes[region].r,this.mapping.hexes[region].n);
+			var h = this.drawHex(this.mapping.hexes[region].q,this.mapping.hexes[region].r);
 			//console.log(h,this.mapping.hexes[region])
 			if(!this.mapping.hexes[region].value) this.mapping.hexes[region].value = 0;
 
 			if(!this.constructed){
 				this.hexes[region] = this.paper.path(h.path);
 				if(!this.labels) this.labels = {};
-				fs = this.properties.size*0.5;
 				this.labels[region] = this.paper.text(h.x,h.y+fs/2,this.mapping.hexes[region].n.substr(0,2)).attr({'text-anchor':'middle','font-size':fs+'px','title':this.mapping.hexes[region].n});
 				//console.log(this.hexes[region])
 				this.hexes[region].selected = true;
