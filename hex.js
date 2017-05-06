@@ -14,6 +14,17 @@ function HexMap(id,w,h,s,file){
 	this.mapping = {};
 	this.properties = { 'size': (typeof s==="number" ? s : 10) };
 
+	// Update text of button
+	if(this.saveable){
+		S('#save').html('<span class="line">S</span>ave HexJSON');
+		// Add event to button
+		S('#save').on('click',{me:this},function(e){ e.data.me.save(); });
+		// Add key binding
+		S(document).on('keypress',function(e){
+			if(e.originalEvent.charCode==115) S('#save').trigger('click');     // S
+		});
+	}else S('#save').css({'display':'none'});
+	
 	S(document).ajax(file,{
 		'complete': function(data){
 			this.setMapping(data);
@@ -92,17 +103,7 @@ function HexMap(id,w,h,s,file){
 
 	this.initialized = function(){
 		this.create().draw();
-
-		// Update text of button
-		if(this.saveable){
-			S('#save').html('<span class="line">S</span>ave HexJSON');
-			// Add event to button
-			S('#save').on('click',{me:this},function(e){ e.data.me.save(); });
-			// Add key binding
-			S(document).on('keypress',function(e){
-				if(e.originalEvent.charCode==115) S('#save').trigger('click');     // S
-			});
-		}else S('#save').css({'display':'none'});
+		return this;
 	}
 	this.create = function(){
 		this.paper.clear();
