@@ -256,8 +256,8 @@ function HexMap(id,w,h,s,file){
 		for(q = range.q.min; q <= range.q.max; q++){
 			for(r = range.r.min; r <= range.r.max; r++){
 				h = this.drawHex(q,r);
-				p = this.paper.path(h.path).attr({'fill':'transparent','stroke':'#999'});
-				this.paper.text(h.x,h.y+fs/2,q+"\n"+r).attr({'text-anchor':'middle','font-size':fs+'px','fill':'#999'});
+				p = this.paper.path(h.path).attr({'fill':'transparent','stroke':'#aaa'});
+				this.paper.text(h.x,h.y+fs/2,q+"\n"+r).attr({'text-anchor':'middle','font-size':fs+'px','fill':'#777'});
 
 			}
 		}
