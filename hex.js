@@ -113,8 +113,6 @@ function HexMap(id,w,h,s,file){
 
 		// Make hex json
 		var str = JSON.stringify(this.mapping).replace(/\}\,/g,"},\n\t\t").replace(/\}\}\}/,"}\n\t\}\n\}").replace(/\"hexes\":{/,"\n\t\"hexes\": {\n\t\t").replace(/{"layout"/,"{\n\t\"layout\"");
-		console.log(str)
-		
 		var textFileAsBlob = new Blob([str], {type:'text/application/json'});
 		var fileNameToSaveAs = "test.hexjson";
 	
