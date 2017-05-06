@@ -7,23 +7,20 @@
 	<script>
 	var hex;
 	S(document).ready(function(){
-
-		hex = new HexMap('hexmap',950,1200,15,"constituencies.hexjson");
-		
-		S('button').on('click',function(e){
-			if(S(e.currentTarget).attr('region')) hex.toggleRegion(S(e.currentTarget).attr('region'));
-			//if(S(e.currentTarget).attr('gva')) hex.loadGVA(parseInt(S(e.currentTarget).attr('gva')));
-		});
+		hex = new HexMap('hexmap',950,1200,16,"constituencies.hexjson");
 	});
 	</script>
 	<style>
 		body {
-			font-family: VAGRoundedStd-Thin,"Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+			font-family: "Helvetica Neue", Arial, sans-serif;
+			padding: 32px;
 			background: #dfdfdf;
 			font-size: 16px;
+			text-align: center;
 		}
 		#hexmap {
 			margin: auto;
+			margin-bottom: 1em;
 			max-width: 100%;
 			position: relative;
 		}
@@ -50,7 +47,12 @@
 			text-align: center;
 			margin-right: -50%;
 		}
-		button, .button { border: 0px; font-size: 1em; background-color: #efefef; color: black; text-decoration: none!important; display: inline-block; padding: 0.5em 1em; margin-bottom: 0.5em; margin-right: 0.5em; cursor: pointer; }
+		button {
+			font-size: 1em;
+			padding: 0.25em 0.5em;
+			border: 0px;
+		}
+		button, a.button, input.button { border: 0px; font-size: 1em; background-color: #efefef; color: black; text-decoration: none!important; display: inline-block; padding: 0.5em 1em; cursor: pointer; }
 		button:hover, a.button:hover, button:focus, a.button:focus { background-color: #333333!important; color: #efefef!important; }
 		</style>
 </head>
@@ -62,6 +64,7 @@
 	</div>
 
 	<div id="hexmap"></div>
+	<button id="save"></button>
 
 </body>
 </html>
